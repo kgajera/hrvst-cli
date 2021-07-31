@@ -24,7 +24,8 @@
   },
   "scripts": {
     "build": "rimraf dist/* && tsc -p tsconfig.build.json",
-    "format": "prettier --write \"{src,test,tools}/**/*.ts\"",
+    "format": "prettier --write \"**/*.ts\"",
+    "format:check": "prettier --check \"**/*.ts\"",
     "lint": "eslint . --ext .ts --fix",
     "generate": "ts-node tools/generate-cli.ts",
     "start": "node dist/cli.js",
