@@ -40,3 +40,4 @@ jobs:
       - run: yarn build
       - run: yarn format:check
       - run: yarn lint
+      - run: yarn test:coverage
