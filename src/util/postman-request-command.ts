@@ -3,10 +3,10 @@ import chalk from "chalk";
 import ora from "ora";
 import { DescriptionDefinition, Url, UrlDefinition } from "postman-collection";
 import { Arguments, CommandModule, Options } from "yargs";
-import { getProfile } from "./config";
+import { getConfig } from "./config";
 import { horizontalTable, verticalTable } from "./table";
 
-export const USER_AGENT = "hrvst-cli";
+const USER_AGENT = "hrvst-cli";
 
 export interface Request {
   method: string;
@@ -94,9 +94,9 @@ async function httpRequest(
   url: Url,
   args: Arguments
 ): Promise<AxiosResponse> {
-  const profile = await getProfile();
-  if (!profile) {
-    throw new Error("Profile not found");
+  const config = await getConfig();
+  if (!config) {
+    throw new Error("Config not found. Did you run `hrvst login`?");
   }
 
   // Variable value must be a string for it to get substituted when calling getPath()
@@ -114,8 +114,8 @@ async function httpRequest(
     baseURL: `${url.protocol}://${url.getHost()}`,
     headers: {
       "User-Agent": USER_AGENT,
-      Authorization: "Bearer " + profile.accessToken,
-      "Harvest-Account-ID": profile.accounts[0].id,
+      Authorization: `Bearer ${config.accessToken}`,
+      "Harvest-Account-ID": config.accountId,
     },
     method: method as Method,
     url: url.getPathWithQuery(),
