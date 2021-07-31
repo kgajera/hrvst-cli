@@ -1,9 +1,11 @@
 import Table from "cli-table";
 import get from "lodash/get";
 
+type ColumnValue = boolean | null | number | string | undefined;
+
 export function horizontalTable(
   options: { head: string[] },
-  data: { [key: string]: any }[]
+  data: { [key: string]: ColumnValue }[]
 ): Table {
   const table = new Table(options);
 
@@ -20,7 +22,7 @@ export function horizontalTable(
   return table;
 }
 
-export function verticalTable(data: { [key: string]: any }): Table {
+export function verticalTable(data: { [key: string]: ColumnValue }): Table {
   const table = new Table();
   const keys = Object.keys(data);
   for (const key of keys) {
@@ -30,6 +32,6 @@ export function verticalTable(data: { [key: string]: any }): Table {
   return table;
 }
 
-function displayValue(value: any) {
+function displayValue(value: ColumnValue) {
   return value === null || value === undefined ? "" : value;
 }

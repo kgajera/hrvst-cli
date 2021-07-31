@@ -12,7 +12,7 @@ export const command = "login";
 export const description = "Log into Harvest";
 export const builder = {};
 
-export const handler = async () => {
+export const handler = async (): Promise<void> => {
   const CLIENT_ID = "xqrh-rWpCecJlp9L-i0dwu_K";
 
   const server = http

@@ -30,7 +30,7 @@ export async function getConfig(): Promise<Config> {
   return JSON.parse(config);
 }
 
-export async function saveConfig(config: Config) {
+export async function saveConfig(config: Config): Promise<void> {
   await fs.promises.writeFile(await configPath(), JSON.stringify(config));
 }
 
