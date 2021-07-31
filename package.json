@@ -29,6 +29,8 @@
     "lint": "eslint . --ext .ts --fix",
     "generate": "ts-node tools/generate-cli.ts",
     "start": "node dist/cli.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage ----collectCoverageFrom=src/**/*",
     "watch": "nodemon --exec yarn build --watch 'src/**/*' -e ts"
   },
   "dependencies": {
@@ -43,8 +45,12 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-typescript": "^7.14.5",
     "@tsconfig/node16": "^1.0.2",
     "@types/cli-table": "^0.3.0",
+    "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.171",
     "@types/node": "^16.4.2",
     "@types/ospath": "^1.2.0",
@@ -53,8 +59,10 @@
     "@types/yargs": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
+    "babel-jest": "^27.0.6",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "jest": "^27.0.6",
     "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
