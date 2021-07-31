@@ -1,0 +1,62 @@
+{
+  "name": "hrvst-cli",
+  "version": "1.0.0",
+  "description": "CLI for Harvest",
+  "author": {
+    "name": "Kishan Gajera",
+    "url": "http://github.com/kgajera"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kgajera/hrvst-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kgajera/hrvst-cli/issues"
+  },
+  "keywords": [
+    "cli",
+    "harvest"
+  ],
+  "main": "dist/cli.js",
+  "bin": {
+    "hrvst": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "rimraf dist/* && tsc -p tsconfig.build.json",
+    "format": "prettier --write \"{src,test,tools}/**/*.ts\"",
+    "generate": "ts-node tools/generate-cli.ts",
+    "start": "node dist/cli.js",
+    "watch": "nodemon --exec yarn build --watch 'src/**/*' -e ts"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "cli-table": "^0.3.6",
+    "lodash": "^4.17.21",
+    "open": "^8.2.1",
+    "ora": "^5.4.1",
+    "ospath": "^1.2.2",
+    "postman-collection": "^4.0.1",
+    "yargs": "^17.0.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/cli-table": "^0.3.0",
+    "@types/lodash": "^4.14.171",
+    "@types/node": "^16.4.2",
+    "@types/ospath": "^1.2.0",
+    "@types/postman-collection": "^3.5.6",
+    "@types/prettier": "^2.3.2",
+    "@types/yargs": "^17.0.2",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  },
+  "files": [
+    "/dist",
+    "/static"
+  ]
+}
