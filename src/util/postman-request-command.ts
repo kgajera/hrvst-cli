@@ -102,8 +102,16 @@ async function httpRequest(
   );
 
   url.query.each((param) => {
-    if (param.key) {
-      param.update({ key: param.key, value: String(args[param.key]) });
+    if (param.key && param.key in args) {
+      param.update({
+        key: param.key,
+        value: String(args[param.key]),
+      });
+    }
+
+    if (param.value?.length) {
+      // Ensure param is enabled so it will get included in query string
+      param.disabled = false;
     }
   });
 
