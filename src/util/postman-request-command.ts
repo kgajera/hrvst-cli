@@ -1,9 +1,9 @@
 import axios, { AxiosResponse, Method } from "axios";
 import chalk from "chalk";
-import ora from "ora";
 import { DescriptionDefinition, Url, UrlDefinition } from "postman-collection";
 import { Arguments, CommandModule, Options } from "yargs";
 import { getConfig } from "./config";
+import spinner from "./spinner";
 import { horizontalTable, verticalTable } from "./table";
 
 const USER_AGENT = "hrvst-cli";
@@ -25,9 +25,6 @@ export default ({
   request,
 }: CommandConfig): CommandModule => {
   const url = new Url(request.url);
-  const loader = ora({
-    color: "yellow",
-  });
 
   return {
     command,
@@ -41,9 +38,9 @@ export default ({
     },
     handler: async (args) => {
       try {
-        loader.start();
-        const { data } = await httpRequest(request.method as Method, url, args);
-        loader.stop();
+        const { data } = await spinner(() =>
+          httpRequest(request.method, url, args)
+        );
 
         if ("page" in data) {
           const path = request.url.path as string[];
