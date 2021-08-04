@@ -1,5 +1,7 @@
 # Harvest CLI
 
+[![Tests](https://github.com/kgajera/hrvst-cli/actions/workflows/workflow.yml/badge.svg)](https://github.com/kgajera/hrvst-cli/actions/workflows/workflow.yml)
+
 This is an unofficial Harvest CLI that contains all features available in Harvest's [REST API V2](https://help.getharvest.com/api-v2/). The majority of the CLI is generated from an export of Harvest's [Postman Collection](https://help.getharvest.com/api-v2/introduction/overview/postman-collection/).
 
 In addition to supporting features of the REST API, the Harvest CLI provides convenient ways to track time.
