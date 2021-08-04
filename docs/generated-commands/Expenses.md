@@ -18,10 +18,8 @@ hrvst expenses list
 
 | Option            | Description                                                                                                                                                                            | Required |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--user_id`       | Only return expenses belonging to the user with the given ID.                                                                                                                          |
-| false             |
-| `--client_id`     | Only return expenses belonging to the client with the given ID.                                                                                                                        |
-| false             |
+| `--user_id`       | Only return expenses belonging to the user with the given ID.                                                                                                                          | false    |
+| `--client_id`     | Only return expenses belonging to the client with the given ID.                                                                                                                        | false    |
 | `--project_id`    | Only return expenses belonging to the project with the given ID.                                                                                                                       | false    |
 | `--is_billed`     | Pass true to only return expenses that have been invoiced and false to return expenses that have not been invoiced.                                                                    | false    |
 | `--updated_since` | Only return expenses that have been updated since the given date and time.                                                                                                             | false    |
@@ -62,8 +60,7 @@ hrvst expenses create
 | `--user_id`             | The ID of the user associated with this expense. Defaults to the ID of the currently authenticated user. | false    |
 | `--units`               | The quantity of units to use in calculating the total_cost of the expense.                               | false    |
 | `--total_cost`          | The total amount of the expense.                                                                         | false    |
-| `--notes`               | Textual notes used to describe the expense.                                                              |
-| false                   |
+| `--notes`               | Textual notes used to describe the expense.                                                              | false    |
 | `--billable`            | Whether this expense is billable or not. Defaults to true.                                               | false    |
 
 ## Update an expense
@@ -84,8 +81,7 @@ hrvst expenses update
 | `--spent_date`          | Date the expense occurred.                                                                      | false    |
 | `--units`               | The quantity of units to use in calculating the total_cost of the expense.                      | false    |
 | `--total_cost`          | The total amount of the expense.                                                                | false    |
-| `--notes`               | Textual notes used to describe the expense.                                                     |
-| false                   |
+| `--notes`               | Textual notes used to describe the expense.                                                     | false    |
 | `--billable`            | Whether this expense is billable or not.                                                        | false    |
 | `--delete_receipt`      | Whether an attached expense receipt should be deleted. Pass true to delete the expense receipt. | false    |
 

@@ -51,10 +51,8 @@ hrvst expenses categories create
 | -------------- | --------------------------------------------------- | -------- |
 | `--name`       | The name of the expense category.                   | true     |
 | `--unit_name`  | The unit name of the expense category.              | false    |
-| `--unit_price` | The unit price of the expense category.             |
-| false          |
-| `--is_active`  | Whether the expense category is active or archived. |
-| false          |
+| `--unit_price` | The unit price of the expense category.             | false    |
+| `--is_active`  | Whether the expense category is active or archived. | false    |
 
 ## Update an expense category
 
@@ -71,10 +69,8 @@ hrvst expenses categories update
 | `--expense_category_id` | The ID of the expense category you're updating.     | true     |
 | `--name`                | The name of the expense category.                   | false    |
 | `--unit_name`           | The unit name of the expense category.              | false    |
-| `--unit_price`          | The unit price of the expense category.             |
-| false                   |
-| `--is_active`           | Whether the expense category is active or archived. |
-| false                   |
+| `--unit_price`          | The unit price of the expense category.             | false    |
+| `--is_active`           | Whether the expense category is active or archived. | false    |
 
 ## Delete an expense category
 

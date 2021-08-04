@@ -64,11 +64,9 @@ hrvst estimates create
 | `--notes`                    | Any additional notes to include on the estimate.                                                                           | false    |
 | `--currency`                 | The currency used by the estimate. If not provided, the client’s currency will be used. See a list of supported currencies | false    |
 | `--issue_date`               | Date the invoice was issued. Defaults to today’s date.                                                                     | false    |
-| `--line_items[0]kind`        | The name of an estimate item category.                                                                                     |
-| false                        |
+| `--line_items[0]kind`        | The name of an estimate item category.                                                                                     | false    |
 | `--line_items[0]description` | Text description of the first line item.                                                                                   | false    |
-| `--line_items[0]unit_price`  | The individual price per unit.                                                                                             |
-| false                        |
+| `--line_items[0]unit_price`  | The individual price per unit.                                                                                             | false    |
 | `--line_items[0]quantity`    | The unit quantity of the item.                                                                                             | false    |
 | `--line_items[0]taxed`       | Whether the estimate’s tax percentage applies to this line item.                                                           | false    |
 | `--line_items[0]taxed2`      | Whether the estimate’s tax2 percentage applies to this line item.                                                          | false    |

@@ -140,7 +140,7 @@ async function createDocs(
             ["Option", "Description", "Required"],
             Object.keys(options).map((key) => [
               `\`--${key}\``,
-              options[key].describe,
+              options[key].describe?.trim(),
               options[key].demandOption,
             ])
           );
@@ -324,7 +324,7 @@ function markdownTable(
   body: (boolean | string | undefined)[][]
 ): string {
   const separators = head.map(() => "---");
-  const bodyRows = body.map((row) => row.join(" | "));
+  const bodyRows = body.map((row) => `| ${row.join(" | ")} |`);
   return `
 | ${head.join(" | ")} |
 | ${separators.join(" | ")} |

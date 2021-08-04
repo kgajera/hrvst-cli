@@ -41,8 +41,7 @@ hrvst estimates line-items update
 | `--line_items[0]unit_price`  | The individual price per unit.                                      | false    |
 | `--line_items[0]quantity`    | The unit quantity of the item.                                      | false    |
 | `--line_items[0]taxed`       | Whether the estimate's tax percentage applies to this line item.    | false    |
-| `--line_items[0]taxed2`      | Whether the estimate's tax2 percentage applies to this line item.   |
-| false                        |
+| `--line_items[0]taxed2`      | Whether the estimate's tax2 percentage applies to this line item.   | false    |
 
 ## Delete an invoice line item
 
