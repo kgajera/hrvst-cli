@@ -7,7 +7,7 @@ import {
   UrlDefinition,
 } from "postman-collection";
 import { Arguments, CommandModule, Options } from "yargs";
-import { getConfig } from "./config";
+import { ConfigNotFoundError, getConfig } from "./config";
 import spinner from "./spinner";
 import { horizontalTable, verticalTable } from "./table";
 
@@ -98,7 +98,7 @@ export async function httpRequest(
 ): Promise<AxiosResponse> {
   const config = await getConfig();
   if (!config) {
-    throw new Error("Config not found. Did you run `hrvst login`?");
+    throw new ConfigNotFoundError();
   }
 
   // Variable value must be a string for it to get substituted when calling getPath()

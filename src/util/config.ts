@@ -7,9 +7,15 @@ export interface Config {
   accountId: string;
 }
 
-export async function getConfig(): Promise<Config> {
-  const config = await fs.promises.readFile(await configPath(), "utf-8");
-  return JSON.parse(config);
+export class ConfigNotFoundError extends Error {}
+
+export async function getConfig(): Promise<Config | null> {
+  try {
+    const config = await fs.promises.readFile(await configPath(), "utf-8");
+    return JSON.parse(config);
+  } catch (error) {
+    return null;
+  }
 }
 
 export async function saveConfig(config: Config): Promise<void> {
@@ -23,11 +29,5 @@ async function configPath(): Promise<string> {
     await fs.promises.mkdir(dir);
   }
 
-  const file = path.join(dir, "config.json");
-
-  if (!fs.existsSync(file)) {
-    await fs.promises.writeFile(file, "{}");
-  }
-
-  return file;
+  return path.join(dir, "config.json");
 }
