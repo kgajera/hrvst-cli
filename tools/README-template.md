@@ -1,5 +1,6 @@
 # Harvest CLI
 
+[![npm version](https://badge.fury.io/js/hrvst-cli.svg)](https://badge.fury.io/js/hrvst-cli)
 [![Tests](https://github.com/kgajera/hrvst-cli/actions/workflows/workflow.yml/badge.svg)](https://github.com/kgajera/hrvst-cli/actions/workflows/workflow.yml)
 
 This is an unofficial Harvest CLI that contains all features available in Harvest's [REST API V2](https://help.getharvest.com/api-v2/). The majority of the CLI is generated from an export of Harvest's [Postman Collection](https://help.getharvest.com/api-v2/introduction/overview/postman-collection/).
@@ -32,13 +33,15 @@ Below are commands to track time via a timer. For a full list of options, view t
 
 ### Starting a timer
 
-Create a new time entry that is a running timer. You will be prompted to pick a project and task assignment.
+Create a new time entry that is a running timer:
 
 ```
 hrvst start
 ```
 
-### Appending notes to a running timer
+You will be prompted to pick a project and task assignment.
+
+### Appending notes to a timer
 
 Append notes to a running time entry:
 
