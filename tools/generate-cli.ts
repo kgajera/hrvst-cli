@@ -53,11 +53,12 @@ yargs
         // Generated commands will be added to this object below
       };
 
-      // Create directories for generated docs and commands
+      // Clean and recreate directories for generated docs and commands
       for (const dir of [commandsDir, docsDir]) {
         await fs.promises.rm(dir, { force: true, recursive: true });
         await mkdir(dir);
       }
+      await fs.promises.rm("README.md", { force: true });
 
       if (collection.item) {
         for (const item of collection.item) {
@@ -364,7 +365,8 @@ async function mkdir(dir: string): Promise<void> {
  */
 async function writeFile(filepath: string, content: string): Promise<void> {
   if (fs.existsSync(filepath)) {
-    console.warn(`Overwriting ${filepath}`);
+    console.warn(`Skipped overwriting ${filepath}`);
+    return;
   }
   await fs.promises.writeFile(
     filepath,

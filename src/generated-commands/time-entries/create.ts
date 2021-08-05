@@ -25,7 +25,8 @@ export const request: Request = {
       {
         key: "spent_date",
         value: "",
-        description: "The ISO 8601 formatted date the time entry was spent.",
+        description:
+          "The ISO 8601 formatted date on which the time entry was spent.",
       },
       {
         key: "user_id",
@@ -35,16 +36,11 @@ export const request: Request = {
         disabled: true,
       },
       {
-        key: "started_time",
+        key: "hours",
         value: "",
         description:
-          "The time the entry started. Defaults to the current time. Example: “8:00am”.",
-      },
-      {
-        key: "ended_time",
-        value: "",
-        description:
-          "The time the entry ended. If provided, is_running will be set to false. If not provided, is_running will be set to true.",
+          "The current amount of time tracked. If provided, the time entry will be created with the specified hours and is_running will be set to false. If not provided, hours will be set to 0.0 and is_running will be set to true.",
+        disabled: true,
       },
       {
         key: "notes",

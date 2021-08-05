@@ -10,13 +10,12 @@ export const request: Request = {
   url: {
     protocol: "https",
     host: ["api", "harvestapp", "com"],
-    path: ["v2", "time_entries", ":time_entry_id", "external_reference"],
+    path: ["v2", "time_entries", ":time_entry_id"],
     variable: [
       {
         key: "time_entry_id",
         value: "",
-        description:
-          "The ID of the time entry whose external reference you're deleting.",
+        description: "The ID of the time entry you're deleting.",
       },
     ],
   },
@@ -24,6 +23,6 @@ export const request: Request = {
 export const { command, aliases, describe, builder, handler } =
   postmanRequestCommand({
     command: "delete",
-    describe: "Delete a time entry’s external reference",
+    describe: "Delete a time entry",
     request,
   });
