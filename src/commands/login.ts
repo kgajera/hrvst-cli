@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import fs from "fs";
 import open from "open";
 import http from "http";
 import { URLSearchParams } from "url";
@@ -41,8 +40,7 @@ export const handler = async (): Promise<void> => {
         }
       }
 
-      const html = await fs.promises.readFile("static/index.html", "utf-8");
-      res.write(html);
+      res.write(LOGIN_HTML);
       res.end();
 
       req.socket.end();
@@ -55,3 +53,37 @@ export const handler = async (): Promise<void> => {
     `${BASE_URL}/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token`
   );
 };
+
+const LOGIN_HTML = `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hrvst-cli</title>
+  </head>
+  <body style="background: #eee; font-family: Arial, Helvetica, sans-serif">
+    <main
+      style="
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        margin: 80px auto;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          background-clip: padding-box;
+          border: 1px solid rgba(0, 0, 0, 0.2);
+          border-radius: 6px;
+          box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+          padding: 1em;
+          text-align: center;
+        "
+      >
+        <h1 style="font-weight: 600; margin: 0.25em 0">hrvst-cli</h1>
+        <p>You may now close this window and return to the CLI.</p>
+      </div>
+    </main>
+  </body>
+</html>`;
