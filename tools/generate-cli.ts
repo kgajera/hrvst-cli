@@ -42,8 +42,18 @@ yargs
         "utf-8"
       );
       const collection: CollectionDefinition = JSON.parse(exportContent);
-      const commandDictionary: CommandDictionary = {};
 
+      // Store command -> docs link
+      const commandDictionary: CommandDictionary = {
+        // These are custom commands
+        "hrvst login": "docs/commands/Login.md",
+        "hrvst note": "docs/commands/Timer.md#update-notes-for-a-timer",
+        "hrvst start": "docs/commands/Timer.md#start-a-timer",
+        "hrvst stop": "docs/commands/Timer.md#stop-a-timer",
+        // Generated commands will be added to this object below
+      };
+
+      // Create directories for generated docs and commands
       for (const dir of [commandsDir, docsDir]) {
         await fs.promises.rm(dir, { force: true, recursive: true });
         await mkdir(dir);
@@ -51,11 +61,15 @@ yargs
 
       if (collection.item) {
         for (const item of collection.item) {
+          // Generate commands
           await createCommandModule(item);
+
+          // Generate docs
           Object.assign(commandDictionary, await createDocs(item));
         }
       }
 
+      // Update the main readme to include the command dictionary
       await updateReadme(commandDictionary);
     }
   )
@@ -178,8 +192,8 @@ async function updateReadme(dictionary: CommandDictionary): Promise<void> {
   const sortedCommands = Object.keys(dictionary).sort((a, b) => {
     const aParts = a.split(" ");
     const bParts = b.split(" ");
-    const aLastPositional = aParts.pop() || "";
-    const bLastPositional = bParts.pop() || "";
+    const aLastPositional = aParts.length > 2 ? aParts.pop() || "" : "";
+    const bLastPositional = bParts.length > 2 ? bParts.pop() || "" : "";
     const aLength = aParts.length;
     const bLength = bParts.length;
 
@@ -191,10 +205,10 @@ async function updateReadme(dictionary: CommandDictionary): Promise<void> {
         }
       }
     }
+
     return (
       aParts.join().localeCompare(bParts.join()) ||
-      aLastPositional.localeCompare(bLastPositional) ||
-      aLength - bLength
+      aLastPositional.localeCompare(bLastPositional)
     );
   });
 

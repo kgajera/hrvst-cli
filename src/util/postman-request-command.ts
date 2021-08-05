@@ -1,6 +1,11 @@
 import axios, { AxiosResponse, Method } from "axios";
 import chalk from "chalk";
-import { DescriptionDefinition, Url, UrlDefinition } from "postman-collection";
+import {
+  DescriptionDefinition,
+  QueryParam,
+  Url,
+  UrlDefinition,
+} from "postman-collection";
 import { Arguments, CommandModule, Options } from "yargs";
 import { getConfig } from "./config";
 import spinner from "./spinner";
@@ -86,10 +91,10 @@ export default ({
  * @param args Command line arguments to substitute in URL
  * @returns HTTP response
  */
-async function httpRequest(
+export async function httpRequest(
   method: string,
   url: Url,
-  args: Arguments
+  args: Partial<Arguments> = {}
 ): Promise<AxiosResponse> {
   const config = await getConfig();
   if (!config) {
@@ -101,18 +106,26 @@ async function httpRequest(
     (variable) => variable.key && variable.set(String(args[variable.key]))
   );
 
-  url.query.each((param) => {
-    if (param.key && param.key in args) {
-      param.update({
-        key: param.key,
-        value: String(args[param.key]),
-      });
+  // Add each argument property as a query parameter. Rather than looping
+  // through the query parameters defined in Postmans, `url.query`, this allows
+  // supporting additional query parameters (mainly for array elements that
+  // will contain the index in the param name)
+  for (const key in args) {
+    if (key !== "_" && key !== "$0" && !url.variables.has(key)) {
+      url.query.upsert(
+        new QueryParam({
+          key,
+          value: String(args[key]),
+        })
+      );
     }
+  }
 
-    if (param.value?.length) {
-      // Ensure param is enabled so it will get included in query string
-      param.disabled = false;
-    }
+  // Ensure each param is not disabled if it has a value, or otherwise disable it
+  // so empty query parameters are not added to the URL which can lead to
+  // validation errors (an example of this is the `per_page` parameter).
+  url.query.each((param) => {
+    param.disabled = !param.value || !param.value.length;
   });
 
   return axios.request({
