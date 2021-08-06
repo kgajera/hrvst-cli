@@ -27,6 +27,7 @@ hrvst expenses list
 | `--to`            | Only return expenses with a spent_date on or before the given date.                                                                                                                    | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
+| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
 
 ## Retrieve a specific expense
 
@@ -38,9 +39,10 @@ Retrieves the expense with the given ID. Returns an expense object and a `200 OK
 hrvst expenses get
 ```
 
-| Option         | Description                              | Required |
-| -------------- | ---------------------------------------- | -------- |
-| `--expense_id` | The ID of the expense you're retrieving. | true     |
+| Option         | Description                                                        | Required |
+| -------------- | ------------------------------------------------------------------ | -------- |
+| `--expense_id` | The ID of the expense you're retrieving.                           | true     |
+| `--fields`     | Comma separated list of fields to display in console table output. | false    |
 
 ## Create an expense
 
@@ -62,6 +64,7 @@ hrvst expenses create
 | `--total_cost`          | The total amount of the expense.                                                                         | false    |
 | `--notes`               | Textual notes used to describe the expense.                                                              | false    |
 | `--billable`            | Whether this expense is billable or not. Defaults to true.                                               | false    |
+| `--fields`              | Comma separated list of fields to display in console table output.                                       | false    |
 
 ## Update an expense
 
@@ -84,6 +87,7 @@ hrvst expenses update
 | `--notes`               | Textual notes used to describe the expense.                                                     | false    |
 | `--billable`            | Whether this expense is billable or not.                                                        | false    |
 | `--delete_receipt`      | Whether an attached expense receipt should be deleted. Pass true to delete the expense receipt. | false    |
+| `--fields`              | Comma separated list of fields to display in console table output.                              | false    |
 
 ## Delete an expense
 
@@ -95,6 +99,7 @@ Delete an expense. Returns a `200 OK` response code if the call succeeded.
 hrvst expenses delete
 ```
 
-| Option         | Description                            | Required |
-| -------------- | -------------------------------------- | -------- |
-| `--expense_id` | The ID of the expense you're deleting. | true     |
+| Option         | Description                                                        | Required |
+| -------------- | ------------------------------------------------------------------ | -------- |
+| `--expense_id` | The ID of the expense you're deleting.                             | true     |
+| `--fields`     | Comma separated list of fields to display in console table output. | false    |

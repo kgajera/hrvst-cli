@@ -24,6 +24,7 @@ hrvst clients list
 | `--updated_since` | Only return clients that have been updated since the given date and time.                                                                                                              | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
+| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
 
 ## Retrieve a specific client
 
@@ -35,9 +36,10 @@ Retrieves the client with the given ID. Returns a client object and a `200 OK` r
 hrvst clients get
 ```
 
-| Option        | Description                             | Required |
-| ------------- | --------------------------------------- | -------- |
-| `--client_id` | The ID of the client you're retrieving. | true     |
+| Option        | Description                                                        | Required |
+| ------------- | ------------------------------------------------------------------ | -------- |
+| `--client_id` | The ID of the client you're retrieving.                            | true     |
+| `--fields`    | Comma separated list of fields to display in console table output. | false    |
 
 ## Create a client
 
@@ -57,6 +59,7 @@ hrvst clients create
 | `--is_active` | Whether the client is active, or archived. Defaults to true.                                                                                                                                              | false    |
 | `--address`   | A textual representation of the client’s physical address. May include new line characters.                                                                                                               | false    |
 | `--currency`  | The currency used by the client. If not provided, the company’s currency will be used. See a list of supported currencies: https://help.getharvest.com/api-v2/introduction/overview/supported-currencies/ | false    |
+| `--fields`    | Comma separated list of fields to display in console table output.                                                                                                                                        | false    |
 
 ## Update a client
 
@@ -77,6 +80,7 @@ hrvst clients update
 | `--is_active` | Whether the client is active, or archived. Defaults to true.                                                                                                                                              | false    |
 | `--address`   | A textual representation of the client’s physical address. May include new line characters.                                                                                                               | false    |
 | `--currency`  | The currency used by the client. If not provided, the company’s currency will be used. See a list of supported currencies: https://help.getharvest.com/api-v2/introduction/overview/supported-currencies/ | false    |
+| `--fields`    | Comma separated list of fields to display in console table output.                                                                                                                                        | false    |
 
 ## Delete a client
 
@@ -88,6 +92,7 @@ Delete a client. Deleting a client is only possible if it has no projects, invoi
 hrvst clients delete
 ```
 
-| Option        | Description                           | Required |
-| ------------- | ------------------------------------- | -------- |
-| `--client_id` | The ID of the client you're deleting. | true     |
+| Option        | Description                                                        | Required |
+| ------------- | ------------------------------------------------------------------ | -------- |
+| `--client_id` | The ID of the client you're deleting.                              | true     |
+| `--fields`    | Comma separated list of fields to display in console table output. | false    |

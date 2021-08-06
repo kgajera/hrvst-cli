@@ -23,7 +23,7 @@ export function horizontalTable(
     const values = [];
 
     for (const key of options.head) {
-      const value = get(element, key);
+      const value = get(element, key.trim());
       values.push(displayValue(value));
     }
 
@@ -36,11 +36,12 @@ export function horizontalTable(
  * Create a vertical table (key/value columns) to be used for a single record
  *
  * @param data Data object to be displayed in table
+ * @param keys Keys of `data` object to display. If omitted, all will be displayed.
  * @returns Table instance
  */
-export function verticalTable(data: TableData): Table {
+export function verticalTable(data: TableData, keys: string[] = []): Table {
   const table = new Table();
-  addVerticalTableRows(table, data);
+  addVerticalTableRows(table, data, [], keys);
   return table;
 }
 
@@ -61,24 +62,34 @@ function displayValue(value: ColumnValue): string {
  * @param table Table instance
  * @param data Object to display in table
  * @param parentKeys Parent keys for nested objects
+ * @param displayKeys Keys of `data` object to display in table
  */
 function addVerticalTableRows(
   table: Table,
   data: TableData,
-  parentKeys: string[] = []
+  parentKeys: string[] = [],
+  displayKeys: string[]
 ) {
   const keys = Object.keys(data);
 
   for (const key of keys) {
     const value = data[key];
-    const keys = [...parentKeys, key];
+    const keyPath = [...parentKeys, key];
 
     if (isPlainObject(value)) {
-      addVerticalTableRows(table, value as TableData, keys);
+      addVerticalTableRows(table, value as TableData, keyPath, displayKeys);
     } else {
+      const keyPathDotNotation = keyPath.join(".");
+      if (
+        displayKeys?.length &&
+        displayKeys.indexOf(keyPathDotNotation) === -1
+      ) {
+        continue;
+      }
+
       const stringValue = displayValue(value);
       if (stringValue.length) {
-        table.push({ [keys.join(".")]: displayValue(value) });
+        table.push({ [keyPathDotNotation]: displayValue(value) });
       }
     }
   }

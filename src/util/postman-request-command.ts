@@ -6,7 +6,7 @@ import {
   UrlDefinition,
 } from "postman-collection";
 import { Arguments, CommandModule, Options } from "yargs";
-import { ConfigNotFoundError, getConfig } from "./config";
+import { getConfig } from "./config";
 import spinner from "./spinner";
 import { horizontalTable, verticalTable } from "./table";
 
@@ -22,6 +22,10 @@ export interface CommandConfig {
   command: string;
   request: Request;
 }
+
+type PostmanRequestArguments = Arguments & {
+  fields?: string;
+};
 
 export default ({
   command,
@@ -40,10 +44,11 @@ export default ({
       const options = urlArgOptions(url);
       return args.options(options).version(false);
     },
-    handler: async (args) => {
+    handler: async (args: PostmanRequestArguments) => {
       const { data } = await spinner(() =>
         httpRequest(request.method, url, args)
       );
+      const tableFields = args.fields?.length ? args.fields.split(",") : [];
 
       if ("page" in data) {
         const path = request.url.path as string[];
@@ -56,19 +61,21 @@ export default ({
           const record = records[0];
           const table = horizontalTable(
             {
-              head: [
-                "id",
-                ...Object.keys(record).filter((k) =>
-                  k.match(/_?(email|name)$/i)
-                ),
-              ],
+              head: tableFields.length
+                ? tableFields
+                : [
+                    "id",
+                    ...Object.keys(record).filter((k) =>
+                      k.match(/_?(email|name)$/i)
+                    ),
+                  ],
             },
             records
           );
           console.log(table.toString());
         }
       } else {
-        console.log(verticalTable(data).toString());
+        console.log(verticalTable(data, tableFields).toString());
       }
     },
   };
@@ -167,6 +174,13 @@ export function urlArgOptions(url: Url): Record<string, Options> {
 
   // Add options for all query parameters
   url.query.each((q) => addOption(q.key, q.description, q.disabled !== true));
+
+  // Add option to control which fields are outputted to the console
+  addOption(
+    "fields",
+    "Comma separated list of fields to display in console table output.",
+    false
+  );
 
   return options;
 }

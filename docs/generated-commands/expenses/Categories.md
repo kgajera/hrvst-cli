@@ -22,6 +22,7 @@ hrvst expenses categories list
 | `--update_since` | Only return expense categories that have been updated since the given date and time.                                                                                                   | false    |
 | `--page`         | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`     | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
+| `--fields`       | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
 
 ## Retrieve a specific expense category
 
@@ -33,9 +34,10 @@ Retrieves the company for the currently authenticated user. Returns a company ob
 hrvst expenses categories get
 ```
 
-| Option                  | Description                                       | Required |
-| ----------------------- | ------------------------------------------------- | -------- |
-| `--expense_category_id` | The ID of the expense category you're retrieving. | true     |
+| Option                  | Description                                                        | Required |
+| ----------------------- | ------------------------------------------------------------------ | -------- |
+| `--expense_category_id` | The ID of the expense category you're retrieving.                  | true     |
+| `--fields`              | Comma separated list of fields to display in console table output. | false    |
 
 ## Create an expense category
 
@@ -47,12 +49,13 @@ Retrieves the company for the currently authenticated user. Returns a company ob
 hrvst expenses categories create
 ```
 
-| Option         | Description                                         | Required |
-| -------------- | --------------------------------------------------- | -------- |
-| `--name`       | The name of the expense category.                   | true     |
-| `--unit_name`  | The unit name of the expense category.              | false    |
-| `--unit_price` | The unit price of the expense category.             | false    |
-| `--is_active`  | Whether the expense category is active or archived. | false    |
+| Option         | Description                                                        | Required |
+| -------------- | ------------------------------------------------------------------ | -------- |
+| `--name`       | The name of the expense category.                                  | true     |
+| `--unit_name`  | The unit name of the expense category.                             | false    |
+| `--unit_price` | The unit price of the expense category.                            | false    |
+| `--is_active`  | Whether the expense category is active or archived.                | false    |
+| `--fields`     | Comma separated list of fields to display in console table output. | false    |
 
 ## Update an expense category
 
@@ -64,13 +67,14 @@ Updates the specific expense category by setting the values of the parameters pa
 hrvst expenses categories update
 ```
 
-| Option                  | Description                                         | Required |
-| ----------------------- | --------------------------------------------------- | -------- |
-| `--expense_category_id` | The ID of the expense category you're updating.     | true     |
-| `--name`                | The name of the expense category.                   | false    |
-| `--unit_name`           | The unit name of the expense category.              | false    |
-| `--unit_price`          | The unit price of the expense category.             | false    |
-| `--is_active`           | Whether the expense category is active or archived. | false    |
+| Option                  | Description                                                        | Required |
+| ----------------------- | ------------------------------------------------------------------ | -------- |
+| `--expense_category_id` | The ID of the expense category you're updating.                    | true     |
+| `--name`                | The name of the expense category.                                  | false    |
+| `--unit_name`           | The unit name of the expense category.                             | false    |
+| `--unit_price`          | The unit price of the expense category.                            | false    |
+| `--is_active`           | Whether the expense category is active or archived.                | false    |
+| `--fields`              | Comma separated list of fields to display in console table output. | false    |
 
 ## Delete an expense category
 
@@ -82,6 +86,7 @@ Delete an expense category. Returns a `200 OK` response code if the call succeed
 hrvst expenses categories delete
 ```
 
-| Option                  | Description                                       | Required |
-| ----------------------- | ------------------------------------------------- | -------- |
-| `--expense_category_id` | The ID of the expense category you're retrieving. | true     |
+| Option                  | Description                                                        | Required |
+| ----------------------- | ------------------------------------------------------------------ | -------- |
+| `--expense_category_id` | The ID of the expense category you're retrieving.                  | true     |
+| `--fields`              | Comma separated list of fields to display in console table output. | false    |

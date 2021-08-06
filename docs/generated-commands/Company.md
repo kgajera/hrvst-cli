@@ -13,3 +13,7 @@ Retrieves the company for the currently authenticated user. Returns a company ob
 ```
 hrvst company get
 ```
+
+| Option     | Description                                                        | Required |
+| ---------- | ------------------------------------------------------------------ | -------- |
+| `--fields` | Comma separated list of fields to display in console table output. | false    |

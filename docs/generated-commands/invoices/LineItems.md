@@ -24,6 +24,7 @@ hrvst invoices line-items update
 | `--line_items[0]quantity`    | The unit quantity of the item.                                                      | false    |
 | `--line_items[0]taxed`       | Whether the invoice’s tax percentage applies to this line item. Defaults to false.  | false    |
 | `--line_items[0]taxed2`      | Whether the invoice’s tax2 percentage applies to this line item. Defaults to false. | false    |
+| `--fields`                   | Comma separated list of fields to display in console table output.                  | false    |
 
 ## Create an invoice line item
 
@@ -46,6 +47,7 @@ hrvst invoices line-items create
 | `--line_items[0]quantity`    | The unit quantity of the item.                                                      | true     |
 | `--line_items[0]taxed`       | Whether the invoice’s tax percentage applies to this line item. Defaults to false.  | true     |
 | `--line_items[0]taxed2`      | Whether the invoice’s tax2 percentage applies to this line item. Defaults to false. | true     |
+| `--fields`                   | Comma separated list of fields to display in console table output.                  | false    |
 
 ## Delete an invoice line item
 
@@ -62,3 +64,4 @@ hrvst invoices line-items delete
 | `--invoice_id`            | The ID of the invoice that contains the line item you're deleting. | true     |
 | `--line_items[0]id`       | The ID of the line item you want to delete.                        | true     |
 | `--line_items[0]_destroy` | Gives the command to delete the line item.                         | true     |
+| `--fields`                | Comma separated list of fields to display in console table output. | false    |

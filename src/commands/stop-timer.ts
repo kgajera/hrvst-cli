@@ -12,6 +12,15 @@ export const handler = async (args: Arguments): Promise<void> => {
     "You have multiple timers running! Which timer do you want to stop?"
   );
   if (timer) {
-    defaultHandler(Object.assign(args, { time_entry_id: timer.id }));
+    defaultHandler(
+      Object.assign(
+        {
+          fields:
+            "client.name,hours,id,is_running,notes,project.name,spent_date,task.name",
+        },
+        args,
+        { time_entry_id: timer.id }
+      )
+    );
   }
 };

@@ -19,6 +19,7 @@ hrvst users billable-rates list-by-user
 | `--user_id`  | The ID of the user whose billable rates you're listing.                                                                                                                                | true     |
 | `--page`     | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page` | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
+| `--fields`   | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
 
 ## Retrieve a specific billable rate
 
@@ -30,10 +31,11 @@ Retrieves the billable rate with the given ID. Returns a billable rate object an
 hrvst users billable-rates get
 ```
 
-| Option               | Description                                               | Required |
-| -------------------- | --------------------------------------------------------- | -------- |
-| `--user_id`          | The ID of the user whose billable rate you're retrieving. | true     |
-| `--billable_rate_id` | The ID of the billable rate you're retrieving.            | true     |
+| Option               | Description                                                        | Required |
+| -------------------- | ------------------------------------------------------------------ | -------- |
+| `--user_id`          | The ID of the user whose billable rate you're retrieving.          | true     |
+| `--billable_rate_id` | The ID of the billable rate you're retrieving.                     | true     |
+| `--fields`           | Comma separated list of fields to display in console table output. | false    |
 
 ## Create a billable rate
 
@@ -53,3 +55,4 @@ hrvst users billable-rates create
 | `--user_id`    | The ID of the user that you're creating a billable rate for.             | true     |
 | `--amount`     | The amount of the billable rate.                                         | true     |
 | `--start_date` | The date the billable rate is effective. Cannot be a date in the future. | false    |
+| `--fields`     | Comma separated list of fields to display in console table output.       | false    |

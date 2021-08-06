@@ -23,6 +23,7 @@ hrvst projects list
 | `--updated_since` | Only return projects that have been updated since the given date and time.                                                                                                                          | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1) | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                                                                                               | false    |
+| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                                  | false    |
 
 ## Retrieve a specific project
 
@@ -34,9 +35,10 @@ Retrieves the project with the given ID. Returns a project object and a `200 OK`
 hrvst projects get
 ```
 
-| Option         | Description                              | Required |
-| -------------- | ---------------------------------------- | -------- |
-| `--project_id` | The ID of the project you're retrieving. | true     |
+| Option         | Description                                                        | Required |
+| -------------- | ------------------------------------------------------------------ | -------- |
+| `--project_id` | The ID of the project you're retrieving.                           | true     |
+| `--fields`     | Comma separated list of fields to display in console table output. | false    |
 
 ## Create a project
 
@@ -69,6 +71,7 @@ hrvst projects create
 | `--notes`                               | Notes about the project.                                                                                         | false    |
 | `--starts_on`                           | Date the project was started.                                                                                    | false    |
 | `--ends_on`                             | Date the project will end.                                                                                       | false    |
+| `--fields`                              | Comma separated list of fields to display in console table output.                                               | false    |
 
 ## Update a project
 
@@ -102,6 +105,7 @@ hrvst projects update
 | `--notes`                               | Notes about the project.                                                                                         | false    |
 | `--starts_on`                           | Date the project was started.                                                                                    | false    |
 | `--ends_on`                             | Date the project will end.                                                                                       | false    |
+| `--fields`                              | Comma separated list of fields to display in console table output.                                               | false    |
 
 ## Delete a project
 
@@ -113,6 +117,7 @@ Deletes a project and any time entries or expenses tracked to it. However, invoi
 hrvst projects delete
 ```
 
-| Option         | Description                            | Required |
-| -------------- | -------------------------------------- | -------- |
-| `--project_id` | The ID of the project you're deleting. | true     |
+| Option         | Description                                                        | Required |
+| -------------- | ------------------------------------------------------------------ | -------- |
+| `--project_id` | The ID of the project you're deleting.                             | true     |
+| `--fields`     | Comma separated list of fields to display in console table output. | false    |

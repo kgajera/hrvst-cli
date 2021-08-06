@@ -20,6 +20,7 @@ hrvst roles list
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `--page`     | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1) | false    |
 | `--per_page` | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                                                                                               | false    |
+| `--fields`   | Comma separated list of fields to display in console table output.                                                                                                                                  | false    |
 
 ## Retrieve a specific role
 
@@ -31,9 +32,10 @@ Retrieves the role with the given ID. Returns a role object and a `200 OK` respo
 hrvst roles get
 ```
 
-| Option      | Description                           | Required |
-| ----------- | ------------------------------------- | -------- |
-| `--role_id` | The ID of the role you're retrieving. | true     |
+| Option      | Description                                                        | Required |
+| ----------- | ------------------------------------------------------------------ | -------- |
+| `--role_id` | The ID of the role you're retrieving.                              | true     |
+| `--fields`  | Comma separated list of fields to display in console table output. | false    |
 
 ## Create a role
 
@@ -45,10 +47,11 @@ Creates a new role object. Returns a role object and a `201 Created` response co
 hrvst roles create
 ```
 
-| Option         | Description                                 | Required |
-| -------------- | ------------------------------------------- | -------- |
-| `--name`       |                                             | true     |
-| `--user_ids[]` | The IDs of the users assigned to this role. | false    |
+| Option         | Description                                                        | Required |
+| -------------- | ------------------------------------------------------------------ | -------- |
+| `--name`       |                                                                    | true     |
+| `--user_ids[]` | The IDs of the users assigned to this role.                        | false    |
+| `--fields`     | Comma separated list of fields to display in console table output. | false    |
 
 ## Update a role
 
@@ -60,10 +63,11 @@ Updates the specific role by setting the values of the parameters passed. Any pa
 hrvst roles update
 ```
 
-| Option      | Description                         | Required |
-| ----------- | ----------------------------------- | -------- |
-| `--role_id` | The ID of the role you're updating. | true     |
-| `--name`    | The name of the role.               | false    |
+| Option      | Description                                                        | Required |
+| ----------- | ------------------------------------------------------------------ | -------- |
+| `--role_id` | The ID of the role you're updating.                                | true     |
+| `--name`    | The name of the role.                                              | false    |
+| `--fields`  | Comma separated list of fields to display in console table output. | false    |
 
 ## Delete a role
 
@@ -75,6 +79,7 @@ Delete a role. Deleting a role will unlink it from any users it was assigned to.
 hrvst roles delete
 ```
 
-| Option      | Description                         | Required |
-| ----------- | ----------------------------------- | -------- |
-| `--role_id` | The ID of the role you're updating. | true     |
+| Option      | Description                                                        | Required |
+| ----------- | ------------------------------------------------------------------ | -------- |
+| `--role_id` | The ID of the role you're updating.                                | true     |
+| `--fields`  | Comma separated list of fields to display in console table output. | false    |

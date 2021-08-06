@@ -69,6 +69,7 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
   defaultHandler(
     Object.assign(
       {
+        fields: "client.name,id,is_running,project.name,spent_date,task.name",
         spent_date: getCurrentLocalISOString(),
       },
       args,

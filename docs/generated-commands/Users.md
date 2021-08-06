@@ -12,6 +12,10 @@ Retrieves the currently authenticated user. Returns a user object and a `200 OK`
 hrvst users me
 ```
 
+| Option     | Description                                                        | Required |
+| ---------- | ------------------------------------------------------------------ | -------- |
+| `--fields` | Comma separated list of fields to display in console table output. | false    |
+
 ## List all users
 
 Returns a list of your users. The users are returned sorted by creation date, with the most recently created users appearing first.
@@ -30,6 +34,7 @@ hrvst users list
 | `--updated_since` | Only return users that have been updated since the given date and time.                                                                                                                | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
+| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
 
 ## Retrieve a specific user
 
@@ -41,9 +46,10 @@ Retrieves the user with the given ID. Returns a user object and a `200 OK` respo
 hrvst users get
 ```
 
-| Option      | Description                           | Required |
-| ----------- | ------------------------------------- | -------- |
-| `--user_id` | The ID of the user you're retrieving. | true     |
+| Option      | Description                                                        | Required |
+| ----------- | ------------------------------------------------------------------ | -------- |
+| `--user_id` | The ID of the user you're retrieving.                              | true     |
+| `--fields`  | Comma separated list of fields to display in console table output. | false    |
 
 ## Create a user
 
@@ -73,6 +79,7 @@ hrvst users create
 | `--weekly_capacity`                   | The number of hours per week this person is available to work in seconds.                 | false    |
 | `--default_hourly_rate`               | The billable rate to use for this user when they are added to a project.                  | false    |
 | `--cost_rate`                         | The cost rate to use for this user when calculating a project’s costs vs billable amount. | false    |
+| `--fields`                            | Comma separated list of fields to display in console table output.                        | false    |
 
 ## Update a user
 
@@ -103,6 +110,7 @@ hrvst users update
 | `--weekly_capacity`                   | The number of hours per week this person is available to work in seconds.                 | false    |
 | `--default_hourly_rate`               | The billable rate to use for this user when they are added to a project.                  | false    |
 | `--cost_rate`                         | The cost rate to use for this user when calculating a project’s costs vs billable amount. | false    |
+| `--fields`                            | Comma separated list of fields to display in console table output.                        | false    |
 
 ## Delete a user
 
@@ -114,6 +122,7 @@ Delete a user. Deleting a user is only possible if they have no time entries or 
 hrvst users delete
 ```
 
-| Option      | Description                         | Required |
-| ----------- | ----------------------------------- | -------- |
-| `--user_id` | The ID of the user you're deleting. | true     |
+| Option      | Description                                                        | Required |
+| ----------- | ------------------------------------------------------------------ | -------- |
+| `--user_id` | The ID of the user you're deleting.                                | true     |
+| `--fields`  | Comma separated list of fields to display in console table output. | false    |
