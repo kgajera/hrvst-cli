@@ -9,12 +9,12 @@ export interface Config {
 
 export class ConfigNotFoundError extends Error {}
 
-export async function getConfig(): Promise<Config | null> {
+export async function getConfig(): Promise<Config> {
   try {
     const config = await fs.promises.readFile(await configPath(), "utf-8");
     return JSON.parse(config);
   } catch (error) {
-    return null;
+    throw new ConfigNotFoundError();
   }
 }
 

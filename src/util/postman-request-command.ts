@@ -1,5 +1,4 @@
 import axios, { AxiosResponse, Method } from "axios";
-import chalk from "chalk";
 import {
   DescriptionDefinition,
   QueryParam,
@@ -42,42 +41,34 @@ export default ({
       return args.options(options).version(false);
     },
     handler: async (args) => {
-      try {
-        const { data } = await spinner(() =>
-          httpRequest(request.method, url, args)
-        );
+      const { data } = await spinner(() =>
+        httpRequest(request.method, url, args)
+      );
 
-        if ("page" in data) {
-          const path = request.url.path as string[];
-          const resourceName = path[path.length - 1];
-          const records = data[resourceName];
+      if ("page" in data) {
+        const path = request.url.path as string[];
+        const resourceName = path[path.length - 1];
+        const records = data[resourceName];
 
-          if (!records.length) {
-            console.log(`No ${resourceName} found`);
-          } else {
-            const record = records[0];
-            const table = horizontalTable(
-              {
-                head: [
-                  "id",
-                  ...Object.keys(record).filter((k) =>
-                    k.match(/_?(email|name)$/i)
-                  ),
-                ],
-              },
-              records
-            );
-            console.log(table.toString());
-          }
+        if (!records.length) {
+          console.log(`No ${resourceName} found`);
         } else {
-          console.log(verticalTable(data).toString());
+          const record = records[0];
+          const table = horizontalTable(
+            {
+              head: [
+                "id",
+                ...Object.keys(record).filter((k) =>
+                  k.match(/_?(email|name)$/i)
+                ),
+              ],
+            },
+            records
+          );
+          console.log(table.toString());
         }
-      } catch (error) {
-        if (error.isAxiosError && error.response.data.message?.length) {
-          console.error(chalk.red(error.response.data.message));
-        } else {
-          throw error;
-        }
+      } else {
+        console.log(verticalTable(data).toString());
       }
     },
   };
@@ -97,9 +88,6 @@ export async function httpRequest(
   args: Partial<Arguments> = {}
 ): Promise<AxiosResponse> {
   const config = await getConfig();
-  if (!config) {
-    throw new ConfigNotFoundError();
-  }
 
   // Variable value must be a string for it to get substituted when calling getPath()
   url.variables.each(
