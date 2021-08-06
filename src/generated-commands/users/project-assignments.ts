@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "project-assignments <command>";
 export const description = `Admin permissions required, except when retrieving the currently authenticated user’s project assignments.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("project-assignments").version(false);
+  yargs
+    .commandDir("project-assignments")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "users <command>";
 export const description = `Admin permissions required, except when retrieving the currently authenticated user.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("users").version(false);
+  yargs
+    .commandDir("users")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

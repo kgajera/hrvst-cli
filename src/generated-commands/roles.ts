@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "roles <command>";
 export const description = `Information pertaining to retrieving, creating, editing, and deleting roles. Admin permissions and Team feature required.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("roles").version(false);
+  yargs
+    .commandDir("roles")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

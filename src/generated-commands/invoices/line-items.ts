@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "line-items <command>";
 export const description = `[Link to documentation](https://help.getharvest.com/api-v2/invoices-api/invoices/invoices/#the-invoice-line-item-object)`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("line-items").version(false);
+  yargs
+    .commandDir("line-items")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

@@ -8,6 +8,6 @@ yargs
   .commandDir("generated-commands")
   .demandCommand()
   .recommendCommands()
-  .strict()
+  .strictCommands()
   .help()
   .fail(failHandler).argv;

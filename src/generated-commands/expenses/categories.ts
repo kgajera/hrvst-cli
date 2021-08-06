@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "categories <command>";
 export const description = `Information pertaining to retrieving, created, editing, and deleting expense categories.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("categories").version(false);
+  yargs
+    .commandDir("categories")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

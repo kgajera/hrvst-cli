@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "contacts <command>";
 export const description = `Information pertaining to client contacts.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("contacts").version(false);
+  yargs
+    .commandDir("contacts")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

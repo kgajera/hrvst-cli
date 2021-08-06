@@ -237,7 +237,13 @@ const commandDirModule = (
 import { CommandBuilder } from 'yargs';
 export const command = '${name} <command>';
 export const description = \`${description.split("\n")[0]}\`;
-export const builder: CommandBuilder = (yargs) => yargs.commandDir('${name}').version(false);
+export const builder: CommandBuilder = (yargs) =>
+  yargs
+    .commandDir('${name}')
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);
 `;
 
 /**

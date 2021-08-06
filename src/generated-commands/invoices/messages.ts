@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "messages <command>";
 export const description = `Admin permissions required.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("messages").version(false);
+  yargs
+    .commandDir("messages")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

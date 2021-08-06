@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "projects <command>";
 export const description = `Information pertaining to retrieving, creating, editing, and deleting projects. Admin or project manager permissions required.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("projects").version(false);
+  yargs
+    .commandDir("projects")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

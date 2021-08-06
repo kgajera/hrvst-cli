@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "user-assignments <command>";
 export const description = `Information pertaining to retrieving, creating, editing, and deleting user assignments. Admin or project manager permissions required. Project managers can only see user assignments of projects they manage.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("user-assignments").version(false);
+  yargs
+    .commandDir("user-assignments")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);

@@ -5,4 +5,9 @@ import { CommandBuilder } from "yargs";
 export const command = "item-categories <command>";
 export const description = `Information pertaining to retrieving, creating, editing, and deleting invoice item categories. Admin or project manager permissions required.`;
 export const builder: CommandBuilder = (yargs) =>
-  yargs.commandDir("item-categories").version(false);
+  yargs
+    .commandDir("item-categories")
+    .demandCommand()
+    .recommendCommands()
+    .strictCommands()
+    .version(false);
