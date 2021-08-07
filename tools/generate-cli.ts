@@ -13,7 +13,7 @@ import {
 } from "postman-collection";
 import { format } from "prettier";
 import yargs, { Arguments, Argv } from "yargs";
-import { urlArgOptions } from "../src/util/postman-request-command";
+import { urlArgOptions } from "../src/utils/postman-request-command";
 
 type CommandDictionary = Record<string, string>;
 

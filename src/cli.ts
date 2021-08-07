@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import yargs from "yargs";
-import { failHandler } from "./util/error";
+import { failHandler } from "./utils/error";
 
 yargs
   .commandDir("commands")

@@ -7,9 +7,9 @@ import {
   request,
   handler as defaultHandler,
 } from "../generated-commands/time-entries/create";
-import { urlArgOptions } from "../util/postman-request-command";
-import spinner from "../util/spinner";
-import { getAssignmentChoices, getCurrentLocalISOString } from "../util/timer";
+import { urlArgOptions } from "../utils/postman-request-command";
+import spinner from "../utils/spinner";
+import { getAssignmentChoices, getCurrentLocalISOString } from "../utils/timer";
 
 type StartTimerArguments = Arguments & {
   project_id?: number;

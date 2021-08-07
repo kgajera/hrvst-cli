@@ -1,6 +1,6 @@
 import { Arguments, CommandBuilder } from "yargs";
 import { handler as defaultHandler } from "../generated-commands/time-entries/update";
-import { getRunningTimer } from "../util/timer";
+import { getRunningTimer } from "../utils/timer";
 
 export type NoteArguments = Arguments & {
   overwrite?: boolean;

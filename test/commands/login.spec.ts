@@ -1,5 +1,5 @@
 import { PORT, handler } from "../../src/commands/login";
-import { saveConfig } from "../../src/util/config";
+import { saveConfig } from "../../src/utils/config";
 import chalk from "chalk";
 import open from "open";
 import request from "supertest";
@@ -7,7 +7,7 @@ import request from "supertest";
 jest.mock("open");
 const mockedOpen = open as jest.Mocked<typeof open>;
 
-jest.mock("../../src/util/config");
+jest.mock("../../src/utils/config");
 
 describe("login", () => {
   const oauthServer = request(`http://localhost:${PORT}`);

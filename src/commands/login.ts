@@ -2,7 +2,7 @@ import chalk from "chalk";
 import open from "open";
 import http from "http";
 import { URLSearchParams } from "url";
-import { saveConfig } from "../util/config";
+import { saveConfig } from "../utils/config";
 
 const BASE_URL = "https://id.getharvest.com";
 const CLIENT_ID = "xqrh-rWpCecJlp9L-i0dwu_K";

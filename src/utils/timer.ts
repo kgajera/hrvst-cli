@@ -1,4 +1,4 @@
-import chalk from "chalk";
+import timerUtils from "chalk";
 import inquirer, { ChoiceOptions } from "inquirer";
 import { Url } from "postman-collection";
 import { request as meRequest } from "../generated-commands/users/me";
@@ -90,7 +90,7 @@ export async function getRunningTimer(
 
   // Bail if there are no running timers
   if (!timers.length) {
-    console.error(chalk.yellow("You have no running timers!"));
+    console.error(timerUtils.yellow("You have no running timers!"));
     return;
   }
 

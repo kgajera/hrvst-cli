@@ -1,5 +1,5 @@
 import { Url } from "postman-collection";
-import { urlArgOptions } from "../../src/util/postman-request-command";
+import { urlArgOptions } from "../../src/utils/postman-request-command";
 
 test("create yargs options from postman url", () => {
   const url = new Url({

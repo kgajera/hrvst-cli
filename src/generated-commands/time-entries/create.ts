@@ -3,7 +3,7 @@
  */
 import postmanRequestCommand, {
   Request,
-} from "../../util/postman-request-command";
+} from "../../utils/postman-request-command";
 
 export const request: Request = {
   method: "POST",

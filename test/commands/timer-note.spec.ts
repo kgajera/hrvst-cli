@@ -1,5 +1,5 @@
 import { handler, NoteArguments } from "../../src/commands/timer-note";
-import * as timerUtils from "../../src/util/timer";
+import * as timerUtils from "../../src/utils/timer";
 import * as timeEntryUpdateCommand from "../../src/generated-commands/time-entries/update";
 
 const args = (args: Partial<NoteArguments>): NoteArguments => ({

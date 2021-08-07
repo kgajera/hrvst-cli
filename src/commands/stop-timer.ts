@@ -1,6 +1,6 @@
 import { Arguments, CommandBuilder } from "yargs";
 import { handler as defaultHandler } from "../generated-commands/time-entries/stop";
-import { getRunningTimer } from "../util/timer";
+import { getRunningTimer } from "../utils/timer";
 
 export const command = "stop";
 export const describe = "Stop a running time entry";
