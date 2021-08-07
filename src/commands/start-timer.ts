@@ -12,6 +12,7 @@ import spinner from "../utils/spinner";
 import { getAssignmentChoices, getCurrentLocalISOString } from "../utils/timer";
 
 type StartTimerArguments = Arguments & {
+  notes?: string;
   project_id?: number;
   task_id?: number;
 };
@@ -69,7 +70,8 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
   defaultHandler(
     Object.assign(
       {
-        fields: "client.name,id,is_running,project.name,spent_date,task.name",
+        fields:
+          "client.name,id,is_running,notes,project.name,spent_date,task.name",
         spent_date: getCurrentLocalISOString(),
       },
       args,
