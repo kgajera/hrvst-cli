@@ -2,7 +2,7 @@ import { Arguments, CommandBuilder } from "yargs";
 import { handler as defaultHandler } from "../generated-commands/time-entries/update";
 import { getRunningTimer } from "../util/timer";
 
-type NoteArguments = Arguments & {
+export type NoteArguments = Arguments & {
   overwrite?: boolean;
   notes: string;
 };
@@ -33,7 +33,9 @@ export const handler = async (args: NoteArguments): Promise<void> => {
     if (args.overwrite === true) {
       timer.notes = args.notes;
     } else {
-      timer.notes += `\n\n${args.notes}`;
+      timer.notes = timer.notes?.length
+        ? `${timer.notes}\n\n${args.notes}`
+        : args.notes;
     }
     defaultHandler(
       Object.assign(args, {

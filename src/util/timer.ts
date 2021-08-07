@@ -23,7 +23,7 @@ interface TaskAssignment {
   task: Reference;
 }
 
-interface TimeEntry {
+export interface TimeEntry {
   client: Reference;
   id: number;
   notes: string;
