@@ -1,4 +1,5 @@
-import Table from "cli-table";
+import chalk from "chalk";
+import Table from "cli-table3";
 import get from "lodash/get";
 import isPlainObject from "lodash/isPlainObject";
 
@@ -16,7 +17,7 @@ type TableData = { [key: string]: ColumnValue };
 export function horizontalTable(
   options: { head: string[] },
   data: TableData[]
-): Table {
+): Table.Table {
   const table = new Table(options);
 
   for (const element of data) {
@@ -39,7 +40,10 @@ export function horizontalTable(
  * @param keys Keys of `data` object to display. If omitted, all will be displayed.
  * @returns Table instance
  */
-export function verticalTable(data: TableData, keys: string[] = []): Table {
+export function verticalTable(
+  data: TableData,
+  keys: string[] = []
+): Table.Table {
   const table = new Table();
   addVerticalTableRows(table, data, [], keys);
   return table;
@@ -65,7 +69,7 @@ function displayValue(value: ColumnValue): string {
  * @param displayKeys Keys of `data` object to display in table
  */
 function addVerticalTableRows(
-  table: Table,
+  table: Table.Table,
   data: TableData,
   parentKeys: string[] = [],
   displayKeys: string[]
@@ -89,7 +93,7 @@ function addVerticalTableRows(
 
       const stringValue = displayValue(value);
       if (stringValue.length) {
-        table.push({ [keyPathDotNotation]: displayValue(value) });
+        table.push({ [chalk.red(keyPathDotNotation)]: displayValue(value) });
       }
     }
   }
