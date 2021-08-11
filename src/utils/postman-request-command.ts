@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, Method } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
 import {
   DescriptionDefinition,
   QueryParam,
@@ -10,7 +10,7 @@ import { getConfig } from "./config";
 import spinner from "./spinner";
 import { horizontalTable, verticalTable } from "./table";
 
-const USER_AGENT = "hrvst-cli";
+export const USER_AGENT = "hrvst-cli (https://www.npmjs.com/package/hrvst-cli)";
 
 export interface Request {
   method: string;
@@ -102,7 +102,7 @@ export async function httpRequest(
   );
 
   // Add each argument property as a query parameter. Rather than looping
-  // through the query parameters defined in Postmans, `url.query`, this allows
+  // through the query parameters defined in Postman's, `url.query`, this allows
   // supporting additional query parameters (mainly for array elements that
   // will contain the index in the param name)
   for (const key in args) {
@@ -123,7 +123,7 @@ export async function httpRequest(
     param.disabled = !param.value || !param.value.length;
   });
 
-  return axios.request({
+  const options: AxiosRequestConfig = {
     baseURL: `${url.protocol}://${url.getHost()}`,
     headers: {
       "User-Agent": USER_AGENT,
@@ -131,8 +131,16 @@ export async function httpRequest(
       "Harvest-Account-ID": config.accountId,
     },
     method: method as Method,
-    url: url.getPathWithQuery(),
-  });
+  };
+
+  if (method === "GET") {
+    options.url = url.getPathWithQuery();
+  } else {
+    options.url = url.getPath();
+    options.data = url.getQueryString();
+  }
+
+  return axios.request(options);
 }
 
 /**
