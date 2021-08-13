@@ -259,7 +259,7 @@ const commandModule = (
   request: RequestDefinition & { url: UrlDefinition },
   relativeSrc: string
 ): string => `${FILE_HEADER}
-import postmanRequestCommand, { Request } from "${relativeSrc}/util/postman-request-command";
+import postmanRequestCommand, { Request } from "${relativeSrc}/utils/postman-request-command";
 
 export const request: Request = ${JSON.stringify({
   method: request.method,
