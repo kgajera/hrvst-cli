@@ -174,7 +174,7 @@ Delete a time entry’s external reference. Returns a `200 OK` response code if 
 [Link to documentation](https://help.getharvest.com/api-v2/timesheets-api/timesheets/time-entries/#delete-a-time-entrys-external-reference)
 
 ```
-hrvst time-entries delete
+hrvst time-entries delete-external-reference
 ```
 
 | Option            | Description                                                        | Required |

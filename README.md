@@ -151,7 +151,8 @@ hrvst stop
 <a href="/docs/generated-commands/Tasks.md#list-all-tasks">hrvst tasks list</a>
 <a href="/docs/generated-commands/Tasks.md#update-a-task">hrvst tasks update</a>
 <a href="/docs/generated-commands/TimeEntries.md#create-a-time-entry-via-start-and-end-time">hrvst time-entries create</a>
-<a href="/docs/generated-commands/TimeEntries.md#delete-a-time-entrys-external-reference">hrvst time-entries delete</a>
+<a href="/docs/generated-commands/TimeEntries.md#delete-a-time-entry">hrvst time-entries delete</a>
+<a href="/docs/generated-commands/TimeEntries.md#delete-a-time-entrys-external-reference">hrvst time-entries delete-external-reference</a>
 <a href="/docs/generated-commands/TimeEntries.md#retrieve-a-specific-time-entry">hrvst time-entries get</a>
 <a href="/docs/generated-commands/TimeEntries.md#list-all-time-entries">hrvst time-entries list</a>
 <a href="/docs/generated-commands/TimeEntries.md#restart-a-stopped-time-entry">hrvst time-entries restart</a>

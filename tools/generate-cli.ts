@@ -316,6 +316,13 @@ const commandName = (
           path[idPath].substring(1, path[idPath].lastIndexOf("_"))
         )}`;
       }
+
+      // Handle extra "delete" endpoints where path variable is not the last
+      // element. For example, /time_entries/:time_entry_id/external_reference
+      else if (name === "delete" && path[path.length - 1].charAt(0) !== ":") {
+        name += `-${kebabCase(path[path.length - 1])}`;
+      }
+
       return name;
     }
   }
