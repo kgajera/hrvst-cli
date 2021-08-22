@@ -43,17 +43,13 @@ export async function getAssignmentChoices(): Promise<{
   projectChoices: ChoiceOptions[];
   taskChoices: TaskChoices;
 }> {
-  const { data } = await httpRequest(
-    assignmentsRequest.method,
-    new Url(assignmentsRequest.url)
-  );
-
+  const assignments = await getProjectAssignments();
   const projectChoices: ChoiceOptions[] = [];
   const projectTaskAssignments: Record<number, TaskAssignment[]> = {};
   const taskChoices: TaskChoices = (projectId) =>
     projectTaskAssignments[projectId]?.map((a) => referenceToChoice(a.task));
 
-  for (const assignment of data.project_assignments as ProjectAssignment[]) {
+  for (const assignment of assignments) {
     if (assignment.task_assignments?.length) {
       projectChoices.push(referenceToChoice(assignment.project));
 
@@ -73,6 +69,32 @@ export async function getAssignmentChoices(): Promise<{
 export function getCurrentLocalISOString(): string {
   const timezoneOffset = new Date().getTimezoneOffset() * 60000;
   return new Date(Date.now() - timezoneOffset).toISOString().slice(0, -1);
+}
+
+/**
+ * Get all project assignments
+ *
+ * @returns Array of project assignments
+ */
+async function getProjectAssignments(): Promise<ProjectAssignment[]> {
+  const assignments: ProjectAssignment[] = [];
+  let page = 1;
+  let totalPages = 1;
+
+  do {
+    const { data } = await httpRequest(
+      assignmentsRequest.method,
+      new Url(assignmentsRequest.url),
+      {
+        page,
+      }
+    );
+    assignments.push(...data.project_assignments);
+    page = data.page;
+    totalPages = data.total_pages;
+  } while (page < totalPages);
+
+  return assignments;
 }
 
 /**
