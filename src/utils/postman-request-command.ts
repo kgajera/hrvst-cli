@@ -55,7 +55,7 @@ export default ({
         const resourceName = path[path.length - 1];
         const records = data[resourceName];
 
-        if (!records.length) {
+        if (!records?.length) {
           console.log(`No ${resourceName} found`);
         } else {
           const record = records[0];
