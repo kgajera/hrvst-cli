@@ -12,7 +12,7 @@ export const handler = async (args: Arguments): Promise<void> => {
     "You have multiple timers running! Which timer do you want to stop?"
   );
   if (timer) {
-    defaultHandler(
+    await defaultHandler(
       Object.assign(
         {
           fields:

@@ -27,11 +27,15 @@ type PostmanRequestArguments = Arguments & {
   fields?: string;
 };
 
+type AsyncHandlerCommandModule = Omit<CommandModule, "handler"> & {
+  handler: (args: Arguments) => Promise<void>;
+};
+
 export default ({
   command,
   describe,
   request,
-}: CommandConfig): CommandModule => {
+}: CommandConfig): AsyncHandlerCommandModule => {
   const url = new Url(request.url);
 
   return {

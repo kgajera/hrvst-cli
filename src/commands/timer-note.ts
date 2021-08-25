@@ -37,7 +37,7 @@ export const handler = async (args: NoteArguments): Promise<void> => {
         ? `${timer.notes}\n\n${args.notes}`
         : args.notes;
     }
-    defaultHandler(
+    await defaultHandler(
       Object.assign(args, {
         fields: "client.name,hours,id,notes,project.name,spent_date,task.name",
         notes: timer.notes,
