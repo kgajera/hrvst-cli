@@ -46,9 +46,14 @@ yargs
       // Store command -> docs link
       const commandDictionary: CommandDictionary = {
         // These are custom commands
+        "hrvst alias create &lt;alias&gt;":
+          "docs/commands/Alias.md#create-an-alias",
+        "hrvst alias delete &lt;alias&gt;":
+          "docs/commands/Alias.md#delete-an-alias",
+        "hrvst alias list": "docs/commands/Alias.md#list-all-aliases",
         "hrvst login": "docs/commands/Login.md",
         "hrvst note": "docs/commands/Timer.md#update-notes-for-a-timer",
-        "hrvst start": "docs/commands/Timer.md#start-a-timer",
+        "hrvst start [alias]": "docs/commands/Timer.md#start-a-timer",
         "hrvst stop": "docs/commands/Timer.md#stop-a-timer",
         // Generated commands will be added to this object below
       };

@@ -6,6 +6,7 @@ import { request as assignmentsRequest } from "../generated-commands/users/proje
 import { request as timeEntriesRequest } from "../generated-commands/time-entries/list";
 import { httpRequest } from "./postman-request-command";
 import spinner from "./spinner";
+import { Arguments } from "yargs";
 
 interface ProjectAssignment {
   id: number;
@@ -33,6 +34,11 @@ export interface TimeEntry {
 }
 
 type TaskChoices = (projectId: number) => ChoiceOptions[] | undefined;
+
+type AssignmentArguments = Arguments & {
+  project_id?: number;
+  task_id?: number;
+};
 
 /**
  * Fetch project and task assignments choices for creating a time entry
@@ -69,6 +75,53 @@ export async function getAssignmentChoices(): Promise<{
 export function getCurrentLocalISOString(): string {
   const timezoneOffset = new Date().getTimezoneOffset() * 60000;
   return new Date(Date.now() - timezoneOffset).toISOString().slice(0, -1);
+}
+
+/**
+ * Gets `project_id` and `task_id` from prompts if not provided through command
+ *
+ * @param args
+ * @returns Args containing project_id and task_id
+ */
+export async function normalizeProjectAndTaskAssignment(
+  args: AssignmentArguments
+): Promise<AssignmentArguments> {
+  const { projectChoices, taskChoices } = await spinner(() =>
+    getAssignmentChoices()
+  );
+  let argTaskChoices: ChoiceOptions[] | undefined;
+
+  if (args.project_id) {
+    // Task choices if a project argument was provided
+    argTaskChoices = taskChoices(args.project_id);
+
+    // Bail if no tasks are found for the given project id argument
+    if (!argTaskChoices?.length) {
+      throw new Error(
+        `No task assignments found for project id: ${args.project_id}`
+      );
+    }
+  }
+
+  // Prompt for project_id and task_id if not given as arguments
+  const answers = await inquirer.prompt([
+    {
+      name: "project_id",
+      type: "list",
+      message: "Select a project:",
+      choices: projectChoices,
+      when: !args.project_id,
+    },
+    {
+      name: "task_id",
+      type: "list",
+      message: "Select a task:",
+      choices: (answers) => argTaskChoices || taskChoices(answers.project_id),
+      when: !args.task_id,
+    },
+  ]);
+
+  return Object.assign(args, answers);
 }
 
 /**

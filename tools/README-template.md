@@ -39,7 +39,7 @@ Create a new time entry that is a running timer:
 hrvst start
 ```
 
-You will be prompted to pick a project and task assignment.
+You will be prompted to pick a project and task assignment or you can use an [alias](/docs/commands/Alias.md)!
 
 ### Appending notes to a timer
 

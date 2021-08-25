@@ -5,8 +5,16 @@
 Create a timer entry that is a running timer. You will be prompted to pick a project and task assignment.
 
 ```
-hrvst start
+hrvst start [alias]
 ```
+
+### Arguments
+
+| Argument  | Description                                                   | Required |
+| --------- | ------------------------------------------------------------- | -------- |
+| `[alias]` | [Alias](/docs/commands/Alias.md) for a project id and task id | false    |
+
+### Options
 
 | Option         | Description                                             | Required |
 | -------------- | ------------------------------------------------------- | -------- |

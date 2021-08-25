@@ -39,7 +39,7 @@ Create a new time entry that is a running timer:
 hrvst start
 ```
 
-You will be prompted to pick a project and task assignment.
+You will be prompted to pick a project and task assignment or you can use an [alias](/docs/commands/Alias.md)!
 
 ### Appending notes to a timer
 
@@ -60,6 +60,9 @@ hrvst stop
 ## CLI Command Reference
 
 <pre>
+<a href="/docs/commands/Alias.md#list-all-aliases">hrvst alias list</a>
+<a href="/docs/commands/Alias.md#create-an-alias">hrvst alias create &lt;alias&gt;</a>
+<a href="/docs/commands/Alias.md#delete-an-alias">hrvst alias delete &lt;alias&gt;</a>
 <a href="/docs/generated-commands/Clients.md#create-a-client">hrvst clients create</a>
 <a href="/docs/generated-commands/Clients.md#delete-a-client">hrvst clients delete</a>
 <a href="/docs/generated-commands/Clients.md#retrieve-a-specific-client">hrvst clients get</a>
@@ -143,7 +146,7 @@ hrvst stop
 <a href="/docs/generated-commands/Roles.md#retrieve-a-specific-role">hrvst roles get</a>
 <a href="/docs/generated-commands/Roles.md#list-all-roles">hrvst roles list</a>
 <a href="/docs/generated-commands/Roles.md#update-a-role">hrvst roles update</a>
-<a href="/docs/commands/Timer.md#start-a-timer">hrvst start</a>
+<a href="/docs/commands/Timer.md#start-a-timer">hrvst start [alias]</a>
 <a href="/docs/commands/Timer.md#stop-a-timer">hrvst stop</a>
 <a href="/docs/generated-commands/Tasks.md#create-a-task">hrvst tasks create</a>
 <a href="/docs/generated-commands/Tasks.md#delete-a-task">hrvst tasks delete</a>
