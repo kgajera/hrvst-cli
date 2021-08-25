@@ -23,6 +23,8 @@ export const failHandler = (
       }
     } else if (error instanceof ConfigNotFoundError) {
       message = "Config not found. Did you run `hrvst login`?";
+    } else if (message === null) {
+      message = error.message;
     }
   } else if (message) {
     yargs.showHelp("error");
