@@ -34,7 +34,7 @@
     "watch": "nodemon --exec yarn build --watch 'src/**/*' -e ts"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.22.0",
     "chalk": "^4.1.1",
     "cli-table3": "^0.6.0",
     "inquirer": "^8.1.2",

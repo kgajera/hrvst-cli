@@ -93,11 +93,11 @@ export default ({
  * @param args Command line arguments to substitute in URL
  * @returns HTTP response
  */
-export async function httpRequest(
+export async function httpRequest<T = any>(
   method: string,
   url: Url,
   args: Partial<Arguments> = {}
-): Promise<AxiosResponse> {
+): Promise<AxiosResponse<T>> {
   const config = await getConfig();
 
   // Variable value must be a string for it to get substituted when calling getPath()

@@ -11,12 +11,12 @@ export const failHandler = (
   if (error) {
     if ("isAxiosError" in error) {
       const httpError = error as AxiosError;
-      const data = httpError.response?.data;
+      const data: any = httpError.response?.data;
 
       if (httpError.response?.status === 401) {
         message =
           "Your authentication token is either expired or invalid. Run `hrvst login` to reauthenticate.";
-      } else if (data.message?.length) {
+      } else if (data?.message?.length) {
         message = data.message;
       } else {
         message = JSON.stringify(data, null, 2);
