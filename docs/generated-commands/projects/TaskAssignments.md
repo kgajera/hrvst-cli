@@ -22,7 +22,8 @@ hrvst projects task-assignments list
 | `--updated_since` | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`        | The output format: json, table                                                                                                                                                         |          |
 
 ## List task assignments for a specific project
 
@@ -43,7 +44,8 @@ hrvst projects task-assignments list-by-project
 | `--update_since` | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
 | `--page`         | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`     | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`       | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`       | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`       | The output format: json, table                                                                                                                                                         |          |
 
 ## Retrieve a specific task assignment
 
@@ -63,7 +65,8 @@ hrvst projects task-assignments get
 | `--updated_since`      | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
 | `--page`               | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`           | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`             | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`             | The output format: json, table                                                                                                                                                         |          |
 
 ## Create a task assignment
 
@@ -83,7 +86,8 @@ hrvst projects task-assignments create
 | `--billable`    | Whether the task assignment is billable or not. Defaults to false.                                             | false    |
 | `--hourly_rate` | Rate used when the project’s bill_by is Tasks. Defaults to null when billing by task hourly rate, otherwise 0. | false    |
 | `--budget`      | Budget used when the project’s budget_by is task or task_fees.                                                 | false    |
-| `--fields`      | Comma separated list of fields to display in console table output.                                             | false    |
+| `--fields`      | Comma separated list of fields to display in the output.                                                       |          |
+| `--output`      | The output format: json, table                                                                                 |          |
 
 ## Update a task assignment
 
@@ -103,7 +107,8 @@ hrvst projects task-assignments update
 | `--update_since`       | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
 | `--page`               | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`           | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`             | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`             | The output format: json, table                                                                                                                                                         |          |
 
 ## Delete a task assignment
 
@@ -119,4 +124,5 @@ hrvst projects task-assignments delete
 | ---------------------- | ------------------------------------------------------------------------- | -------- |
 | `--project_id`         | The ID of the project that contains the task assignments you're deleting. | true     |
 | `--task_assignment_id` | The ID of the task assignment you're deleting.                            | true     |
-| `--fields`             | Comma separated list of fields to display in console table output.        | false    |
+| `--fields`             | Comma separated list of fields to display in the output.                  |          |
+| `--output`             | The output format: json, table                                            |          |

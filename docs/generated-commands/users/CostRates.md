@@ -19,7 +19,8 @@ hrvst users cost-rates list-by-user
 | `--user_id`  | The ID of the user whose cost rates you're retrieving.                                                                                                                                 | true     |
 | `--page`     | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page` | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`   | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`   | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`   | The output format: json, table                                                                                                                                                         |          |
 
 ## Retrieve a specific cost rate
 
@@ -31,11 +32,12 @@ Retrieves the cost rate with the given ID. Returns a cost rate object and a `200
 hrvst users cost-rates get
 ```
 
-| Option           | Description                                                        | Required |
-| ---------------- | ------------------------------------------------------------------ | -------- |
-| `--user_id`      | The ID of the user whose billable rate you're retrieving.          | true     |
-| `--cost_rate_id` | The ID of the cost rate you're retrieving.                         | true     |
-| `--fields`       | Comma separated list of fields to display in console table output. | false    |
+| Option           | Description                                               | Required |
+| ---------------- | --------------------------------------------------------- | -------- |
+| `--user_id`      | The ID of the user whose billable rate you're retrieving. | true     |
+| `--cost_rate_id` | The ID of the cost rate you're retrieving.                | true     |
+| `--fields`       | Comma separated list of fields to display in the output.  |          |
+| `--output`       | The output format: json, table                            |          |
 
 ## Create a cost rate
 
@@ -55,4 +57,5 @@ hrvst users cost-rates create
 | `--user_id`    | The ID of the user that you're creating a cost rate for.             | true     |
 | `--amount`     | The amount of the cost rate.                                         | true     |
 | `--start_date` | The date the cost rate is effective. Cannot be a date in the future. | false    |
-| `--fields`     | Comma separated list of fields to display in console table output.   | false    |
+| `--fields`     | Comma separated list of fields to display in the output.             |          |
+| `--output`     | The output format: json, table                                       |          |

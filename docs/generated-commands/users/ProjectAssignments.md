@@ -20,7 +20,8 @@ hrvst users project-assignments list-by-user
 | `--updated_since` | Only return project assignments that have been updated since the given date and time.                                                                                                  | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`        | The output format: json, table                                                                                                                                                         |          |
 
 ## List active project assignments for the currently authenticated user
 
@@ -38,4 +39,5 @@ hrvst users project-assignments me
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | `--page`     | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page` | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`   | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`   | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`   | The output format: json, table                                                                                                                                                         |          |

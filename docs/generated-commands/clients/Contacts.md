@@ -22,7 +22,8 @@ hrvst clients contacts list
 | `--updated_since` | Only return contacts that have been updated since the given date and time.                                                                                                                          | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1) | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                                                                                               | false    |
-| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                                  | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                                            |          |
+| `--output`        | The output format: json, table                                                                                                                                                                      |          |
 
 ## Retrieve a specific contact
 
@@ -34,10 +35,11 @@ Retrieves the contact with the given ID. Returns a contact object and a `200 OK`
 hrvst clients contacts get
 ```
 
-| Option         | Description                                                        | Required |
-| -------------- | ------------------------------------------------------------------ | -------- |
-| `--contact_id` | The ID of the contact you're retrieving.                           | true     |
-| `--fields`     | Comma separated list of fields to display in console table output. | false    |
+| Option         | Description                                              | Required |
+| -------------- | -------------------------------------------------------- | -------- |
+| `--contact_id` | The ID of the contact you're retrieving.                 | true     |
+| `--fields`     | Comma separated list of fields to display in the output. |          |
+| `--output`     | The output format: json, table                           |          |
 
 ## Create a contact
 
@@ -49,17 +51,18 @@ Creates a new contact object. Returns a contact object and a `201 Created` respo
 hrvst clients contacts create
 ```
 
-| Option           | Description                                                        | Required |
-| ---------------- | ------------------------------------------------------------------ | -------- |
-| `--client_id`    | The ID of the client associated with this contact.                 | true     |
-| `--first_name`   | The first name of the contact.                                     | true     |
-| `--last_name`    | The last name of the contact.                                      | false    |
-| `--title`        | The title of the contact.                                          | false    |
-| `--email`        | The contact’s email address.                                       | false    |
-| `--phone_office` | The contact’s office phone number.                                 | false    |
-| `--phone_mobile` | The contact’s mobile phone number.                                 | false    |
-| `--fax`          | The contact’s fax number.                                          | false    |
-| `--fields`       | Comma separated list of fields to display in console table output. | false    |
+| Option           | Description                                              | Required |
+| ---------------- | -------------------------------------------------------- | -------- |
+| `--client_id`    | The ID of the client associated with this contact.       | true     |
+| `--first_name`   | The first name of the contact.                           | true     |
+| `--last_name`    | The last name of the contact.                            | false    |
+| `--title`        | The title of the contact.                                | false    |
+| `--email`        | The contact’s email address.                             | false    |
+| `--phone_office` | The contact’s office phone number.                       | false    |
+| `--phone_mobile` | The contact’s mobile phone number.                       | false    |
+| `--fax`          | The contact’s fax number.                                | false    |
+| `--fields`       | Comma separated list of fields to display in the output. |          |
+| `--output`       | The output format: json, table                           |          |
 
 ## Update a contact
 
@@ -71,18 +74,19 @@ Updates the specific contact by setting the values of the parameters passed. Any
 hrvst clients contacts update
 ```
 
-| Option           | Description                                                        | Required |
-| ---------------- | ------------------------------------------------------------------ | -------- |
-| `--contact_id`   | The ID of the contact you're updating.                             | true     |
-| `--client_id`    | The ID of the client associated with this contact.                 | false    |
-| `--first_name`   | The first name of the contact.                                     | false    |
-| `--last_name`    | The last name of the contact.                                      | false    |
-| `--title`        | The title of the contact.                                          | false    |
-| `--email`        | The contact’s email address.                                       | false    |
-| `--phone_office` | The contact’s office phone number.                                 | false    |
-| `--phone_mobile` | The contact’s mobile phone number.                                 | false    |
-| `--fax`          | The contact’s fax number.                                          | false    |
-| `--fields`       | Comma separated list of fields to display in console table output. | false    |
+| Option           | Description                                              | Required |
+| ---------------- | -------------------------------------------------------- | -------- |
+| `--contact_id`   | The ID of the contact you're updating.                   | true     |
+| `--client_id`    | The ID of the client associated with this contact.       | false    |
+| `--first_name`   | The first name of the contact.                           | false    |
+| `--last_name`    | The last name of the contact.                            | false    |
+| `--title`        | The title of the contact.                                | false    |
+| `--email`        | The contact’s email address.                             | false    |
+| `--phone_office` | The contact’s office phone number.                       | false    |
+| `--phone_mobile` | The contact’s mobile phone number.                       | false    |
+| `--fax`          | The contact’s fax number.                                | false    |
+| `--fields`       | Comma separated list of fields to display in the output. |          |
+| `--output`       | The output format: json, table                           |          |
 
 ## Delete a contact
 
@@ -94,7 +98,8 @@ Delete a contact. Returns a `200 OK` response code if the call succeeded.
 hrvst clients contacts delete
 ```
 
-| Option         | Description                                                        | Required |
-| -------------- | ------------------------------------------------------------------ | -------- |
-| `--contact_id` | The ID of the contact you're deleting.                             | true     |
-| `--fields`     | Comma separated list of fields to display in console table output. | false    |
+| Option         | Description                                              | Required |
+| -------------- | -------------------------------------------------------- | -------- |
+| `--contact_id` | The ID of the contact you're deleting.                   | true     |
+| `--fields`     | Comma separated list of fields to display in the output. |          |
+| `--output`     | The output format: json, table                           |          |

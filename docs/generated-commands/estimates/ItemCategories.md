@@ -21,7 +21,8 @@ hrvst estimates item-categories list
 | `--updated_since` | Only return estimate item categories that have been updated since the given date and time.                                                                                             | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`        | The output format: json, table                                                                                                                                                         |          |
 
 ## Retrieve a specific estimate item category
 
@@ -33,10 +34,11 @@ Retrieves the estimate item category with the given ID. Returns an estimate item
 hrvst estimates item-categories get
 ```
 
-| Option                        | Description                                                        | Required |
-| ----------------------------- | ------------------------------------------------------------------ | -------- |
-| `--estimate_item_category_id` | The ID of the estimate item category you're retrieving.            | true     |
-| `--fields`                    | Comma separated list of fields to display in console table output. | false    |
+| Option                        | Description                                              | Required |
+| ----------------------------- | -------------------------------------------------------- | -------- |
+| `--estimate_item_category_id` | The ID of the estimate item category you're retrieving.  | true     |
+| `--fields`                    | Comma separated list of fields to display in the output. |          |
+| `--output`                    | The output format: json, table                           |          |
 
 ## Create an estimate item category
 
@@ -48,10 +50,11 @@ Creates a new estimate item category object. Returns an estimate item category o
 hrvst estimates item-categories create
 ```
 
-| Option     | Description                                                        | Required |
-| ---------- | ------------------------------------------------------------------ | -------- |
-| `--name`   | The name of the estimate item category.                            | true     |
-| `--fields` | Comma separated list of fields to display in console table output. | false    |
+| Option     | Description                                              | Required |
+| ---------- | -------------------------------------------------------- | -------- |
+| `--name`   | The name of the estimate item category.                  | true     |
+| `--fields` | Comma separated list of fields to display in the output. |          |
+| `--output` | The output format: json, table                           |          |
 
 ## Update an estimate item category
 
@@ -63,11 +66,12 @@ Updates the specific estimate item category by setting the values of the paramet
 hrvst estimates item-categories update
 ```
 
-| Option                        | Description                                                        | Required |
-| ----------------------------- | ------------------------------------------------------------------ | -------- |
-| `--estimate_item_category_id` | The ID of the estimate item category you're updating.              | true     |
-| `--name`                      | The name of the estimate item category.                            | true     |
-| `--fields`                    | Comma separated list of fields to display in console table output. | false    |
+| Option                        | Description                                              | Required |
+| ----------------------------- | -------------------------------------------------------- | -------- |
+| `--estimate_item_category_id` | The ID of the estimate item category you're updating.    | true     |
+| `--name`                      | The name of the estimate item category.                  | true     |
+| `--fields`                    | Comma separated list of fields to display in the output. |          |
+| `--output`                    | The output format: json, table                           |          |
 
 ## Delete an estimate item category
 
@@ -79,7 +83,8 @@ Delete an estimate item category. Returns a `200 OK` response code if the call s
 hrvst estimates item-categories delete
 ```
 
-| Option                        | Description                                                        | Required |
-| ----------------------------- | ------------------------------------------------------------------ | -------- |
-| `--estimate_item_category_id` | The ID of the estimate item category you're deleting.              | true     |
-| `--fields`                    | Comma separated list of fields to display in console table output. | false    |
+| Option                        | Description                                              | Required |
+| ----------------------------- | -------------------------------------------------------- | -------- |
+| `--estimate_item_category_id` | The ID of the estimate item category you're deleting.    | true     |
+| `--fields`                    | Comma separated list of fields to display in the output. |          |
+| `--output`                    | The output format: json, table                           |          |

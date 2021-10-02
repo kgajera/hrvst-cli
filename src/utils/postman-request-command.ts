@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
+import { map, partialRight, pick } from "lodash";
 import {
   DescriptionDefinition,
   QueryParam,
@@ -25,6 +26,7 @@ export interface CommandConfig {
 
 type PostmanRequestArguments = Arguments & {
   fields?: string;
+  format?: "json" | "table";
 };
 
 type AsyncHandlerCommandModule = Omit<CommandModule, "handler"> & {
@@ -52,34 +54,51 @@ export default ({
       const { data } = await spinner(() =>
         httpRequest(request.method, url, args)
       );
-      const tableFields = args.fields?.length ? args.fields.split(",") : [];
+      let output = data;
+      const path = request.url.path as string[];
+      const resourceName = path[path.length - 1];
+      const outputFields = args.fields?.length ? args.fields.split(",") : [];
 
       if ("page" in data) {
-        const path = request.url.path as string[];
-        const resourceName = path[path.length - 1];
-        const records = data[resourceName];
+        output = data[resourceName];
+      }
 
-        if (!records?.length) {
-          console.log(`No ${resourceName} found`);
-        } else {
-          const record = records[0];
-          const table = horizontalTable(
-            {
-              head: tableFields.length
-                ? tableFields
-                : [
-                    "id",
-                    ...Object.keys(record).filter((k) =>
-                      k.match(/_?(email|name)$/i)
-                    ),
-                  ],
-            },
-            records
-          );
-          console.log(table.toString());
+      switch (args.output) {
+        case "json":
+          if (Array.isArray(output)) {
+            output = outputFields.length
+              ? map(output, partialRight(pick, outputFields))
+              : output;
+          } else {
+            output = outputFields.length ? pick(output, outputFields) : output;
+          }
+          console.log(JSON.stringify(output, null, 2));
+          break;
+        default: {
+          if (Array.isArray(output)) {
+            if (!output?.length) {
+              console.log(`No ${resourceName} found`);
+            } else {
+              const record = output[0];
+              const table = horizontalTable(
+                {
+                  head: outputFields.length
+                    ? outputFields
+                    : [
+                        "id",
+                        ...Object.keys(record).filter((k) =>
+                          k.match(/_?(email|name)$/i)
+                        ),
+                      ],
+                },
+                output
+              );
+              console.log(table.toString());
+            }
+          } else {
+            console.log(verticalTable(data, outputFields).toString());
+          }
         }
-      } else {
-        console.log(verticalTable(data, tableFields).toString());
       }
     },
   };
@@ -190,9 +209,10 @@ export function urlArgOptions(url: Url): Record<string, Options> {
   // Add option to control which fields are outputted to the console
   addOption(
     "fields",
-    "Comma separated list of fields to display in console table output.",
-    false
+    "Comma separated list of fields to display in the output."
   );
+
+  addOption("output", "The output format: json, table");
 
   return options;
 }

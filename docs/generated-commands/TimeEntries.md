@@ -29,7 +29,8 @@ hrvst time-entries list
 | `--to`                    | Only return time entries with a spent_date on or before the given date.                                                                                                                             | false    |
 | `--page`                  | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1) | false    |
 | `--per_page`              | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                                                                                               | false    |
-| `--fields`                | Comma separated list of fields to display in console table output.                                                                                                                                  | false    |
+| `--fields`                | Comma separated list of fields to display in the output.                                                                                                                                            |          |
+| `--output`                | The output format: json, table                                                                                                                                                                      |          |
 
 ## Retrieve a specific time entry
 
@@ -41,10 +42,11 @@ Retrieves the time entry with the given ID. Returns a time entry object and a `2
 hrvst time-entries get
 ```
 
-| Option            | Description                                                        | Required |
-| ----------------- | ------------------------------------------------------------------ | -------- |
-| `--time_entry_id` | The ID of the time entry you're retrieving.                        | true     |
-| `--fields`        | Comma separated list of fields to display in console table output. | false    |
+| Option            | Description                                              | Required |
+| ----------------- | -------------------------------------------------------- | -------- |
+| `--time_entry_id` | The ID of the time entry you're retrieving.              | true     |
+| `--fields`        | Comma separated list of fields to display in the output. |          |
+| `--output`        | The output format: json, table                           |          |
 
 ## Create a time entry via duration
 
@@ -69,7 +71,8 @@ hrvst time-entries create
 | `--external_reference[id]`        | The ID of the service's equivalent of a task, card, etc.                                                                                                                                                                    | false    |
 | `--external_reference[group_id]`  | The ID of the service's equivalent of a project, board, etc.                                                                                                                                                                | false    |
 | `--external_reference[permalink]` | The URL of where the time is being tracked.                                                                                                                                                                                 | false    |
-| `--fields`                        | Comma separated list of fields to display in console table output.                                                                                                                                                          | false    |
+| `--fields`                        | Comma separated list of fields to display in the output.                                                                                                                                                                    |          |
+| `--output`                        | The output format: json, table                                                                                                                                                                                              |          |
 
 ## Create a time entry via start and end time
 
@@ -95,7 +98,8 @@ hrvst time-entries create
 | `--external_reference[id]`        | The ID of the service's equivalent of a task, card, etc.                                                                 | false    |
 | `--external_reference[group_id]`  | The ID of the service's equivalent of a project, board, etc.                                                             | false    |
 | `--external_reference[permalink]` | The URL of where the time is being tracked.                                                                              | false    |
-| `--fields`                        | Comma separated list of fields to display in console table output.                                                       | false    |
+| `--fields`                        | Comma separated list of fields to display in the output.                                                                 |          |
+| `--output`                        | The output format: json, table                                                                                           |          |
 
 ## Restart a stopped time entry
 
@@ -107,10 +111,11 @@ Restarting a time entry is only possible if it isn’t currently running. Return
 hrvst time-entries restart
 ```
 
-| Option            | Description                                                        | Required |
-| ----------------- | ------------------------------------------------------------------ | -------- |
-| `--time_entry_id` | The ID of the time entry you're restarting.                        | true     |
-| `--fields`        | Comma separated list of fields to display in console table output. | false    |
+| Option            | Description                                              | Required |
+| ----------------- | -------------------------------------------------------- | -------- |
+| `--time_entry_id` | The ID of the time entry you're restarting.              | true     |
+| `--fields`        | Comma separated list of fields to display in the output. |          |
+| `--output`        | The output format: json, table                           |          |
 
 ## Stop a running time entry
 
@@ -122,10 +127,11 @@ Stopping a time entry is only possible if it’s currently running. Returns a `2
 hrvst time-entries stop
 ```
 
-| Option            | Description                                                        | Required |
-| ----------------- | ------------------------------------------------------------------ | -------- |
-| `--time_entry_id` | The ID of the time entry you're stopping.                          | true     |
-| `--fields`        | Comma separated list of fields to display in console table output. | false    |
+| Option            | Description                                              | Required |
+| ----------------- | -------------------------------------------------------- | -------- |
+| `--time_entry_id` | The ID of the time entry you're stopping.                | true     |
+| `--fields`        | Comma separated list of fields to display in the output. |          |
+| `--output`        | The output format: json, table                           |          |
 
 ## Update a time entry
 
@@ -150,7 +156,8 @@ hrvst time-entries update
 | `--external_reference[id]`        | The ID of the service's equivalent of a task, card, etc.                     | false    |
 | `--external_reference[group_id]`  | The ID of the service's equivalent of a project, board, etc.                 | false    |
 | `--external_reference[permalink]` | The URL of where the time is being tracked.                                  | false    |
-| `--fields`                        | Comma separated list of fields to display in console table output.           | false    |
+| `--fields`                        | Comma separated list of fields to display in the output.                     |          |
+| `--output`                        | The output format: json, table                                               |          |
 
 ## Delete a time entry
 
@@ -162,10 +169,11 @@ Delete a time entry. Deleting a time entry is only possible if it’s not closed
 hrvst time-entries delete
 ```
 
-| Option            | Description                                                        | Required |
-| ----------------- | ------------------------------------------------------------------ | -------- |
-| `--time_entry_id` | The ID of the time entry you're deleting.                          | true     |
-| `--fields`        | Comma separated list of fields to display in console table output. | false    |
+| Option            | Description                                              | Required |
+| ----------------- | -------------------------------------------------------- | -------- |
+| `--time_entry_id` | The ID of the time entry you're deleting.                | true     |
+| `--fields`        | Comma separated list of fields to display in the output. |          |
+| `--output`        | The output format: json, table                           |          |
 
 ## Delete a time entry's external reference.
 
@@ -180,4 +188,5 @@ hrvst time-entries delete-external-reference
 | Option            | Description                                                        | Required |
 | ----------------- | ------------------------------------------------------------------ | -------- |
 | `--time_entry_id` | The ID of the time entry whose external reference you're deleting. | true     |
-| `--fields`        | Comma separated list of fields to display in console table output. | false    |
+| `--fields`        | Comma separated list of fields to display in the output.           |          |
+| `--output`        | The output format: json, table                                     |          |

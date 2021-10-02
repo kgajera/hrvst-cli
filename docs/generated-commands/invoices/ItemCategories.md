@@ -21,7 +21,8 @@ hrvst invoices item-categories list
 | `--updated_since` | Only return invoice item categories that have been updated since the given date and time.                                                                                              | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`        | The output format: json, table                                                                                                                                                         |          |
 
 ## Retrieve a specific invoice item category
 
@@ -33,10 +34,11 @@ Retrieves the invoice item category with the given ID. Returns an invoice item c
 hrvst invoices item-categories get
 ```
 
-| Option                       | Description                                                        | Required |
-| ---------------------------- | ------------------------------------------------------------------ | -------- |
-| `--invoice_item_category_id` | The ID of the invoice item category you're retrieving.             | true     |
-| `--fields`                   | Comma separated list of fields to display in console table output. | false    |
+| Option                       | Description                                              | Required |
+| ---------------------------- | -------------------------------------------------------- | -------- |
+| `--invoice_item_category_id` | The ID of the invoice item category you're retrieving.   | true     |
+| `--fields`                   | Comma separated list of fields to display in the output. |          |
+| `--output`                   | The output format: json, table                           |          |
 
 ## Create an invoice item category
 
@@ -48,10 +50,11 @@ Creates a new invoice item category object. Returns an invoice item category obj
 hrvst invoices item-categories create
 ```
 
-| Option     | Description                                                        | Required |
-| ---------- | ------------------------------------------------------------------ | -------- |
-| `--name`   | The name of the invoice item category.                             | true     |
-| `--fields` | Comma separated list of fields to display in console table output. | false    |
+| Option     | Description                                              | Required |
+| ---------- | -------------------------------------------------------- | -------- |
+| `--name`   | The name of the invoice item category.                   | true     |
+| `--fields` | Comma separated list of fields to display in the output. |          |
+| `--output` | The output format: json, table                           |          |
 
 ## Update an invoice item category
 
@@ -63,11 +66,12 @@ Updates the specific invoice item category by setting the values of the paramete
 hrvst invoices item-categories update
 ```
 
-| Option                       | Description                                                        | Required |
-| ---------------------------- | ------------------------------------------------------------------ | -------- |
-| `--invoice_item_category_id` | The ID of the invoice item category you're updating.               | true     |
-| `--name`                     | The name of the invoice item category.                             | false    |
-| `--fields`                   | Comma separated list of fields to display in console table output. | false    |
+| Option                       | Description                                              | Required |
+| ---------------------------- | -------------------------------------------------------- | -------- |
+| `--invoice_item_category_id` | The ID of the invoice item category you're updating.     | true     |
+| `--name`                     | The name of the invoice item category.                   | false    |
+| `--fields`                   | Comma separated list of fields to display in the output. |          |
+| `--output`                   | The output format: json, table                           |          |
 
 ## Delete an invoice item category
 
@@ -79,7 +83,8 @@ Delete an invoice item category. Deleting an invoice item category is only possi
 hrvst invoices item-categories delete
 ```
 
-| Option                       | Description                                                        | Required |
-| ---------------------------- | ------------------------------------------------------------------ | -------- |
-| `--invoice_item_category_id` | The ID of the invoice item category you're deleting.               | true     |
-| `--fields`                   | Comma separated list of fields to display in console table output. | false    |
+| Option                       | Description                                              | Required |
+| ---------------------------- | -------------------------------------------------------- | -------- |
+| `--invoice_item_category_id` | The ID of the invoice item category you're deleting.     | true     |
+| `--fields`                   | Comma separated list of fields to display in the output. |          |
+| `--output`                   | The output format: json, table                           |          |

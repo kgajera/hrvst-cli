@@ -22,7 +22,8 @@ hrvst tasks list
 | `--updated_since` | Only return tasks that have been updated since the given date and time.                                                                                                                             | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1) | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                                                                                               | false    |
-| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                                  | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                                            |          |
+| `--output`        | The output format: json, table                                                                                                                                                                      |          |
 
 ## Retrieve a specific task
 
@@ -34,10 +35,11 @@ Retrieves the task with the given ID. Returns a task object and a `200 OK` respo
 hrvst tasks get
 ```
 
-| Option      | Description                                                        | Required |
-| ----------- | ------------------------------------------------------------------ | -------- |
-| `--task_id` | The ID of the task you're retrieving.                              | true     |
-| `--fields`  | Comma separated list of fields to display in console table output. | false    |
+| Option      | Description                                              | Required |
+| ----------- | -------------------------------------------------------- | -------- |
+| `--task_id` | The ID of the task you're retrieving.                    | true     |
+| `--fields`  | Comma separated list of fields to display in the output. |          |
+| `--output`  | The output format: json, table                           |          |
 
 ## Create a task
 
@@ -56,7 +58,8 @@ hrvst tasks create
 | `--default_hourly_rate` | The default hourly rate to use for this task when it is added to a project. Defaults to 0.                        | false    |
 | `--is_default`          | Whether this task should be automatically added to future projects. Defaults to false.                            | false    |
 | `--is_active`           | Whether this task is active or archived. Defaults to true.                                                        | false    |
-| `--fields`              | Comma separated list of fields to display in console table output.                                                | false    |
+| `--fields`              | Comma separated list of fields to display in the output.                                                          |          |
+| `--output`              | The output format: json, table                                                                                    |          |
 
 ## Update a task
 
@@ -76,7 +79,8 @@ hrvst tasks update
 | `--default_hourly_rate` | The default hourly rate to use for this task when it is added to a project.                      | false    |
 | `--is_default`          | Whether this task should be automatically added to future projects.                              | false    |
 | `--is_active`           | Whether this task is active or archived.                                                         | false    |
-| `--fields`              | Comma separated list of fields to display in console table output.                               | false    |
+| `--fields`              | Comma separated list of fields to display in the output.                                         |          |
+| `--output`              | The output format: json, table                                                                   |          |
 
 ## Delete a task
 
@@ -88,7 +92,8 @@ Delete a task. Deleting a task is only possible if it has no time entries associ
 hrvst tasks delete
 ```
 
-| Option      | Description                                                        | Required |
-| ----------- | ------------------------------------------------------------------ | -------- |
-| `--task_id` | The ID of the task you're deleting.                                | true     |
-| `--fields`  | Comma separated list of fields to display in console table output. | false    |
+| Option      | Description                                              | Required |
+| ----------- | -------------------------------------------------------- | -------- |
+| `--task_id` | The ID of the task you're deleting.                      | true     |
+| `--fields`  | Comma separated list of fields to display in the output. |          |
+| `--output`  | The output format: json, table                           |          |

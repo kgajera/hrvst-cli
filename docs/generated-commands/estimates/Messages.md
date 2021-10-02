@@ -22,7 +22,8 @@ hrvst estimates messages list-by-estimate
 | `--updated_since` | Only return estimate messages that have been updated since the given date and time.                                                                                                    | false    |
 | `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in console table output.                                                                                                                     | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
+| `--output`        | The output format: json, table                                                                                                                                                         |          |
 
 ## Create an estimate message
 
@@ -43,7 +44,8 @@ hrvst estimates messages create
 | `--body`               | The message body.                                                                                    | false    |
 | `--send_me_a_copy`     | Whether to email a copy of the message to the current user.                                          | false    |
 | `--event_type`         | If provided, runs an event against the estimate. Options: “accept”, “decline”, “re-open”, or “send”. | false    |
-| `--fields`             | Comma separated list of fields to display in console table output.                                   | false    |
+| `--fields`             | Comma separated list of fields to display in the output.                                             |          |
+| `--output`             | The output format: json, table                                                                       |          |
 
 ## Delete an estimate message
 
@@ -55,11 +57,12 @@ Delete an estimate message. Returns a `200 OK` response code if the call succeed
 hrvst estimates messages delete
 ```
 
-| Option          | Description                                                        | Required |
-| --------------- | ------------------------------------------------------------------ | -------- |
-| `--estimate_id` | The ID of the invoice that contains the message you are deleting.  | true     |
-| `--message_id`  | The ID of the message you are deleting.                            | true     |
-| `--fields`      | Comma separated list of fields to display in console table output. | false    |
+| Option          | Description                                                       | Required |
+| --------------- | ----------------------------------------------------------------- | -------- |
+| `--estimate_id` | The ID of the invoice that contains the message you are deleting. | true     |
+| `--message_id`  | The ID of the message you are deleting.                           | true     |
+| `--fields`      | Comma separated list of fields to display in the output.          |          |
+| `--output`      | The output format: json, table                                    |          |
 
 ## Mark a draft estimate as sent
 
@@ -71,11 +74,12 @@ Creates a new estimate message object and marks the estimate as sent. Returns an
 hrvst estimates messages mark-draft-estimate-as-sent
 ```
 
-| Option           | Description                                                        | Required |
-| ---------------- | ------------------------------------------------------------------ | -------- |
-| `--estimates_id` | The ID of the estimate you're marking as sent.                     | true     |
-| `--event_type`   | Pass “send” to mark the estimate as sent.                          | true     |
-| `--fields`       | Comma separated list of fields to display in console table output. | false    |
+| Option           | Description                                              | Required |
+| ---------------- | -------------------------------------------------------- | -------- |
+| `--estimates_id` | The ID of the estimate you're marking as sent.           | true     |
+| `--event_type`   | Pass “send” to mark the estimate as sent.                | true     |
+| `--fields`       | Comma separated list of fields to display in the output. |          |
+| `--output`       | The output format: json, table                           |          |
 
 ## Re-open a closed estimate
 
@@ -87,8 +91,9 @@ Creates a new estimate message object and re-opens a closed estimate. Returns an
 hrvst estimates messages re-open-closed-estimate
 ```
 
-| Option          | Description                                                        | Required |
-| --------------- | ------------------------------------------------------------------ | -------- |
-| `--estimate_id` | The ID of the estimate you're re-opening.                          | true     |
-| `--event_type`  | Pass "re-open" to re-open the estimate                             | true     |
-| `--fields`      | Comma separated list of fields to display in console table output. | false    |
+| Option          | Description                                              | Required |
+| --------------- | -------------------------------------------------------- | -------- |
+| `--estimate_id` | The ID of the estimate you're re-opening.                | true     |
+| `--event_type`  | Pass "re-open" to re-open the estimate                   | true     |
+| `--fields`      | Comma separated list of fields to display in the output. |          |
+| `--output`      | The output format: json, table                           |          |

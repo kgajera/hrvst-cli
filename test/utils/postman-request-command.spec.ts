@@ -1,13 +1,14 @@
 import axios from "axios";
 import { Url } from "postman-collection";
 import { Config } from "../../src/utils/config";
-import {
+import commandModule, {
   httpRequest,
   urlArgOptions,
   USER_AGENT,
 } from "../../src/utils/postman-request-command";
+import { verticalTable } from "../../src/utils/table";
 
-const mockConfig: Config = {
+const mockConfig: Partial<Config> = {
   accessToken: "test",
   accountId: "test2",
 };
@@ -15,6 +16,145 @@ const mockConfig: Config = {
 jest.mock("../../src/utils/config", () => ({
   getConfig: () => mockConfig,
 }));
+
+describe("command handler", () => {
+  const { handler } = commandModule({
+    command: "test",
+    describe: "test",
+    request: {
+      method: "GET",
+      url: {
+        protocol: "https",
+        host: ["api", "harvestapp", "com"],
+        path: ["v2", "time_entries"],
+        query: [
+          {
+            key: "page",
+            value: "",
+            description: "The page number to use in pagination.",
+            disabled: true,
+          },
+          {
+            key: "per_page",
+            value: "",
+            description:
+              "The number of records to return per page. Can range between 1 and 100. (Default: 100)",
+            disabled: true,
+          },
+        ],
+      },
+    },
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("should default to table output", async () => {
+    const data = {
+      id: 2,
+      hours: 4.5,
+    };
+    jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+    const consoleSpy = jest.spyOn(console, "log");
+
+    await handler({
+      $0: "",
+      _: [],
+    });
+
+    expect(consoleSpy).toHaveBeenCalledWith(verticalTable(data).toString());
+  });
+
+  it("should output json", async () => {
+    const data = [
+      {
+        id: 2,
+        hours: 4.5,
+      },
+    ];
+    jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+    const consoleSpy = jest.spyOn(console, "log");
+
+    await handler({
+      $0: "",
+      _: [],
+      output: "json",
+    });
+
+    expect(consoleSpy).toHaveBeenCalledWith(JSON.stringify(data, null, 2));
+  });
+
+  it("should output json object with specified fields", async () => {
+    const data = {
+      id: 2,
+      hours: 4.5,
+      project: {
+        id: 4,
+        name: "Test",
+      },
+    };
+    jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+    const consoleSpy = jest.spyOn(console, "log");
+
+    await handler({
+      $0: "",
+      _: [],
+      fields: "hours,project.name",
+      output: "json",
+    });
+
+    expect(consoleSpy).toHaveBeenCalledWith(
+      JSON.stringify(
+        {
+          hours: 4.5,
+          project: {
+            name: "Test",
+          },
+        },
+        null,
+        2
+      )
+    );
+  });
+
+  it("should output json array with specified fields", async () => {
+    const data = [
+      {
+        id: 2,
+        hours: 4.5,
+        project: {
+          id: 4,
+          name: "Test",
+        },
+      },
+    ];
+    jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+    const consoleSpy = jest.spyOn(console, "log");
+
+    await handler({
+      $0: "",
+      _: [],
+      fields: "hours,project.name",
+      output: "json",
+    });
+
+    expect(consoleSpy).toHaveBeenCalledWith(
+      JSON.stringify(
+        [
+          {
+            hours: 4.5,
+            project: {
+              name: "Test",
+            },
+          },
+        ],
+        null,
+        2
+      )
+    );
+  });
+});
 
 describe("httpRequest", () => {
   const url = new Url({
