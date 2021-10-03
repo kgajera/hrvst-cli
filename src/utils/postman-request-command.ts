@@ -152,6 +152,7 @@ export async function httpRequest<T = any>(
       "User-Agent": USER_AGENT,
       Authorization: `Bearer ${config.accessToken}`,
       "Harvest-Account-ID": config.accountId,
+      "Content-Type": "application/json",
     },
     method: method as Method,
   };
