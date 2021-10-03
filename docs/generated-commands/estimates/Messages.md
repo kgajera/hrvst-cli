@@ -22,8 +22,8 @@ hrvst estimates messages list-by-estimate
 | `--updated_since` | Only return estimate messages that have been updated since the given date and time. | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.              | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.              | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                            |          |
-| `--output`        | The output format: json, table                                                      |          |
+| `--fields`        | Comma separated list of fields to display in the output.                            | false    |
+| `--output`        | The output format: json, table                                                      | false    |
 
 ## Create an estimate message
 
@@ -44,8 +44,8 @@ hrvst estimates messages create
 | `--body`               | The message body.                                                                                    | false    |
 | `--send_me_a_copy`     | Whether to email a copy of the message to the current user.                                          | false    |
 | `--event_type`         | If provided, runs an event against the estimate. Options: “accept”, “decline”, “re-open”, or “send”. | false    |
-| `--fields`             | Comma separated list of fields to display in the output.                                             |          |
-| `--output`             | The output format: json, table                                                                       |          |
+| `--fields`             | Comma separated list of fields to display in the output.                                             | false    |
+| `--output`             | The output format: json, table                                                                       | false    |
 
 ## Delete an estimate message
 
@@ -61,8 +61,8 @@ hrvst estimates messages delete
 | --------------- | ----------------------------------------------------------------- | -------- |
 | `--estimate_id` | The ID of the invoice that contains the message you are deleting. | true     |
 | `--message_id`  | The ID of the message you are deleting.                           | true     |
-| `--fields`      | Comma separated list of fields to display in the output.          |          |
-| `--output`      | The output format: json, table                                    |          |
+| `--fields`      | Comma separated list of fields to display in the output.          | false    |
+| `--output`      | The output format: json, table                                    | false    |
 
 ## Mark a draft estimate as sent
 
@@ -78,8 +78,8 @@ hrvst estimates messages mark-draft-estimate-as-sent
 | ---------------- | -------------------------------------------------------- | -------- |
 | `--estimates_id` | The ID of the estimate you're marking as sent.           | true     |
 | `--event_type`   | Pass “send” to mark the estimate as sent.                | true     |
-| `--fields`       | Comma separated list of fields to display in the output. |          |
-| `--output`       | The output format: json, table                           |          |
+| `--fields`       | Comma separated list of fields to display in the output. | false    |
+| `--output`       | The output format: json, table                           | false    |
 
 ## Re-open a closed estimate
 
@@ -95,5 +95,5 @@ hrvst estimates messages re-open-closed-estimate
 | --------------- | -------------------------------------------------------- | -------- |
 | `--estimate_id` | The ID of the estimate you're re-opening.                | true     |
 | `--event_type`  | Pass "re-open" to re-open the estimate                   | true     |
-| `--fields`      | Comma separated list of fields to display in the output. |          |
-| `--output`      | The output format: json, table                           |          |
+| `--fields`      | Comma separated list of fields to display in the output. | false    |
+| `--output`      | The output format: json, table                           | false    |

@@ -27,8 +27,8 @@ hrvst estimates list
 | `--state`         | Only return estimates with a state matching the value provided. Options: draft, sent, accepted, or declined. | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                                       | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                       | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                                     |          |
-| `--output`        | The output format: json, table                                                                               |          |
+| `--fields`        | Comma separated list of fields to display in the output.                                                     | false    |
+| `--output`        | The output format: json, table                                                                               | false    |
 
 ## Retrieve a specific estimate
 
@@ -43,8 +43,8 @@ hrvst estimates get
 | Option          | Description                                              | Required |
 | --------------- | -------------------------------------------------------- | -------- |
 | `--estimate_id` | The ID of the estimate you're retrieving.                | true     |
-| `--fields`      | Comma separated list of fields to display in the output. |          |
-| `--output`      | The output format: json, table                           |          |
+| `--fields`      | Comma separated list of fields to display in the output. | false    |
+| `--output`      | The output format: json, table                           | false    |
 
 ## Create an estimate
 
@@ -74,8 +74,8 @@ hrvst estimates create
 | `--line_items[0]quantity`    | The unit quantity of the item.                                                                                             | false    |
 | `--line_items[0]taxed`       | Whether the estimate’s tax percentage applies to this line item.                                                           | false    |
 | `--line_items[0]taxed2`      | Whether the estimate’s tax2 percentage applies to this line item.                                                          | false    |
-| `--fields`                   | Comma separated list of fields to display in the output.                                                                   |          |
-| `--output`                   | The output format: json, table                                                                                             |          |
+| `--fields`                   | Comma separated list of fields to display in the output.                                                                   | false    |
+| `--output`                   | The output format: json, table                                                                                             | false    |
 
 ## Update an estimate
 
@@ -100,8 +100,8 @@ hrvst estimates update
 | `--notes`          | Any additional notes to include on the estimate.                                                                           | false    |
 | `--currency`       | The currency used by the estimate. If not provided, the client’s currency will be used. See a list of supported currencies | false    |
 | `--issue_date`     | Date the invoice was issued. Defaults to today’s date.                                                                     | false    |
-| `--fields`         | Comma separated list of fields to display in the output.                                                                   |          |
-| `--output`         | The output format: json, table                                                                                             |          |
+| `--fields`         | Comma separated list of fields to display in the output.                                                                   | false    |
+| `--output`         | The output format: json, table                                                                                             | false    |
 
 ## Delete an estimate
 
@@ -116,5 +116,5 @@ hrvst estimates delete
 | Option          | Description                                              | Required |
 | --------------- | -------------------------------------------------------- | -------- |
 | `--estimate_id` | The ID of the estimate you're deleting.                  | true     |
-| `--fields`      | Comma separated list of fields to display in the output. |          |
-| `--output`      | The output format: json, table                           |          |
+| `--fields`      | Comma separated list of fields to display in the output. | false    |
+| `--output`      | The output format: json, table                           | false    |

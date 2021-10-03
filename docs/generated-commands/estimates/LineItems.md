@@ -21,8 +21,8 @@ hrvst estimates line-items create
 | `--line_items[0]quantity`    | The unit quantity of the item.                                    | true     |
 | `--line_items[0]taxed`       | Whether the estimate's tax percentage applies to this line item.  | true     |
 | `--line_items[0]taxed2`      | Whether the estimate's tax2 percentage applies to this line item. | true     |
-| `--fields`                   | Comma separated list of fields to display in the output.          |          |
-| `--output`                   | The output format: json, table                                    |          |
+| `--fields`                   | Comma separated list of fields to display in the output.          | false    |
+| `--output`                   | The output format: json, table                                    | false    |
 
 ## Update an estimate line item
 
@@ -44,8 +44,8 @@ hrvst estimates line-items update
 | `--line_items[0]quantity`    | The unit quantity of the item.                                      | false    |
 | `--line_items[0]taxed`       | Whether the estimate's tax percentage applies to this line item.    | false    |
 | `--line_items[0]taxed2`      | Whether the estimate's tax2 percentage applies to this line item.   | false    |
-| `--fields`                   | Comma separated list of fields to display in the output.            |          |
-| `--output`                   | The output format: json, table                                      |          |
+| `--fields`                   | Comma separated list of fields to display in the output.            | false    |
+| `--output`                   | The output format: json, table                                      | false    |
 
 ## Delete an invoice line item
 
@@ -62,5 +62,5 @@ hrvst estimates line-items delete
 | `--estimate_id`           | The ID of the estimate that contains the line item you're deleting. | true     |
 | `--line_items[0]id`       | The ID of the line item you want to delete.                         | true     |
 | `--line_items[0]_destroy` | Gives the command to delete the line item.                          | true     |
-| `--fields`                | Comma separated list of fields to display in the output.            |          |
-| `--output`                | The output format: json, table                                      |          |
+| `--fields`                | Comma separated list of fields to display in the output.            | false    |
+| `--output`                | The output format: json, table                                      | false    |

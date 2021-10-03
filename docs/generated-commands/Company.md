@@ -16,5 +16,5 @@ hrvst company get
 
 | Option     | Description                                              | Required |
 | ---------- | -------------------------------------------------------- | -------- |
-| `--fields` | Comma separated list of fields to display in the output. |          |
-| `--output` | The output format: json, table                           |          |
+| `--fields` | Comma separated list of fields to display in the output. | false    |
+| `--output` | The output format: json, table                           | false    |

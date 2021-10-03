@@ -19,8 +19,8 @@ hrvst users billable-rates list-by-user
 | `--user_id`  | The ID of the user whose billable rates you're listing.                | true     |
 | `--page`     | The page number to use in pagination. Use `all` to retrieve all pages. | false    |
 | `--per_page` | The number of records to return per page. Can range between 1 and 100. | false    |
-| `--fields`   | Comma separated list of fields to display in the output.               |          |
-| `--output`   | The output format: json, table                                         |          |
+| `--fields`   | Comma separated list of fields to display in the output.               | false    |
+| `--output`   | The output format: json, table                                         | false    |
 
 ## Retrieve a specific billable rate
 
@@ -36,8 +36,8 @@ hrvst users billable-rates get
 | -------------------- | --------------------------------------------------------- | -------- |
 | `--user_id`          | The ID of the user whose billable rate you're retrieving. | true     |
 | `--billable_rate_id` | The ID of the billable rate you're retrieving.            | true     |
-| `--fields`           | Comma separated list of fields to display in the output.  |          |
-| `--output`           | The output format: json, table                            |          |
+| `--fields`           | Comma separated list of fields to display in the output.  | false    |
+| `--output`           | The output format: json, table                            | false    |
 
 ## Create a billable rate
 
@@ -57,5 +57,5 @@ hrvst users billable-rates create
 | `--user_id`    | The ID of the user that you're creating a billable rate for.             | true     |
 | `--amount`     | The amount of the billable rate.                                         | true     |
 | `--start_date` | The date the billable rate is effective. Cannot be a date in the future. | false    |
-| `--fields`     | Comma separated list of fields to display in the output.                 |          |
-| `--output`     | The output format: json, table                                           |          |
+| `--fields`     | Comma separated list of fields to display in the output.                 | false    |
+| `--output`     | The output format: json, table                                           | false    |

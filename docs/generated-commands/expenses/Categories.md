@@ -22,8 +22,8 @@ hrvst expenses categories list
 | `--update_since` | Only return expense categories that have been updated since the given date and time.                | false    |
 | `--page`         | The page number to use in pagination. Use `all` to retrieve all pages.                              | false    |
 | `--per_page`     | The number of records to return per page. Can range between 1 and 100.                              | false    |
-| `--fields`       | Comma separated list of fields to display in the output.                                            |          |
-| `--output`       | The output format: json, table                                                                      |          |
+| `--fields`       | Comma separated list of fields to display in the output.                                            | false    |
+| `--output`       | The output format: json, table                                                                      | false    |
 
 ## Retrieve a specific expense category
 
@@ -38,8 +38,8 @@ hrvst expenses categories get
 | Option                  | Description                                              | Required |
 | ----------------------- | -------------------------------------------------------- | -------- |
 | `--expense_category_id` | The ID of the expense category you're retrieving.        | true     |
-| `--fields`              | Comma separated list of fields to display in the output. |          |
-| `--output`              | The output format: json, table                           |          |
+| `--fields`              | Comma separated list of fields to display in the output. | false    |
+| `--output`              | The output format: json, table                           | false    |
 
 ## Create an expense category
 
@@ -57,8 +57,8 @@ hrvst expenses categories create
 | `--unit_name`  | The unit name of the expense category.                   | false    |
 | `--unit_price` | The unit price of the expense category.                  | false    |
 | `--is_active`  | Whether the expense category is active or archived.      | false    |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Update an expense category
 
@@ -77,8 +77,8 @@ hrvst expenses categories update
 | `--unit_name`           | The unit name of the expense category.                   | false    |
 | `--unit_price`          | The unit price of the expense category.                  | false    |
 | `--is_active`           | Whether the expense category is active or archived.      | false    |
-| `--fields`              | Comma separated list of fields to display in the output. |          |
-| `--output`              | The output format: json, table                           |          |
+| `--fields`              | Comma separated list of fields to display in the output. | false    |
+| `--output`              | The output format: json, table                           | false    |
 
 ## Delete an expense category
 
@@ -93,5 +93,5 @@ hrvst expenses categories delete
 | Option                  | Description                                              | Required |
 | ----------------------- | -------------------------------------------------------- | -------- |
 | `--expense_category_id` | The ID of the expense category you're retrieving.        | true     |
-| `--fields`              | Comma separated list of fields to display in the output. |          |
-| `--output`              | The output format: json, table                           |          |
+| `--fields`              | Comma separated list of fields to display in the output. | false    |
+| `--output`              | The output format: json, table                           | false    |

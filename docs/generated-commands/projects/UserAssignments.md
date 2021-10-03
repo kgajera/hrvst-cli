@@ -22,8 +22,8 @@ hrvst projects user-assignments list
 | `--updated_since` | Only return user assignments that have been updated since the given date and time.              | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                          | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                          | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                        |          |
-| `--output`        | The output format: json, table                                                                  |          |
+| `--fields`        | Comma separated list of fields to display in the output.                                        | false    |
+| `--output`        | The output format: json, table                                                                  | false    |
 
 ## List user assignments for a specific project
 
@@ -45,8 +45,8 @@ hrvst projects user-assignments list-by-project
 | `--updated_since` | Only return user assignments that have been updated since the given date and time.              | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                          | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                          | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                        |          |
-| `--output`        | The output format: json, table                                                                  |          |
+| `--fields`        | Comma separated list of fields to display in the output.                                        | false    |
+| `--output`        | The output format: json, table                                                                  | false    |
 
 ## Retrieve a specific user assignment
 
@@ -62,8 +62,8 @@ hrvst projects user-assignments get
 | ---------------------- | -------------------------------------------------------------------------- | -------- |
 | `--project_id`         | The ID of the project that contains the user assignment you're retrieving. | true     |
 | `--user_assignment_id` | The ID of the user assignment you're retrieving.                           | true     |
-| `--fields`             | Comma separated list of fields to display in the output.                   |          |
-| `--output`             | The output format: json, table                                             |          |
+| `--fields`             | Comma separated list of fields to display in the output.                   | false    |
+| `--output`             | The output format: json, table                                             | false    |
 
 ## Create a user assignment
 
@@ -84,8 +84,8 @@ hrvst projects user-assignments create
 | `--use_default_rates`  | Determines which billable rate(s) will be used on the project for this user when bill_by is People. When true, the project will use the user’s default billable rates. When false, the project will use the custom rate defined on this user assignment. | false    |
 | `--hourly_rate`        | Rate used when the project’s bill_by is Tasks. Defaults to null when billing by task hourly rate, otherwise 0.                                                                                                                                           | false    |
 | `--budget`             | Budget used when the project’s budget_by is task or task_fees.                                                                                                                                                                                           | false    |
-| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                                                                                                 |          |
-| `--output`             | The output format: json, table                                                                                                                                                                                                                           |          |
+| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                                                                                                 | false    |
+| `--output`             | The output format: json, table                                                                                                                                                                                                                           | false    |
 
 ## Update a user assignment
 
@@ -106,8 +106,8 @@ hrvst projects user-assignments update
 | `--use_default_rates`  | Determines which billable rate(s) will be used on the project for this user when bill_by is People. When true, the project will use the user’s default billable rates. When false, the project will use the custom rate defined on this user assignment. | false    |
 | `--hourly_rate`        | Custom rate used when the project’s bill_by is People and use_default_rates is false.                                                                                                                                                                    | false    |
 | `--budget`             | Budget used when the project’s budget_by is person.                                                                                                                                                                                                      | false    |
-| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                                                                                                 |          |
-| `--output`             | The output format: json, table                                                                                                                                                                                                                           |          |
+| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                                                                                                 | false    |
+| `--output`             | The output format: json, table                                                                                                                                                                                                                           | false    |
 
 ## Delete a user assignment
 
@@ -123,5 +123,5 @@ hrvst projects user-assignments delete
 | ---------------------- | ------------------------------------------------------------------------ | -------- |
 | `--project_id`         | The ID of the project that contains the user assignment you're deleting. | true     |
 | `--user_assignment_id` | The ID of the user assignment you're deleting.                           | true     |
-| `--fields`             | Comma separated list of fields to display in the output.                 |          |
-| `--output`             | The output format: json, table                                           |          |
+| `--fields`             | Comma separated list of fields to display in the output.                 | false    |
+| `--output`             | The output format: json, table                                           | false    |

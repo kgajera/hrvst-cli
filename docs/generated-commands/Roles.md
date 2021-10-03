@@ -20,8 +20,8 @@ hrvst roles list
 | ------------ | ------------------------------------------------------------------------------------- | -------- |
 | `--page`     | The page number to use in pagination. Use `all` to retrieve all pages.                | false    |
 | `--per_page` | The number of records to return per page. Can range between 1 and 100. (Default: 100) | false    |
-| `--fields`   | Comma separated list of fields to display in the output.                              |          |
-| `--output`   | The output format: json, table                                                        |          |
+| `--fields`   | Comma separated list of fields to display in the output.                              | false    |
+| `--output`   | The output format: json, table                                                        | false    |
 
 ## Retrieve a specific role
 
@@ -36,8 +36,8 @@ hrvst roles get
 | Option      | Description                                              | Required |
 | ----------- | -------------------------------------------------------- | -------- |
 | `--role_id` | The ID of the role you're retrieving.                    | true     |
-| `--fields`  | Comma separated list of fields to display in the output. |          |
-| `--output`  | The output format: json, table                           |          |
+| `--fields`  | Comma separated list of fields to display in the output. | false    |
+| `--output`  | The output format: json, table                           | false    |
 
 ## Create a role
 
@@ -53,8 +53,8 @@ hrvst roles create
 | -------------- | -------------------------------------------------------- | -------- |
 | `--name`       |                                                          | true     |
 | `--user_ids[]` | The IDs of the users assigned to this role.              | false    |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Update a role
 
@@ -70,8 +70,8 @@ hrvst roles update
 | ----------- | -------------------------------------------------------- | -------- |
 | `--role_id` | The ID of the role you're updating.                      | true     |
 | `--name`    | The name of the role.                                    | false    |
-| `--fields`  | Comma separated list of fields to display in the output. |          |
-| `--output`  | The output format: json, table                           |          |
+| `--fields`  | Comma separated list of fields to display in the output. | false    |
+| `--output`  | The output format: json, table                           | false    |
 
 ## Delete a role
 
@@ -86,5 +86,5 @@ hrvst roles delete
 | Option      | Description                                              | Required |
 | ----------- | -------------------------------------------------------- | -------- |
 | `--role_id` | The ID of the role you're updating.                      | true     |
-| `--fields`  | Comma separated list of fields to display in the output. |          |
-| `--output`  | The output format: json, table                           |          |
+| `--fields`  | Comma separated list of fields to display in the output. | false    |
+| `--output`  | The output format: json, table                           | false    |

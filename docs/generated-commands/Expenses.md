@@ -27,8 +27,8 @@ hrvst expenses list
 | `--to`            | Only return expenses with a spent_date on or before the given date.                                                 | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                                              | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                              | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                                            |          |
-| `--output`        | The output format: json, table                                                                                      |          |
+| `--fields`        | Comma separated list of fields to display in the output.                                                            | false    |
+| `--output`        | The output format: json, table                                                                                      | false    |
 
 ## Retrieve a specific expense
 
@@ -43,8 +43,8 @@ hrvst expenses get
 | Option         | Description                                              | Required |
 | -------------- | -------------------------------------------------------- | -------- |
 | `--expense_id` | The ID of the expense you're retrieving.                 | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Create an expense
 
@@ -66,8 +66,8 @@ hrvst expenses create
 | `--total_cost`          | The total amount of the expense.                                                                         | false    |
 | `--notes`               | Textual notes used to describe the expense.                                                              | false    |
 | `--billable`            | Whether this expense is billable or not. Defaults to true.                                               | false    |
-| `--fields`              | Comma separated list of fields to display in the output.                                                 |          |
-| `--output`              | The output format: json, table                                                                           |          |
+| `--fields`              | Comma separated list of fields to display in the output.                                                 | false    |
+| `--output`              | The output format: json, table                                                                           | false    |
 
 ## Update an expense
 
@@ -90,8 +90,8 @@ hrvst expenses update
 | `--notes`               | Textual notes used to describe the expense.                                                     | false    |
 | `--billable`            | Whether this expense is billable or not.                                                        | false    |
 | `--delete_receipt`      | Whether an attached expense receipt should be deleted. Pass true to delete the expense receipt. | false    |
-| `--fields`              | Comma separated list of fields to display in the output.                                        |          |
-| `--output`              | The output format: json, table                                                                  |          |
+| `--fields`              | Comma separated list of fields to display in the output.                                        | false    |
+| `--output`              | The output format: json, table                                                                  | false    |
 
 ## Delete an expense
 
@@ -106,5 +106,5 @@ hrvst expenses delete
 | Option         | Description                                              | Required |
 | -------------- | -------------------------------------------------------- | -------- |
 | `--expense_id` | The ID of the expense you're deleting.                   | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |

@@ -162,7 +162,7 @@ async function createDocs(
             Object.keys(options).map((key) => [
               `\`--${key}\``,
               options[key].describe?.trim(),
-              options[key].demandOption,
+              !!options[key].demandOption,
             ])
           );
         }

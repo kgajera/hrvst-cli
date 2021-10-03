@@ -21,8 +21,8 @@ hrvst invoices item-categories list
 | `--updated_since` | Only return invoice item categories that have been updated since the given date and time. | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                    | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.                    | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                  |          |
-| `--output`        | The output format: json, table                                                            |          |
+| `--fields`        | Comma separated list of fields to display in the output.                                  | false    |
+| `--output`        | The output format: json, table                                                            | false    |
 
 ## Retrieve a specific invoice item category
 
@@ -37,8 +37,8 @@ hrvst invoices item-categories get
 | Option                       | Description                                              | Required |
 | ---------------------------- | -------------------------------------------------------- | -------- |
 | `--invoice_item_category_id` | The ID of the invoice item category you're retrieving.   | true     |
-| `--fields`                   | Comma separated list of fields to display in the output. |          |
-| `--output`                   | The output format: json, table                           |          |
+| `--fields`                   | Comma separated list of fields to display in the output. | false    |
+| `--output`                   | The output format: json, table                           | false    |
 
 ## Create an invoice item category
 
@@ -53,8 +53,8 @@ hrvst invoices item-categories create
 | Option     | Description                                              | Required |
 | ---------- | -------------------------------------------------------- | -------- |
 | `--name`   | The name of the invoice item category.                   | true     |
-| `--fields` | Comma separated list of fields to display in the output. |          |
-| `--output` | The output format: json, table                           |          |
+| `--fields` | Comma separated list of fields to display in the output. | false    |
+| `--output` | The output format: json, table                           | false    |
 
 ## Update an invoice item category
 
@@ -70,8 +70,8 @@ hrvst invoices item-categories update
 | ---------------------------- | -------------------------------------------------------- | -------- |
 | `--invoice_item_category_id` | The ID of the invoice item category you're updating.     | true     |
 | `--name`                     | The name of the invoice item category.                   | false    |
-| `--fields`                   | Comma separated list of fields to display in the output. |          |
-| `--output`                   | The output format: json, table                           |          |
+| `--fields`                   | Comma separated list of fields to display in the output. | false    |
+| `--output`                   | The output format: json, table                           | false    |
 
 ## Delete an invoice item category
 
@@ -86,5 +86,5 @@ hrvst invoices item-categories delete
 | Option                       | Description                                              | Required |
 | ---------------------------- | -------------------------------------------------------- | -------- |
 | `--invoice_item_category_id` | The ID of the invoice item category you're deleting.     | true     |
-| `--fields`                   | Comma separated list of fields to display in the output. |          |
-| `--output`                   | The output format: json, table                           |          |
+| `--fields`                   | Comma separated list of fields to display in the output. | false    |
+| `--output`                   | The output format: json, table                           | false    |

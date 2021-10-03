@@ -26,8 +26,8 @@ hrvst invoices list
 | `--state`         | Only return invoices with a state matching the value provided. Options: draft, open, paid, or closed. | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                                | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100)                 | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                              |          |
-| `--output`        | The output format: json, table                                                                        |          |
+| `--fields`        | Comma separated list of fields to display in the output.                                              | false    |
+| `--output`        | The output format: json, table                                                                        | false    |
 
 ## Retrieve a specific invoice
 
@@ -42,8 +42,8 @@ hrvst invoices get
 | Option         | Description                                              | Required |
 | -------------- | -------------------------------------------------------- | -------- |
 | `--invoice_id` | The ID of the invoice you're retrieving.                 | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Create a free-form invoice
 
@@ -83,8 +83,8 @@ hrvst invoices create
 | `--line_items[1]quantity`    | The unit quantity of the item.                                                                                                   | false    |
 | `--line_items[1]taxed`       | Whether the invoice’s tax percentage applies to this line item.                                                                  | false    |
 | `--line_items[1]taxed2`      | Whether the invoice’s tax2 percentage applies to this line item.                                                                 | false    |
-| `--fields`                   | Comma separated list of fields to display in the output.                                                                         |          |
-| `--output`                   | The output format: json, table                                                                                                   |          |
+| `--fields`                   | Comma separated list of fields to display in the output.                                                                         | false    |
+| `--output`                   | The output format: json, table                                                                                                   | false    |
 
 ## Update an invoice
 
@@ -113,8 +113,8 @@ hrvst invoices update
 | `--issue_date`     | Date the invoice was issued. Defaults to today’s date.                                                                    | false    |
 | `--due_date`       | Date the invoice is due.                                                                                                  | false    |
 | `--payment_term`   | The timeframe in which the invoice should be paid. Options: upon receipt, net 15, net 30, net 45, or net 60.              | false    |
-| `--fields`         | Comma separated list of fields to display in the output.                                                                  |          |
-| `--output`         | The output format: json, table                                                                                            |          |
+| `--fields`         | Comma separated list of fields to display in the output.                                                                  | false    |
+| `--output`         | The output format: json, table                                                                                            | false    |
 
 ## Delete an invoice
 
@@ -129,5 +129,5 @@ hrvst invoices delete
 | Option         | Description                                              | Required |
 | -------------- | -------------------------------------------------------- | -------- |
 | `--invoice_id` | The ID of the invoice you're deleting.                   | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |

@@ -22,8 +22,8 @@ hrvst tasks list
 | `--updated_since` | Only return tasks that have been updated since the given date and time.               | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100) | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                              |          |
-| `--output`        | The output format: json, table                                                        |          |
+| `--fields`        | Comma separated list of fields to display in the output.                              | false    |
+| `--output`        | The output format: json, table                                                        | false    |
 
 ## Retrieve a specific task
 
@@ -38,8 +38,8 @@ hrvst tasks get
 | Option      | Description                                              | Required |
 | ----------- | -------------------------------------------------------- | -------- |
 | `--task_id` | The ID of the task you're retrieving.                    | true     |
-| `--fields`  | Comma separated list of fields to display in the output. |          |
-| `--output`  | The output format: json, table                           |          |
+| `--fields`  | Comma separated list of fields to display in the output. | false    |
+| `--output`  | The output format: json, table                           | false    |
 
 ## Create a task
 
@@ -58,8 +58,8 @@ hrvst tasks create
 | `--default_hourly_rate` | The default hourly rate to use for this task when it is added to a project. Defaults to 0.                        | false    |
 | `--is_default`          | Whether this task should be automatically added to future projects. Defaults to false.                            | false    |
 | `--is_active`           | Whether this task is active or archived. Defaults to true.                                                        | false    |
-| `--fields`              | Comma separated list of fields to display in the output.                                                          |          |
-| `--output`              | The output format: json, table                                                                                    |          |
+| `--fields`              | Comma separated list of fields to display in the output.                                                          | false    |
+| `--output`              | The output format: json, table                                                                                    | false    |
 
 ## Update a task
 
@@ -79,8 +79,8 @@ hrvst tasks update
 | `--default_hourly_rate` | The default hourly rate to use for this task when it is added to a project.                      | false    |
 | `--is_default`          | Whether this task should be automatically added to future projects.                              | false    |
 | `--is_active`           | Whether this task is active or archived.                                                         | false    |
-| `--fields`              | Comma separated list of fields to display in the output.                                         |          |
-| `--output`              | The output format: json, table                                                                   |          |
+| `--fields`              | Comma separated list of fields to display in the output.                                         | false    |
+| `--output`              | The output format: json, table                                                                   | false    |
 
 ## Delete a task
 
@@ -95,5 +95,5 @@ hrvst tasks delete
 | Option      | Description                                              | Required |
 | ----------- | -------------------------------------------------------- | -------- |
 | `--task_id` | The ID of the task you're deleting.                      | true     |
-| `--fields`  | Comma separated list of fields to display in the output. |          |
-| `--output`  | The output format: json, table                           |          |
+| `--fields`  | Comma separated list of fields to display in the output. | false    |
+| `--output`  | The output format: json, table                           | false    |

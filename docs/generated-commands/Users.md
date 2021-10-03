@@ -14,8 +14,8 @@ hrvst users me
 
 | Option     | Description                                              | Required |
 | ---------- | -------------------------------------------------------- | -------- |
-| `--fields` | Comma separated list of fields to display in the output. |          |
-| `--output` | The output format: json, table                           |          |
+| `--fields` | Comma separated list of fields to display in the output. | false    |
+| `--output` | The output format: json, table                           | false    |
 
 ## List all users
 
@@ -35,8 +35,8 @@ hrvst users list
 | `--updated_since` | Only return users that have been updated since the given date and time.   | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.    | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.    | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                  |          |
-| `--output`        | The output format: json, table                                            |          |
+| `--fields`        | Comma separated list of fields to display in the output.                  | false    |
+| `--output`        | The output format: json, table                                            | false    |
 
 ## Retrieve a specific user
 
@@ -51,8 +51,8 @@ hrvst users get
 | Option      | Description                                              | Required |
 | ----------- | -------------------------------------------------------- | -------- |
 | `--user_id` | The ID of the user you're retrieving.                    | true     |
-| `--fields`  | Comma separated list of fields to display in the output. |          |
-| `--output`  | The output format: json, table                           |          |
+| `--fields`  | Comma separated list of fields to display in the output. | false    |
+| `--output`  | The output format: json, table                           | false    |
 
 ## Create a user
 
@@ -82,8 +82,8 @@ hrvst users create
 | `--weekly_capacity`                   | The number of hours per week this person is available to work in seconds.                 | false    |
 | `--default_hourly_rate`               | The billable rate to use for this user when they are added to a project.                  | false    |
 | `--cost_rate`                         | The cost rate to use for this user when calculating a project’s costs vs billable amount. | false    |
-| `--fields`                            | Comma separated list of fields to display in the output.                                  |          |
-| `--output`                            | The output format: json, table                                                            |          |
+| `--fields`                            | Comma separated list of fields to display in the output.                                  | false    |
+| `--output`                            | The output format: json, table                                                            | false    |
 
 ## Update a user
 
@@ -114,8 +114,8 @@ hrvst users update
 | `--weekly_capacity`                   | The number of hours per week this person is available to work in seconds.                 | false    |
 | `--default_hourly_rate`               | The billable rate to use for this user when they are added to a project.                  | false    |
 | `--cost_rate`                         | The cost rate to use for this user when calculating a project’s costs vs billable amount. | false    |
-| `--fields`                            | Comma separated list of fields to display in the output.                                  |          |
-| `--output`                            | The output format: json, table                                                            |          |
+| `--fields`                            | Comma separated list of fields to display in the output.                                  | false    |
+| `--output`                            | The output format: json, table                                                            | false    |
 
 ## Delete a user
 
@@ -130,5 +130,5 @@ hrvst users delete
 | Option      | Description                                              | Required |
 | ----------- | -------------------------------------------------------- | -------- |
 | `--user_id` | The ID of the user you're deleting.                      | true     |
-| `--fields`  | Comma separated list of fields to display in the output. |          |
-| `--output`  | The output format: json, table                           |          |
+| `--fields`  | Comma separated list of fields to display in the output. | false    |
+| `--output`  | The output format: json, table                           | false    |

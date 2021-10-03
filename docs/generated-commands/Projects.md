@@ -23,8 +23,8 @@ hrvst projects list
 | `--updated_since` | Only return projects that have been updated since the given date and time.            | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100) | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                              |          |
-| `--output`        | The output format: json, table                                                        |          |
+| `--fields`        | Comma separated list of fields to display in the output.                              | false    |
+| `--output`        | The output format: json, table                                                        | false    |
 
 ## Retrieve a specific project
 
@@ -39,8 +39,8 @@ hrvst projects get
 | Option         | Description                                              | Required |
 | -------------- | -------------------------------------------------------- | -------- |
 | `--project_id` | The ID of the project you're retrieving.                 | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Create a project
 
@@ -73,8 +73,8 @@ hrvst projects create
 | `--notes`                               | Notes about the project.                                                                                         | false    |
 | `--starts_on`                           | Date the project was started.                                                                                    | false    |
 | `--ends_on`                             | Date the project will end.                                                                                       | false    |
-| `--fields`                              | Comma separated list of fields to display in the output.                                                         |          |
-| `--output`                              | The output format: json, table                                                                                   |          |
+| `--fields`                              | Comma separated list of fields to display in the output.                                                         | false    |
+| `--output`                              | The output format: json, table                                                                                   | false    |
 
 ## Update a project
 
@@ -108,8 +108,8 @@ hrvst projects update
 | `--notes`                               | Notes about the project.                                                                                         | false    |
 | `--starts_on`                           | Date the project was started.                                                                                    | false    |
 | `--ends_on`                             | Date the project will end.                                                                                       | false    |
-| `--fields`                              | Comma separated list of fields to display in the output.                                                         |          |
-| `--output`                              | The output format: json, table                                                                                   |          |
+| `--fields`                              | Comma separated list of fields to display in the output.                                                         | false    |
+| `--output`                              | The output format: json, table                                                                                   | false    |
 
 ## Delete a project
 
@@ -124,5 +124,5 @@ hrvst projects delete
 | Option         | Description                                              | Required |
 | -------------- | -------------------------------------------------------- | -------- |
 | `--project_id` | The ID of the project you're deleting.                   | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |

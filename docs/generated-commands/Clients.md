@@ -24,8 +24,8 @@ hrvst clients list
 | `--updated_since` | Only return clients that have been updated since the given date and time.     | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.        | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.        | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                      |          |
-| `--output`        | The output format: json, table                                                |          |
+| `--fields`        | Comma separated list of fields to display in the output.                      | false    |
+| `--output`        | The output format: json, table                                                | false    |
 
 ## Retrieve a specific client
 
@@ -40,8 +40,8 @@ hrvst clients get
 | Option        | Description                                              | Required |
 | ------------- | -------------------------------------------------------- | -------- |
 | `--client_id` | The ID of the client you're retrieving.                  | true     |
-| `--fields`    | Comma separated list of fields to display in the output. |          |
-| `--output`    | The output format: json, table                           |          |
+| `--fields`    | Comma separated list of fields to display in the output. | false    |
+| `--output`    | The output format: json, table                           | false    |
 
 ## Create a client
 
@@ -61,8 +61,8 @@ hrvst clients create
 | `--is_active` | Whether the client is active, or archived. Defaults to true.                                                                                                                                              | false    |
 | `--address`   | A textual representation of the client’s physical address. May include new line characters.                                                                                                               | false    |
 | `--currency`  | The currency used by the client. If not provided, the company’s currency will be used. See a list of supported currencies: https://help.getharvest.com/api-v2/introduction/overview/supported-currencies/ | false    |
-| `--fields`    | Comma separated list of fields to display in the output.                                                                                                                                                  |          |
-| `--output`    | The output format: json, table                                                                                                                                                                            |          |
+| `--fields`    | Comma separated list of fields to display in the output.                                                                                                                                                  | false    |
+| `--output`    | The output format: json, table                                                                                                                                                                            | false    |
 
 ## Update a client
 
@@ -83,8 +83,8 @@ hrvst clients update
 | `--is_active` | Whether the client is active, or archived. Defaults to true.                                                                                                                                              | false    |
 | `--address`   | A textual representation of the client’s physical address. May include new line characters.                                                                                                               | false    |
 | `--currency`  | The currency used by the client. If not provided, the company’s currency will be used. See a list of supported currencies: https://help.getharvest.com/api-v2/introduction/overview/supported-currencies/ | false    |
-| `--fields`    | Comma separated list of fields to display in the output.                                                                                                                                                  |          |
-| `--output`    | The output format: json, table                                                                                                                                                                            |          |
+| `--fields`    | Comma separated list of fields to display in the output.                                                                                                                                                  | false    |
+| `--output`    | The output format: json, table                                                                                                                                                                            | false    |
 
 ## Delete a client
 
@@ -99,5 +99,5 @@ hrvst clients delete
 | Option        | Description                                              | Required |
 | ------------- | -------------------------------------------------------- | -------- |
 | `--client_id` | The ID of the client you're deleting.                    | true     |
-| `--fields`    | Comma separated list of fields to display in the output. |          |
-| `--output`    | The output format: json, table                           |          |
+| `--fields`    | Comma separated list of fields to display in the output. | false    |
+| `--output`    | The output format: json, table                           | false    |

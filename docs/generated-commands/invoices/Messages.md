@@ -20,8 +20,8 @@ hrvst invoices messages list-by-invoice
 | `--updated_since` | Only return invoice messages that have been updated since the given date and time. | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.             | false    |
 | `--per_page`      | The number of records to return per page. Can range between 1 and 100.             | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                           |          |
-| `--output`        | The output format: json, table                                                     |          |
+| `--fields`        | Comma separated list of fields to display in the output.                           | false    |
+| `--output`        | The output format: json, table                                                     | false    |
 
 ## Create an invoice message
 
@@ -45,8 +45,8 @@ hrvst invoices messages create
 | `--send_me_a_copy`                 | Whether to email a copy of the message to the current user.                                           | false    |
 | `--thank_you`                      | Whether this is a thank you message.                                                                  | false    |
 | `--event_type`                     | The type of invoice event that occurred with the message: send, close, draft, re-open, or view.       | false    |
-| `--fields`                         | Comma separated list of fields to display in the output.                                              |          |
-| `--output`                         | The output format: json, table                                                                        |          |
+| `--fields`                         | Comma separated list of fields to display in the output.                                              | false    |
+| `--output`                         | The output format: json, table                                                                        | false    |
 
 ## Mark a draft invoice as sent
 
@@ -62,8 +62,8 @@ hrvst invoices messages mark-draft-invoice-as-sent
 | -------------- | -------------------------------------------------------- | -------- |
 | `--invoice_id` | The ID of the invoice you're sending.                    | true     |
 | `--event_type` | Pass “send” to mark the invoice as sent.                 | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Mark an open invoice as closed
 
@@ -79,8 +79,8 @@ hrvst invoices messages mark-open-invoice-as-closed
 | -------------- | -------------------------------------------------------- | -------- |
 | `--invoice_id` | The ID of the invoice you're closing.                    | true     |
 | `--event_type` | Pass “close” to mark the invoice as closed.              | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Re-open a closed invoice
 
@@ -96,8 +96,8 @@ hrvst invoices messages re-open-closed-invoice
 | -------------- | -------------------------------------------------------- | -------- |
 | `--invoice_id` | The ID of the invoice you're closing.                    | true     |
 | `--event_type` | Pass "re-open" to re-open the invoice                    | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Mark an open invoice as a draft
 
@@ -113,8 +113,8 @@ hrvst invoices messages mark-open-invoice-as-draft
 | -------------- | -------------------------------------------------------- | -------- |
 | `--invoice_id` | The ID of the invoice you're marking as a draft.         | true     |
 | `--event_type` | Pass “draft” to mark the invoice as a draft.             | true     |
-| `--fields`     | Comma separated list of fields to display in the output. |          |
-| `--output`     | The output format: json, table                           |          |
+| `--fields`     | Comma separated list of fields to display in the output. | false    |
+| `--output`     | The output format: json, table                           | false    |
 
 ## Delete an invoice message
 
@@ -130,5 +130,5 @@ hrvst invoices messages delete
 | -------------- | ----------------------------------------------------------------- | -------- |
 | `--invoice_id` | The ID of the invoice that contains the message you are deleting. | true     |
 | `--message_id` | The ID of the message you are deleting.                           | true     |
-| `--fields`     | Comma separated list of fields to display in the output.          |          |
-| `--output`     | The output format: json, table                                    |          |
+| `--fields`     | Comma separated list of fields to display in the output.          | false    |
+| `--output`     | The output format: json, table                                    | false    |
