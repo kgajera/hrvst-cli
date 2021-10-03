@@ -16,13 +16,13 @@ The response contains an object with a `invoice_item_categories` property that c
 hrvst invoices item-categories list
 ```
 
-| Option            | Description                                                                                                                                                                            | Required |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--updated_since` | Only return invoice item categories that have been updated since the given date and time.                                                                                              | false    |
-| `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
-| `--output`        | The output format: json, table                                                                                                                                                         |          |
+| Option            | Description                                                                               | Required |
+| ----------------- | ----------------------------------------------------------------------------------------- | -------- |
+| `--updated_since` | Only return invoice item categories that have been updated since the given date and time. | false    |
+| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                    | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                    | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                  |          |
+| `--output`        | The output format: json, table                                                            |          |
 
 ## Retrieve a specific invoice item category
 

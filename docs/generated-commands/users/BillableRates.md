@@ -14,13 +14,13 @@ The response contains an object with a `billable_rates` property that contains a
 hrvst users billable-rates list-by-user
 ```
 
-| Option       | Description                                                                                                                                                                            | Required |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--user_id`  | The ID of the user whose billable rates you're listing.                                                                                                                                | true     |
-| `--page`     | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
-| `--per_page` | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`   | Comma separated list of fields to display in the output.                                                                                                                               |          |
-| `--output`   | The output format: json, table                                                                                                                                                         |          |
+| Option       | Description                                                            | Required |
+| ------------ | ---------------------------------------------------------------------- | -------- |
+| `--user_id`  | The ID of the user whose billable rates you're listing.                | true     |
+| `--page`     | The page number to use in pagination. Use `all` to retrieve all pages. | false    |
+| `--per_page` | The number of records to return per page. Can range between 1 and 100. | false    |
+| `--fields`   | Comma separated list of fields to display in the output.               |          |
+| `--output`   | The output format: json, table                                         |          |
 
 ## Retrieve a specific billable rate
 

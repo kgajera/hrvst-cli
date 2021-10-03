@@ -16,19 +16,19 @@ The response contains an object with a `expenses` property that contains an arra
 hrvst expenses list
 ```
 
-| Option            | Description                                                                                                                                                                            | Required |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--user_id`       | Only return expenses belonging to the user with the given ID.                                                                                                                          | false    |
-| `--client_id`     | Only return expenses belonging to the client with the given ID.                                                                                                                        | false    |
-| `--project_id`    | Only return expenses belonging to the project with the given ID.                                                                                                                       | false    |
-| `--is_billed`     | Pass true to only return expenses that have been invoiced and false to return expenses that have not been invoiced.                                                                    | false    |
-| `--updated_since` | Only return expenses that have been updated since the given date and time.                                                                                                             | false    |
-| `--from`          | Only return expenses with a spent_date on or after the given date.                                                                                                                     | false    |
-| `--to`            | Only return expenses with a spent_date on or before the given date.                                                                                                                    | false    |
-| `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
-| `--output`        | The output format: json, table                                                                                                                                                         |          |
+| Option            | Description                                                                                                         | Required |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
+| `--user_id`       | Only return expenses belonging to the user with the given ID.                                                       | false    |
+| `--client_id`     | Only return expenses belonging to the client with the given ID.                                                     | false    |
+| `--project_id`    | Only return expenses belonging to the project with the given ID.                                                    | false    |
+| `--is_billed`     | Pass true to only return expenses that have been invoiced and false to return expenses that have not been invoiced. | false    |
+| `--updated_since` | Only return expenses that have been updated since the given date and time.                                          | false    |
+| `--from`          | Only return expenses with a spent_date on or after the given date.                                                  | false    |
+| `--to`            | Only return expenses with a spent_date on or before the given date.                                                 | false    |
+| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                                              | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                              | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                                            |          |
+| `--output`        | The output format: json, table                                                                                      |          |
 
 ## Retrieve a specific expense
 

@@ -16,14 +16,14 @@ The response contains an object with a `task_assignments` property that contains
 hrvst projects task-assignments list
 ```
 
-| Option            | Description                                                                                                                                                                            | Required |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--is_active`     | Pass true to only return active task assignments and false to return inactive task assignments.                                                                                        | false    |
-| `--updated_since` | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
-| `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                               |          |
-| `--output`        | The output format: json, table                                                                                                                                                         |          |
+| Option            | Description                                                                                     | Required |
+| ----------------- | ----------------------------------------------------------------------------------------------- | -------- |
+| `--is_active`     | Pass true to only return active task assignments and false to return inactive task assignments. | false    |
+| `--updated_since` | Only return task assignments that have been updated since the given date and time.              | false    |
+| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                          | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                          | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                        |          |
+| `--output`        | The output format: json, table                                                                  |          |
 
 ## List task assignments for a specific project
 
@@ -37,15 +37,15 @@ The response contains an object with a `task_assignments` property that contains
 hrvst projects task-assignments list-by-project
 ```
 
-| Option           | Description                                                                                                                                                                            | Required |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--project_id`   | The ID of the project that contains the task assignments you're retrieving.                                                                                                            | true     |
-| `--is_active`    | Pass true to only return active task assignments and false to return inactive task assignments.                                                                                        | false    |
-| `--update_since` | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
-| `--page`         | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
-| `--per_page`     | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`       | Comma separated list of fields to display in the output.                                                                                                                               |          |
-| `--output`       | The output format: json, table                                                                                                                                                         |          |
+| Option           | Description                                                                                     | Required |
+| ---------------- | ----------------------------------------------------------------------------------------------- | -------- |
+| `--project_id`   | The ID of the project that contains the task assignments you're retrieving.                     | true     |
+| `--is_active`    | Pass true to only return active task assignments and false to return inactive task assignments. | false    |
+| `--update_since` | Only return task assignments that have been updated since the given date and time.              | false    |
+| `--page`         | The page number to use in pagination. Use `all` to retrieve all pages.                          | false    |
+| `--per_page`     | The number of records to return per page. Can range between 1 and 100.                          | false    |
+| `--fields`       | Comma separated list of fields to display in the output.                                        |          |
+| `--output`       | The output format: json, table                                                                  |          |
 
 ## Retrieve a specific task assignment
 
@@ -57,16 +57,16 @@ Retrieves the task assignment with the given ID. Returns a task assignment objec
 hrvst projects task-assignments get
 ```
 
-| Option                 | Description                                                                                                                                                                            | Required |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--project_id`         | The ID of the project that contains the task assignment you're retrieving.                                                                                                             | true     |
-| `--task_assignment_id` | The ID of the task assignment you're retrieving.                                                                                                                                       | true     |
-| `--is_active`          | Pass true to only return active task assignments and false to return inactive task assignments.                                                                                        | false    |
-| `--updated_since`      | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
-| `--page`               | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
-| `--per_page`           | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                               |          |
-| `--output`             | The output format: json, table                                                                                                                                                         |          |
+| Option                 | Description                                                                                     | Required |
+| ---------------------- | ----------------------------------------------------------------------------------------------- | -------- |
+| `--project_id`         | The ID of the project that contains the task assignment you're retrieving.                      | true     |
+| `--task_assignment_id` | The ID of the task assignment you're retrieving.                                                | true     |
+| `--is_active`          | Pass true to only return active task assignments and false to return inactive task assignments. | false    |
+| `--updated_since`      | Only return task assignments that have been updated since the given date and time.              | false    |
+| `--page`               | The page number to use in pagination. Use `all` to retrieve all pages.                          | false    |
+| `--per_page`           | The number of records to return per page. Can range between 1 and 100.                          | false    |
+| `--fields`             | Comma separated list of fields to display in the output.                                        |          |
+| `--output`             | The output format: json, table                                                                  |          |
 
 ## Create a task assignment
 
@@ -99,16 +99,16 @@ Updates the specific task assignment by setting the values of the parameters pas
 hrvst projects task-assignments update
 ```
 
-| Option                 | Description                                                                                                                                                                            | Required |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--project_id`         | The ID of the project that contains the task assignments you're updating.                                                                                                              | true     |
-| `--task_assignment_id` | The ID of the task assignment you're updating.                                                                                                                                         | true     |
-| `--is_active`          | Pass true to only return active task assignments and false to return inactive task assignments.                                                                                        | false    |
-| `--update_since`       | Only return task assignments that have been updated since the given date and time.                                                                                                     | false    |
-| `--page`               | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. | false    |
-| `--per_page`           | The number of records to return per page. Can range between 1 and 100.                                                                                                                 | false    |
-| `--fields`             | Comma separated list of fields to display in the output.                                                                                                                               |          |
-| `--output`             | The output format: json, table                                                                                                                                                         |          |
+| Option                 | Description                                                                                     | Required |
+| ---------------------- | ----------------------------------------------------------------------------------------------- | -------- |
+| `--project_id`         | The ID of the project that contains the task assignments you're updating.                       | true     |
+| `--task_assignment_id` | The ID of the task assignment you're updating.                                                  | true     |
+| `--is_active`          | Pass true to only return active task assignments and false to return inactive task assignments. | false    |
+| `--update_since`       | Only return task assignments that have been updated since the given date and time.              | false    |
+| `--page`               | The page number to use in pagination. Use `all` to retrieve all pages.                          | false    |
+| `--per_page`           | The number of records to return per page. Can range between 1 and 100.                          | false    |
+| `--fields`             | Comma separated list of fields to display in the output.                                        |          |
+| `--output`             | The output format: json, table                                                                  |          |
 
 ## Delete a task assignment
 

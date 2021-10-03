@@ -30,7 +30,7 @@ export const request: Request = {
         key: "page",
         value: "",
         description:
-          "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1)",
+          "The page number to use in pagination. Use `all` to retrieve all pages.",
         disabled: true,
       },
       {

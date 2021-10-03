@@ -14,6 +14,7 @@ import {
 import { format } from "prettier";
 import yargs, { Arguments, Argv } from "yargs";
 import { urlArgOptions } from "../src/utils/postman-request-command";
+import descriptions from "./descriptions";
 
 type CommandDictionary = Record<string, string>;
 
@@ -269,15 +270,20 @@ import postmanRequestCommand, { Request } from "${relativeSrc}/utils/postman-req
 export const request: Request = ${JSON.stringify({
   method: request.method,
   url: ((r) => {
-    // Remove dummy values
-    const clearValues = (
+    const prepareParams = (
       variables?: QueryParamDefinition[] | VariableDefinition[]
     ) =>
-      variables?.forEach(
-        (v: QueryParamDefinition | VariableDefinition) => (v.value = "")
-      );
-    clearValues(r.url.query as QueryParamDefinition[]);
-    clearValues(r.url.variable);
+      variables?.forEach((v: QueryParamDefinition | VariableDefinition) => {
+        // Remove dummy values
+        v.value = "";
+
+        // Override description
+        if (v.key && v.key in descriptions) {
+          v.description = descriptions[v.key];
+        }
+      });
+    prepareParams(r.url.query as QueryParamDefinition[]);
+    prepareParams(r.url.variable);
     return omit(r.url, "raw");
   })(request),
 })};

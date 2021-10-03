@@ -16,21 +16,21 @@ The response contains an object with a `time_entries` property that contains an 
 hrvst time-entries list
 ```
 
-| Option                    | Description                                                                                                                                                                                         | Required |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--user_id`               | Only return time entries belonging to the user with the given ID.                                                                                                                                   | false    |
-| `--client_id`             | Only return time entries belonging to the client with the given ID.                                                                                                                                 | false    |
-| `--task_id`               | Only return time entries belonging to the task with the given ID.                                                                                                                                   | false    |
-| `--external_reference_id` | Only return time entries with the given external_reference ID.                                                                                                                                      | false    |
-| `--is_billed`             | Pass true to only return time entries that have been invoiced and false to return time entries that have not been invoiced.                                                                         | false    |
-| `--is_running`            | Pass true to only return running time entries and false to return non-running time entries.                                                                                                         | false    |
-| `--updated_since`         | Only return time entries that have been updated since the given date and time.                                                                                                                      | false    |
-| `--from`                  | Only return time entries with a spent_date on or after the given date.                                                                                                                              | false    |
-| `--to`                    | Only return time entries with a spent_date on or before the given date.                                                                                                                             | false    |
-| `--page`                  | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1) | false    |
-| `--per_page`              | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                                                                                               | false    |
-| `--fields`                | Comma separated list of fields to display in the output.                                                                                                                                            |          |
-| `--output`                | The output format: json, table                                                                                                                                                                      |          |
+| Option                    | Description                                                                                                                 | Required |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `--user_id`               | Only return time entries belonging to the user with the given ID.                                                           | false    |
+| `--client_id`             | Only return time entries belonging to the client with the given ID.                                                         | false    |
+| `--task_id`               | Only return time entries belonging to the task with the given ID.                                                           | false    |
+| `--external_reference_id` | Only return time entries with the given external_reference ID.                                                              | false    |
+| `--is_billed`             | Pass true to only return time entries that have been invoiced and false to return time entries that have not been invoiced. | false    |
+| `--is_running`            | Pass true to only return running time entries and false to return non-running time entries.                                 | false    |
+| `--updated_since`         | Only return time entries that have been updated since the given date and time.                                              | false    |
+| `--from`                  | Only return time entries with a spent_date on or after the given date.                                                      | false    |
+| `--to`                    | Only return time entries with a spent_date on or before the given date.                                                     | false    |
+| `--page`                  | The page number to use in pagination. Use `all` to retrieve all pages.                                                      | false    |
+| `--per_page`              | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                       | false    |
+| `--fields`                | Comma separated list of fields to display in the output.                                                                    |          |
+| `--output`                | The output format: json, table                                                                                              |          |
 
 ## Retrieve a specific time entry
 

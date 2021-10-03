@@ -16,18 +16,18 @@ The response contains an object with a `invoices` property that contains an arra
 hrvst invoices list
 ```
 
-| Option            | Description                                                                                                                                                                                         | Required |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| `--client_id`     | Only return invoices belonging to the client with the given ID.                                                                                                                                     | false    |
-| `--project_id`    | Only return invoices associated with the project with the given ID.                                                                                                                                 | false    |
-| `--updated_since` | Only return invoices that have been updated since the given date and time.                                                                                                                          | false    |
-| `--from`          | Only return invoices with an issue_date on or after the given date.                                                                                                                                 | false    |
-| `--to`            | Only return invoices with an issue_date on or before the given date.                                                                                                                                | false    |
-| `--state`         | Only return invoices with a state matching the value provided. Options: draft, open, paid, or closed.                                                                                               | false    |
-| `--page`          | The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1) | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100)                                                                                                               | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                                                                                                                                            |          |
-| `--output`        | The output format: json, table                                                                                                                                                                      |          |
+| Option            | Description                                                                                           | Required |
+| ----------------- | ----------------------------------------------------------------------------------------------------- | -------- |
+| `--client_id`     | Only return invoices belonging to the client with the given ID.                                       | false    |
+| `--project_id`    | Only return invoices associated with the project with the given ID.                                   | false    |
+| `--updated_since` | Only return invoices that have been updated since the given date and time.                            | false    |
+| `--from`          | Only return invoices with an issue_date on or after the given date.                                   | false    |
+| `--to`            | Only return invoices with an issue_date on or before the given date.                                  | false    |
+| `--state`         | Only return invoices with a state matching the value provided. Options: draft, open, paid, or closed. | false    |
+| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                                | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100)                 | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                                              |          |
+| `--output`        | The output format: json, table                                                                        |          |
 
 ## Retrieve a specific invoice
 

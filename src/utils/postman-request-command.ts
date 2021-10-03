@@ -51,16 +51,31 @@ export default ({
       return args.options(options).version(false);
     },
     handler: async (args: PostmanRequestArguments) => {
-      const { data } = await spinner(() =>
-        httpRequest(request.method, url, args)
-      );
-      let output = data;
       const path = request.url.path as string[];
       const resourceName = path[path.length - 1];
       const outputFields = args.fields?.length ? args.fields.split(",") : [];
+      let output = await spinner(async () => apiRequest());
 
-      if ("page" in data) {
-        output = data[resourceName];
+      async function apiRequest(page?: number) {
+        const fetchAll = args.page === "all";
+        const requestArgs = Object.assign({}, args);
+        if (page || fetchAll) {
+          requestArgs.page = page || 1;
+        }
+
+        const { data } = await httpRequest(request.method, url, requestArgs);
+
+        if (data.page && Array.isArray(data[resourceName])) {
+          const objects = data[resourceName];
+
+          if (fetchAll && data.next_page) {
+            objects.push(...(await apiRequest(data.next_page)));
+          }
+
+          return objects;
+        }
+
+        return data;
       }
 
       switch (args.output) {
@@ -96,7 +111,7 @@ export default ({
               console.log(table.toString());
             }
           } else {
-            console.log(verticalTable(data, outputFields).toString());
+            console.log(verticalTable(output, outputFields).toString());
           }
         }
       }
