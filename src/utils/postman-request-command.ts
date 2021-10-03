@@ -176,7 +176,7 @@ export async function httpRequest<T = any>(
     options.url = url.getPathWithQuery();
   } else {
     options.url = url.getPath();
-    options.data = url.getQueryString();
+    options.data = url.query.toObject(true);
   }
 
   return axios.request(options);

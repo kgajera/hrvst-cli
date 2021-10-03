@@ -275,7 +275,10 @@ describe("postman-request-command", () => {
 
         expect(axiosRequest).toHaveBeenCalledWith({
           baseURL: `${url.protocol}://${url.getHost()}`,
-          data: "client_id=3871864&name=Test project",
+          data: {
+            client_id: "3871864",
+            name: "Test project",
+          },
           headers: {
             "User-Agent": USER_AGENT,
             Authorization: `Bearer ${mockConfig.accessToken}`,
