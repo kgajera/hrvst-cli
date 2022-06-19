@@ -1,5 +1,7 @@
 # Alias
 
+Aliases provide a convenient way to reference a project and task assignment. After creating an alias, you can use it to start a timer.
+
 ## List all aliases
 
 List all aliases you have created.
