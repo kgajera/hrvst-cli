@@ -10,9 +10,9 @@ hrvst start [alias]
 
 ### Arguments
 
-| Argument  | Description                                                   | Required |
-| --------- | ------------------------------------------------------------- | -------- |
-| `[alias]` | [Alias](/docs/commands/Alias.md) for a project id and task id | false    |
+| Argument  | Description                        | Required |
+| --------- | ---------------------------------- | -------- |
+| `[alias]` | Alias for a project id and task id | false    |
 
 ### Options
 
