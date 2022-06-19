@@ -8,8 +8,9 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "hrvst-cli",
   tagline: "Unoffical CLI for Harvest",
-  url: "https://kgajera.github.io/hrvst-cli",
-  baseUrl: "/",
+  url: "https://kgajera.github.io",
+  baseUrl: "/hrvst-cli/",
+  trailingSlash: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",

@@ -1,0 +1,33 @@
+name: Deploy GitHub Pages
+
+on:
+  workflow_run:
+    workflows: ["Tests"]
+    branches: [main]
+    types:
+      - completed
+
+defaults:
+  run:
+    shell: bash
+    working-directory: website
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/build
