@@ -74,6 +74,11 @@ const config = {
           },
         ],
       },
+      algolia: {
+        appId: "7T7NPZ0ZD9",
+        apiKey: "79e587afc3909f9652d8bcd1ee71b286",
+        indexName: "hrvst-cli",
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
