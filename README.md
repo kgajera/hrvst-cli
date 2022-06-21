@@ -1,7 +1,7 @@
 # Harvest CLI
 
 [![npm version](https://badge.fury.io/js/hrvst-cli.svg)](https://badge.fury.io/js/hrvst-cli)
-[![Tests](https://github.com/kgajera/hrvst-cli/actions/workflows/workflow.yml/badge.svg)](https://github.com/kgajera/hrvst-cli/actions/workflows/workflow.yml)
+[![Tests](https://github.com/kgajera/hrvst-cli/actions/workflows/tests.yml/badge.svg)](https://github.com/kgajera/hrvst-cli/actions/workflows/tests.yml)
 
 This is an unofficial Harvest CLI that contains all features available in Harvest's [REST API V2](https://help.getharvest.com/api-v2/). The majority of the CLI is generated from an export of Harvest's [Postman Collection](https://help.getharvest.com/api-v2/introduction/overview/postman-collection/).
 
