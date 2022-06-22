@@ -5,7 +5,7 @@
 
 This is an unofficial Harvest CLI that contains all features available in Harvest's [REST API V2](https://help.getharvest.com/api-v2/). The majority of the CLI is generated from an export of Harvest's [Postman Collection](https://help.getharvest.com/api-v2/introduction/overview/postman-collection/).
 
-In addition to supporting features of the REST API, the Harvest CLI provides convenient ways to [track time](#tracking-time).
+In addition to supporting features of the REST API, the Harvest CLI provides convenient ways to [track time](/docs/commands/TimeTracking.md).
 
 ## Getting Started
 
@@ -26,36 +26,6 @@ hrvst login
 ```
 
 You’ll be prompted to launch your browser and log in to Harvest to grant Harvest CLI access to your account.
-
-## Tracking Time
-
-Below are commands to track time via a timer. For a full list of options, view the [Timer](/docs/commands/Timer.md) docs.
-
-### Starting a timer
-
-Create a new time entry that is a running timer:
-
-```
-hrvst start
-```
-
-You will be prompted to pick a project and task assignment or you can use an [alias](/docs/commands/Alias.md)!
-
-### Appending notes to a timer
-
-Append notes to a running time entry:
-
-```
-hrvst note <notes>
-```
-
-### Stopping a timer
-
-Stop a running time entry:
-
-```
-hrvst stop
-```
 
 ## CLI Command Reference
 
@@ -122,8 +92,9 @@ hrvst stop
 <a href="/docs/generated-commands/invoices/Messages.md#mark-an-open-invoice-as-closed">hrvst invoices messages mark-open-invoice-as-closed</a>
 <a href="/docs/generated-commands/invoices/Messages.md#mark-an-open-invoice-as-a-draft">hrvst invoices messages mark-open-invoice-as-draft</a>
 <a href="/docs/generated-commands/invoices/Messages.md#re-open-a-closed-invoice">hrvst invoices messages re-open-closed-invoice</a>
+<a href="/docs/commands/TimeTracking.md#log-time">hrvst log &lt;hours&gt; [alias]</a>
 <a href="/docs/commands/Login.md">hrvst login</a>
-<a href="/docs/commands/Timer.md#update-notes-for-a-timer">hrvst note</a>
+<a href="/docs/commands/TimeTracking.md#update-notes-for-a-timer">hrvst note</a>
 <a href="/docs/generated-commands/Projects.md#create-a-project">hrvst projects create</a>
 <a href="/docs/generated-commands/Projects.md#delete-a-project">hrvst projects delete</a>
 <a href="/docs/generated-commands/Projects.md#retrieve-a-specific-project">hrvst projects get</a>
@@ -146,8 +117,8 @@ hrvst stop
 <a href="/docs/generated-commands/Roles.md#retrieve-a-specific-role">hrvst roles get</a>
 <a href="/docs/generated-commands/Roles.md#list-all-roles">hrvst roles list</a>
 <a href="/docs/generated-commands/Roles.md#update-a-role">hrvst roles update</a>
-<a href="/docs/commands/Timer.md#start-a-timer">hrvst start [alias]</a>
-<a href="/docs/commands/Timer.md#stop-a-timer">hrvst stop</a>
+<a href="/docs/commands/TimeTracking.md#start-a-timer">hrvst start [alias]</a>
+<a href="/docs/commands/TimeTracking.md#stop-a-timer">hrvst stop</a>
 <a href="/docs/generated-commands/Tasks.md#create-a-task">hrvst tasks create</a>
 <a href="/docs/generated-commands/Tasks.md#delete-a-task">hrvst tasks delete</a>
 <a href="/docs/generated-commands/Tasks.md#retrieve-a-specific-task">hrvst tasks get</a>

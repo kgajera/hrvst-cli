@@ -1,8 +1,37 @@
+---
+id: tracking-time
+---
+
 # Tracking Time
 
-Below are commands to track time via a timer. For a full list of options, view the [Timer](/cli/timer) docs.
+There are two different ways to track time:
 
-## Starting a timer
+- [Log time](#log-time) - create a time entry specifying the number of hours to log
+- [Timer](#timer) - create a time entry that is a running timer
+
+For a full list of commands and their options, view the [Time Tracking](/cli/time-tracking) CLI reference.
+
+## Log time
+
+Create a new time entry specifying the number of hours to log:
+
+```
+hrvst log <hours> [alias]
+```
+
+You will be prompted to pick a project and task assignment or you can use an [alias](/cli/alias)!
+
+:::tip
+
+[Create an alias](/cli/alias#create-an-alias) to skip the project and task assignment prompts!
+
+:::
+
+## Timer
+
+Below are commands to track time via a timer.
+
+### Starting a timer
 
 Create a new time entry that is a running timer:
 
@@ -18,7 +47,7 @@ You will be prompted to pick a project and task assignment or you can use an [al
 
 :::
 
-## Appending notes to a timer
+### Appending notes to a timer
 
 Append notes to a running time entry:
 
@@ -26,7 +55,7 @@ Append notes to a running time entry:
 hrvst note <notes>
 ```
 
-## Stopping a timer
+### Stopping a timer
 
 Stop a running time entry:
 
