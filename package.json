@@ -24,9 +24,10 @@
   },
   "scripts": {
     "build": "rimraf dist/* && tsc -p tsconfig.build.json",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint": "eslint . --ext .ts --fix",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "yarn lint --fix",
     "generate": "ts-node tools/generate-cli.ts",
     "start": "node dist/cli.js",
     "test": "jest",
