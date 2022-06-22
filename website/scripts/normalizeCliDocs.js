@@ -33,7 +33,7 @@ fs.readdirSync(cliCommandDocsPath).forEach((file) => {
   fs.writeFileSync(
     destPath,
     `---
-id: ${file.replace(".md", "").toLowerCase()}
+id: ${kebabCase(file.replace(".md", ""))}
 ---
 ${data}`
   );
