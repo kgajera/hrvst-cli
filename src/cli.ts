@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import chalk from "chalk";
 import yargs from "yargs";
 import { failHandler } from "./utils/error";
 import updateNotifier from "./utils/update-notifier";
@@ -13,4 +14,9 @@ yargs
   .recommendCommands()
   .strictCommands()
   .help()
+  .epilogue(
+    chalk.gray(
+      "For more information, see: https://kgajera.github.io/hrvst-cli\n"
+    )
+  )
   .fail(failHandler).argv;
