@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "hrvst-cli",
+  title: "Harvest CLI",
   tagline: "Unoffical CLI for Harvest",
   url: "https://kgajera.github.io",
   baseUrl: "/hrvst-cli/",
