@@ -10,6 +10,7 @@ import { Arguments } from "yargs";
 
 interface ProjectAssignment {
   id: number;
+  client: Reference;
   project: Reference;
   task_assignments: TaskAssignment[];
 }
@@ -53,16 +54,24 @@ export async function getAssignmentChoices(): Promise<{
   const projectChoices: ChoiceOptions[] = [];
   const projectTaskAssignments: Record<number, TaskAssignment[]> = {};
   const taskChoices: TaskChoices = (projectId) =>
-    projectTaskAssignments[projectId]?.map((a) => referenceToChoice(a.task));
+    projectTaskAssignments[projectId]?.map((a) => ({
+      name: a.task.name,
+      value: a.task.id,
+    }));
 
   for (const assignment of assignments) {
     if (assignment.task_assignments?.length) {
-      projectChoices.push(referenceToChoice(assignment.project));
+      projectChoices.push({
+        name: `${assignment.client.name} => ${assignment.project.name}`,
+        value: assignment.project.id,
+      });
 
       projectTaskAssignments[assignment.project.id] =
         assignment.task_assignments;
     }
   }
+
+  projectChoices.sort(compareChoice);
 
   return { projectChoices, taskChoices };
 }
@@ -179,7 +188,7 @@ export async function getRunningTimer(
         choices: timers.map((t) => ({
           name: `[${new Date(t.timer_started_at).toLocaleString()}] ${
             t.client.name
-          } -> ${t.project.name} -> ${t.task.name}`,
+          } => ${t.project.name} => ${t.task.name}`,
           value: t,
         })),
       },
@@ -215,14 +224,18 @@ export async function getRunningTimers(): Promise<TimeEntry[]> {
 }
 
 /**
- * Maps a reference object to a yargs option
- *
- * @param reference Any object with an id and name field
- * @returns yargs choice option
+ * Comparator for sorting choice options
  */
-function referenceToChoice(reference: Reference): ChoiceOptions {
-  return {
-    name: reference.name,
-    value: reference.id,
-  };
+function compareChoice(a: ChoiceOptions, b: ChoiceOptions): number {
+  const aName = a.name || "";
+  const bName = b.name || "";
+
+  if (aName < bName) {
+    return -1;
+  }
+  if (aName > bName) {
+    return 1;
+  }
+
+  return 0;
 }
