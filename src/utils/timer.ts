@@ -138,23 +138,22 @@ export async function normalizeProjectAndTaskAssignment(
  *
  * @returns Array of project assignments
  */
-async function getProjectAssignments(): Promise<ProjectAssignment[]> {
+async function getProjectAssignments(page = 1): Promise<ProjectAssignment[]> {
   const assignments: ProjectAssignment[] = [];
-  let page = 1;
-  let totalPages = 1;
 
-  do {
-    const { data } = await httpRequest(
-      assignmentsRequest.method,
-      new Url(assignmentsRequest.url),
-      {
-        page,
-      }
-    );
-    assignments.push(...data.project_assignments);
-    page = data.page;
-    totalPages = data.total_pages;
-  } while (page < totalPages);
+  const { data } = await httpRequest(
+    assignmentsRequest.method,
+    new Url(assignmentsRequest.url),
+    {
+      page,
+    }
+  );
+
+  assignments.push(...data.project_assignments);
+
+  if (data.total_pages > data.page) {
+    assignments.push(...(await getProjectAssignments(data.page + 1)));
+  }
 
   return assignments;
 }
