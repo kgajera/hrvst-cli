@@ -13,6 +13,7 @@ yargs
   .demandCommand()
   .recommendCommands()
   .strictCommands()
+  .completion()
   .help()
   .epilogue(
     chalk.gray(
