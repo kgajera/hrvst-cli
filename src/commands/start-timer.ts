@@ -2,7 +2,7 @@ import chalk from "chalk";
 import get from "lodash/get";
 import pick from "lodash/pick";
 import { Url } from "postman-collection";
-import { Arguments, CommandBuilder } from "yargs";
+import { Arguments, CommandBuilder, Options } from "yargs";
 import {
   request,
   handler as defaultHandler,
@@ -11,11 +11,13 @@ import { Alias, getConfig } from "../utils/config";
 import { urlArgOptions } from "../utils/postman-request-command";
 import {
   getCurrentLocalISOString,
+  getNotesFromEditor,
   normalizeProjectAndTaskAssignment,
 } from "../utils/timer";
 
 type StartTimerArguments = Arguments & {
   alias?: string;
+  editor?: boolean;
   notes?: string;
   project_id?: number;
   task_id?: number;
@@ -27,8 +29,18 @@ export const describe = "Create a running time entry";
 
 export const builder: CommandBuilder = (yargs) => {
   const defaultOptions = urlArgOptions(new Url(request.url));
-  const options = pick(defaultOptions, "notes", "project_id", "task_id");
+  const options: Record<string, Options> = pick(
+    defaultOptions,
+    "notes",
+    "project_id",
+    "task_id"
+  );
   Object.values(options).forEach((o) => (o.demandOption = false));
+  options["editor"] = {
+    alias: "e",
+    description: "Launch editor to add notes",
+    type: "boolean",
+  };
   return yargs
     .positional("alias", {
       describe: "Alias for project id and task id",
@@ -43,6 +55,16 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
     spent_date: getCurrentLocalISOString(),
   };
 
+  const notes = async () => {
+    let notes = args.notes;
+
+    if (args.editor) {
+      notes = await getNotesFromEditor();
+    }
+
+    return notes?.length ? notes.trim() : "";
+  };
+
   if (args.alias?.length) {
     const config = await getConfig();
     const alias: Alias = get(
@@ -55,12 +77,15 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
     }
     await defaultHandler(
       Object.assign(defaultArgs, args, {
+        notes: await notes(),
         project_id: alias.projectId,
         task_id: alias.taskId,
       })
     );
   } else {
     const demandedArgs = await normalizeProjectAndTaskAssignment(args);
-    await defaultHandler(Object.assign(defaultArgs, demandedArgs));
+    await defaultHandler(
+      Object.assign(defaultArgs, demandedArgs, { notes: await notes() })
+    );
   }
 };

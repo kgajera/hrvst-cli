@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import pick from "lodash/pick";
 import { Url } from "postman-collection";
-import { Arguments, CommandBuilder } from "yargs";
+import { Arguments, CommandBuilder, Options } from "yargs";
 import { request } from "../generated-commands/time-entries/create";
 import { urlArgOptions } from "../utils/postman-request-command";
 import { handler as startTimerHandler } from "./start-timer";
@@ -20,8 +20,18 @@ export const describe = "Create a time entry";
 
 export const builder: CommandBuilder = (yargs) => {
   const defaultOptions = urlArgOptions(new Url(request.url));
-  const options = pick(defaultOptions, "notes", "project_id", "task_id");
+  const options: Record<string, Options> = pick(
+    defaultOptions,
+    "notes",
+    "project_id",
+    "task_id"
+  );
   Object.values(options).forEach((o) => (o.demandOption = false));
+  options["editor"] = {
+    alias: "e",
+    description: "Launch editor to add notes",
+    type: "boolean",
+  };
   return yargs
     .positional("hours", {
       describe: "Amount of hours to log",

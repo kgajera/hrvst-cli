@@ -1,22 +1,23 @@
 import { Arguments, CommandBuilder } from "yargs";
 import { handler as defaultHandler } from "../generated-commands/time-entries/update";
-import { getRunningTimer } from "../utils/timer";
+import { getNotesFromEditor, getRunningTimer } from "../utils/timer";
 
 export type NoteArguments = Arguments & {
+  notes?: string;
   overwrite?: boolean;
-  notes: string;
 };
 
-export const command = "note <notes>";
+export const command = "note";
 export const describe = "Append notes to a running time entry";
 
 export const builder: CommandBuilder = (yargs) =>
   yargs
-    .positional("notes", {
-      describe: "Note to append (default) or set",
-      type: "string",
-    })
     .options({
+      notes: {
+        alias: "n",
+        describe: "Notes to be associated with the time entry",
+        type: "string",
+      },
       overwrite: {
         alias: "o",
         describe: "Overwrite existing notes",
@@ -30,13 +31,22 @@ export const handler = async (args: NoteArguments): Promise<void> => {
     "You have multiple timers running! Which timer do you want to update?"
   );
   if (timer) {
-    if (args.overwrite === true) {
-      timer.notes = args.notes;
-    } else {
-      timer.notes = timer.notes?.length
-        ? `${timer.notes}\n\n${args.notes}`
-        : args.notes;
+    let notes = args.notes || "";
+
+    if (!notes?.length) {
+      notes = await getNotesFromEditor();
     }
+
+    if (notes?.length) {
+      if (args.overwrite === true) {
+        timer.notes = notes;
+      } else {
+        timer.notes = timer.notes?.length
+          ? `${timer.notes}\n\n${notes}`
+          : notes;
+      }
+    }
+
     await defaultHandler(
       Object.assign(args, {
         fields: "client.name,hours,id,notes,project.name,spent_date,task.name",

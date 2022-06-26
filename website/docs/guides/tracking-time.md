@@ -19,13 +19,18 @@ Create a new time entry specifying the number of hours to log:
 hrvst log <hours> [alias]
 ```
 
-You will be prompted to pick a project and task assignment or you can use an [alias](/cli/alias)!
+You will be prompted to pick a project and task assignment or you can use an [alias](/cli/alias).
 
 :::tip
 
 [Create an alias](/cli/alias#create-an-alias) to skip the project and task assignment prompts!
 
 :::
+
+Add notes to the time entry by using one of the following options:
+
+- Use the string `--notes` option to pass your notes
+- Use the boolean `--editor` option to launch an editor to write your notes
 
 ## Timer
 
@@ -39,7 +44,7 @@ Create a new time entry that is a running timer:
 hrvst start [alias]
 ```
 
-You will be prompted to pick a project and task assignment or you can use an [alias](/cli/alias)!
+You will be prompted to pick a project and task assignment or you can use an [alias](/cli/alias).
 
 :::tip
 
@@ -47,13 +52,20 @@ You will be prompted to pick a project and task assignment or you can use an [al
 
 :::
 
+Add notes to the time entry by using one of the following options:
+
+- Use the string `--notes` option to pass your notes
+- Use the boolean `--editor` option to launch an editor to write your notes
+
 ### Appending notes to a timer
 
 Append notes to a running time entry:
 
 ```
-hrvst note <notes>
+hrvst note
 ```
+
+You will be prompted to launch your editor.
 
 ### Stopping a timer
 

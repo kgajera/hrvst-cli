@@ -17,16 +17,17 @@ hrvst log <hours> [alias]
 
 | Argument  | Description                         | Required |
 | --------- | ----------------------------------- | -------- |
-| `<hours>` | Amount of hours to log as a decimal | true     |
-| `[alias]` | Alias for a project id and task id  | false    |
+| `<hours>` | Amount of hours to log as decimal.  | true     |
+| `[alias]` | Alias for a project id and task id. | false    |
 
 #### Options
 
-| Option         | Description                                             | Required |
-| -------------- | ------------------------------------------------------- | -------- |
-| `--project_id` | The ID of the project to associate with the time entry. | false    |
-| `--task_id`    | The ID of the task to associate with the time entry.    | false    |
-| `--notes`      | Any notes to be associated with the time entry.         | false    |
+| Option         | Description                                                                   | Required |
+| -------------- | ----------------------------------------------------------------------------- | -------- |
+| `--project_id` | The ID of the project to associate with the time entry.                       | false    |
+| `--task_id`    | The ID of the task to associate with the time entry.                          | false    |
+| `--notes`      | Any notes to be associated with the time entry.                               | false    |
+| `--editor`     | Boolean to launch editor to write notes to be associated with the time entry. | false    |
 
 ## Timer
 
@@ -40,37 +41,33 @@ hrvst start [alias]
 
 #### Arguments
 
-| Argument  | Description                        | Required |
-| --------- | ---------------------------------- | -------- |
-| `[alias]` | Alias for a project id and task id | false    |
+| Argument  | Description                         | Required |
+| --------- | ----------------------------------- | -------- |
+| `[alias]` | Alias for a project id and task id. | false    |
 
 #### Options
 
-| Option         | Description                                             | Required |
-| -------------- | ------------------------------------------------------- | -------- |
-| `--project_id` | The ID of the project to associate with the time entry. | false    |
-| `--task_id`    | The ID of the task to associate with the time entry.    | false    |
-| `--notes`      | Any notes to be associated with the time entry.         | false    |
+| Option         | Description                                                                   | Required |
+| -------------- | ----------------------------------------------------------------------------- | -------- |
+| `--project_id` | The ID of the project to associate with the time entry.                       | false    |
+| `--task_id`    | The ID of the task to associate with the time entry.                          | false    |
+| `--notes`      | Any notes to be associated with the time entry.                               | false    |
+| `--editor`     | Boolean to launch editor to write notes to be associated with the time entry. | false    |
 
 ### Update notes for a timer
 
-Append or overwrite notes for a running time entry.
+Append or overwrite notes for a running time entry. You will be prompted to launch your editor.
 
 ```
-hrvst note <notes>
+hrvst note
 ```
-
-#### Arguments
-
-| Argument  | Description                                  | Required |
-| --------- | -------------------------------------------- | -------- |
-| `<notes>` | The note to append or set on the time entry. | true     |
 
 #### Options
 
-| Option        | Description                                               | Required |
-| ------------- | --------------------------------------------------------- | -------- |
-| `--overwrite` | Pass true to overwrite existing notes. Defaults to false. | false    |
+| Option        | Description                                             | Required |
+| ------------- | ------------------------------------------------------- | -------- |
+| `--notes`     | The note to append or set on the time entry.            | false    |
+| `--overwrite` | Boolean to overwrite existing notes. Defaults to false. | false    |
 
 ### Stop a timer
 

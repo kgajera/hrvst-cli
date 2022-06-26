@@ -133,6 +133,18 @@ export async function normalizeProjectAndTaskAssignment(
   return Object.assign(args, answers);
 }
 
+export async function getNotesFromEditor(): Promise<string> {
+  const { notes } = await inquirer.prompt([
+    {
+      name: "notes",
+      type: "editor",
+      message: "Notes",
+    },
+  ]);
+
+  return notes.trim();
+}
+
 /**
  * Get all project assignments
  *
