@@ -44,6 +44,7 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/generated-commands/clients/Contacts.md#list-all-contacts">hrvst clients contacts list</a>
 <a href="/docs/generated-commands/clients/Contacts.md#update-a-contact">hrvst clients contacts update</a>
 <a href="/docs/generated-commands/Company.md#retrieve-a-company">hrvst company get</a>
+<a href="/docs/commands/Completion.md">hrvst completion</a>
 <a href="/docs/generated-commands/Estimates.md#create-an-estimate">hrvst estimates create</a>
 <a href="/docs/generated-commands/Estimates.md#delete-an-estimate">hrvst estimates delete</a>
 <a href="/docs/generated-commands/Estimates.md#retrieve-a-specific-estimate">hrvst estimates get</a>

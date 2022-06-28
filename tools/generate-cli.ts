@@ -52,6 +52,7 @@ yargs
         "hrvst alias delete &lt;alias&gt;":
           "docs/commands/Alias.md#delete-an-alias",
         "hrvst alias list": "docs/commands/Alias.md#list-all-aliases",
+        "hrvst completion": "docs/commands/Completion.md",
         "hrvst log &lt;hours&gt; [alias]":
           "docs/commands/TimeTracking.md#log-time",
         "hrvst login": "docs/commands/Login.md",
