@@ -5,7 +5,7 @@ title: Getting Started
 
 # Getting Started
 
-This is an unofficial Harvest CLI that contains all features available in Harvest's [REST API V2](https://help.getharvest.com/api-v2/). The majority of the CLI is generated from an export of Harvest's [Postman Collection](https://help.getharvest.com/api-v2/introduction/overview/postman-collection/).
+This is a command-line interface (CLI) for [Harvest](https://www.getharvest.com) that contains all features available in Harvest's [REST API V2](https://help.getharvest.com/api-v2/). The majority of the CLI is generated from an export of Harvest's [Postman Collection](https://help.getharvest.com/api-v2/introduction/overview/postman-collection/).
 
 In addition to supporting features of the REST API, the Harvest CLI provides convenient ways to [track time](/guides/tracking-time).
 

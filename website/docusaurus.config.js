@@ -55,7 +55,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "hrvst-cli",
+        title: "Harvest CLI",
         logo: {
           src: "/img/logo.svg",
         },
@@ -70,7 +70,7 @@ const config = {
         style: "primary",
       },
       footer: {
-        copyright: "Unofficial Harvest CLI built by Kishan Gajera",
+        copyright: "Harvest CLI built by Kishan Gajera",
         links: [
           {
             label: "GitHub",
