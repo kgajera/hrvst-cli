@@ -1,3 +1,4 @@
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { handler, NoteArguments } from "../../src/commands/timer-note";
 import * as timerUtils from "../../src/utils/timer";
 import * as timeEntryUpdateCommand from "../../src/generated-commands/time-entries/update";
@@ -10,7 +11,7 @@ const args = (args: Partial<NoteArguments>): NoteArguments => ({
 });
 
 const spyOnGetRunningTimer = (timeEntry: Partial<timerUtils.TimeEntry> = {}) =>
-  jest.spyOn(timerUtils, "getRunningTimer").mockReturnValue(
+  vi.spyOn(timerUtils, "getRunningTimer").mockReturnValue(
     Promise.resolve({
       client: null,
       id: 1,
@@ -19,16 +20,16 @@ const spyOnGetRunningTimer = (timeEntry: Partial<timerUtils.TimeEntry> = {}) =>
       task: null,
       timer_started_at: null,
       ...timeEntry,
-    })
+    } as any)
   );
 
 describe("note", () => {
-  const handlerSpy = jest
+  const handlerSpy = vi
     .spyOn(timeEntryUpdateCommand, "handler")
     .mockImplementation(() => Promise.resolve());
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should append note by default", async () => {

@@ -28,7 +28,7 @@ interface TaskAssignment {
 export interface TimeEntry {
   client: Reference;
   id: number;
-  notes: string;
+  notes: string | null;
   project: Reference;
   task: Reference;
   timer_started_at: string;

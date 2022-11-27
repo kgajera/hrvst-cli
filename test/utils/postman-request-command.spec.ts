@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Url } from "postman-collection";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { Config } from "../../src/utils/config";
 import commandModule, {
   httpRequest,
@@ -7,13 +8,14 @@ import commandModule, {
   USER_AGENT,
 } from "../../src/utils/postman-request-command";
 import { verticalTable } from "../../src/utils/table";
+import { TimeEntry } from "../../src/utils/timer";
 
 const mockConfig: Partial<Config> = {
   accessToken: "test",
   accountId: "test2",
 };
 
-jest.mock("../../src/utils/config", () => ({
+vi.mock("../../src/utils/config", () => ({
   getConfig: () => mockConfig,
 }));
 
@@ -57,7 +59,7 @@ describe("postman-request-command", () => {
     });
 
     afterEach(() => {
-      jest.clearAllMocks();
+      vi.clearAllMocks();
     });
 
     it("should default to table output", async () => {
@@ -65,8 +67,8 @@ describe("postman-request-command", () => {
         id: 2,
         hours: 4.5,
       };
-      jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
-      const consoleSpy = jest.spyOn(console, "log");
+      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+      const consoleSpy = vi.spyOn(console, "log");
 
       await handler(args());
 
@@ -80,8 +82,8 @@ describe("postman-request-command", () => {
           hours: 4.5,
         },
       ];
-      jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
-      const consoleSpy = jest.spyOn(console, "log");
+      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+      const consoleSpy = vi.spyOn(console, "log");
 
       await handler(
         args({
@@ -101,8 +103,8 @@ describe("postman-request-command", () => {
           name: "Test",
         },
       };
-      jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
-      const consoleSpy = jest.spyOn(console, "log");
+      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+      const consoleSpy = vi.spyOn(console, "log");
 
       await handler(
         args({
@@ -136,8 +138,8 @@ describe("postman-request-command", () => {
           },
         },
       ];
-      jest.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
-      const consoleSpy = jest.spyOn(console, "log");
+      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+      const consoleSpy = vi.spyOn(console, "log");
 
       await handler(
         args({
@@ -163,8 +165,8 @@ describe("postman-request-command", () => {
     });
 
     it("should return all of pages when --page=all", async () => {
-      const pagedResponses = [];
-      const timeEntries = [];
+      const pagedResponses: any = [];
+      const timeEntries: Partial<TimeEntry>[] = [];
       const totalPages = 4;
 
       for (let i = 1; i <= totalPages; i++) {
@@ -184,14 +186,14 @@ describe("postman-request-command", () => {
         });
       }
 
-      const axiosSpy = jest
+      const axiosSpy = vi
         .spyOn(axios, "request")
         .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[0] }))
         .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[1] }))
         .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[2] }))
         .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[3] }));
 
-      const consoleSpy = jest.spyOn(console, "log");
+      const consoleSpy = vi.spyOn(console, "log");
 
       await handler({
         $0: "",
@@ -233,11 +235,11 @@ describe("postman-request-command", () => {
     });
 
     afterEach(() => {
-      jest.clearAllMocks();
+      vi.clearAllMocks();
     });
 
     it("should add query as query string for GET request", async () => {
-      const axiosRequest = jest
+      const axiosRequest = vi
         .spyOn(axios, "request")
         .mockReturnValue(Promise.resolve());
 
@@ -263,7 +265,7 @@ describe("postman-request-command", () => {
     it.each(["PATCH", "POST", "PUT"])(
       "should add query to body for %s request",
       async (method) => {
-        const axiosRequest = jest
+        const axiosRequest = vi
           .spyOn(axios, "request")
           .mockReturnValue(Promise.resolve());
 

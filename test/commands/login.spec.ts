@@ -1,19 +1,20 @@
-import { PORT, handler } from "../../src/commands/login";
-import { saveConfig } from "../../src/utils/config";
 import chalk from "chalk";
 import open from "open";
 import request from "supertest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { PORT, handler } from "../../src/commands/login";
+import { saveConfig } from "../../src/utils/config";
 
-jest.mock("open");
-const mockedOpen = open as jest.Mocked<typeof open>;
+vi.mock("open");
+const mockedOpen = open;
 
-jest.mock("../../src/utils/config");
+vi.mock("../../src/utils/config");
 
 describe("login", () => {
   const oauthServer = request(`http://localhost:${PORT}`);
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should save access token and config", async () => {
@@ -40,7 +41,7 @@ describe("login", () => {
   });
 
   it("should output error", async () => {
-    const consoleErrorSpy = jest.spyOn(console, "error");
+    const consoleErrorSpy = vi.spyOn(console, "error");
 
     const error = "access_denied";
     await handler();

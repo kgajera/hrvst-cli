@@ -1,19 +1,20 @@
 import ora from "ora";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import spinner from "../../src/utils/spinner";
 
-const mockStart = jest.fn();
-const mockStop = jest.fn();
+const mockStart = vi.fn();
+const mockStop = vi.fn();
 
-jest.mock("ora", () =>
-  jest.fn().mockImplementation(() => ({
+vi.mock("ora", () => ({
+  default: vi.fn().mockImplementation(() => ({
     start: mockStart,
     stop: mockStop,
-  }))
-);
+  })),
+}));
 
 describe("spinner", () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should display spinner until promise is resolved", async () => {
@@ -40,7 +41,7 @@ describe("spinner", () => {
             throw new Error("Worker function error");
           })
       );
-      fail("spinner should have thrown error");
+      expect(false, "spinner should have thrown error").toBeTruthy();
     } catch (error) {
       expect(mockStop).toHaveBeenCalledTimes(1);
     }
