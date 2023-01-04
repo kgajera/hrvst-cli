@@ -76,3 +76,11 @@ Stop a time entry that is a running timer.
 ```
 hrvst stop
 ```
+
+#### Options
+
+| Option        | Description                                                                   | Required |
+| ------------- | ----------------------------------------------------------------------------- | -------- |
+| `--notes`     | The note to append or set on the time entry.                                  | false    |
+| `--overwrite` | Boolean to overwrite existing notes. Defaults to false.                       | false    |
+| `--editor`    | Boolean to launch editor to write notes to be associated with the time entry. | false    |

@@ -13,14 +13,14 @@ const args = (args: Partial<NoteArguments>): NoteArguments => ({
 const spyOnGetRunningTimer = (timeEntry: Partial<timerUtils.TimeEntry> = {}) =>
   vi.spyOn(timerUtils, "getRunningTimer").mockReturnValue(
     Promise.resolve({
-      client: null,
+      client: { id: 1, name: "Acme" },
       id: 1,
-      notes: null,
-      project: null,
-      task: null,
-      timer_started_at: null,
+      notes: "",
+      project: { id: 1, name: "Web Application" },
+      task: { id: 1, name: "Programming" },
+      timer_started_at: "",
       ...timeEntry,
-    } as any)
+    })
   );
 
 describe("note", () => {

@@ -133,6 +133,26 @@ export async function normalizeProjectAndTaskAssignment(
   return Object.assign(args, answers);
 }
 
+export async function getNotes(
+  args: { editor?: boolean; notes?: string; overwrite?: boolean },
+  existingNotes: string | null = "",
+  promptEditor = false
+): Promise<string> {
+  let notes = args.notes?.length ? args.notes.trim() : "";
+
+  if (args.editor || (!notes.length && promptEditor)) {
+    notes = await getNotesFromEditor();
+  }
+
+  if (args.overwrite === true) {
+    return notes;
+  } else if (existingNotes?.length) {
+    return `${existingNotes}${notes.length ? `\n\n${notes}` : ""}`;
+  }
+
+  return notes;
+}
+
 export async function getNotesFromEditor(): Promise<string> {
   const { notes } = await inquirer.prompt([
     {

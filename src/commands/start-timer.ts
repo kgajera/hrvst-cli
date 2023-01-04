@@ -11,7 +11,7 @@ import { Alias, getConfig } from "../utils/config";
 import { urlArgOptions } from "../utils/postman-request-command";
 import {
   getCurrentLocalISOString,
-  getNotesFromEditor,
+  getNotes,
   normalizeProjectAndTaskAssignment,
 } from "../utils/timer";
 
@@ -55,16 +55,6 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
     spent_date: getCurrentLocalISOString(),
   };
 
-  const notes = async () => {
-    let notes = args.notes;
-
-    if (args.editor) {
-      notes = await getNotesFromEditor();
-    }
-
-    return notes?.length ? notes.trim() : "";
-  };
-
   if (args.alias?.length) {
     const config = await getConfig();
     const alias: Alias = get(
@@ -77,7 +67,7 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
     }
     await defaultHandler(
       Object.assign(defaultArgs, args, {
-        notes: await notes(),
+        notes: await getNotes(args),
         project_id: alias.projectId,
         task_id: alias.taskId,
       })
@@ -85,7 +75,7 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
   } else {
     const demandedArgs = await normalizeProjectAndTaskAssignment(args);
     await defaultHandler(
-      Object.assign(defaultArgs, demandedArgs, { notes: await notes() })
+      Object.assign(defaultArgs, demandedArgs, { notes: await getNotes(args) })
     );
   }
 };

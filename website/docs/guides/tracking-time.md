@@ -74,3 +74,8 @@ Stop a running time entry:
 ```
 hrvst stop
 ```
+
+Add notes to the time entry by using one of the following options:
+
+- Use the string `--notes` option to pass your notes
+- Use the boolean `--editor` option to launch an editor to write your notes
