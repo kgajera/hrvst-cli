@@ -13,7 +13,7 @@ yargs
   .demandCommand()
   .recommendCommands()
   .strictCommands()
-  .completion()
+  .completion("completion", "Generate shell completion script")
   .help()
   .epilogue(
     chalk.gray(
