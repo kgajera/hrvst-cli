@@ -7,6 +7,7 @@
     "url": "http://github.com/kgajera"
   },
   "license": "MIT",
+  "homepage": "https://kgajera.github.io/hrvst-cli",
   "repository": {
     "type": "git",
     "url": "https://github.com/kgajera/hrvst-cli.git"
