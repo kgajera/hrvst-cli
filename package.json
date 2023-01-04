@@ -27,11 +27,11 @@
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "npm run lint -- --fix",
     "generate": "ts-node tools/generate-cli.ts",
     "start": "node dist/cli.js",
     "test": "vitest",
-    "watch": "nodemon --exec yarn build --watch 'src/**/*' -e ts"
+    "watch": "nodemon --exec npm run build --watch 'src/**/*' -e ts"
   },
   "dependencies": {
     "axios": "^0.22.0",

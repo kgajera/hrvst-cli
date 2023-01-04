@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
-    "build": "yarn build:docs && docusaurus build",
+    "build": "npm run build:docs && docusaurus build",
     "build:docs": "rimraf docs/cli && node scripts/normalizeCliDocs.js",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",

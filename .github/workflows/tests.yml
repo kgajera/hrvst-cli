@@ -22,9 +22,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "yarn"
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
-      - run: yarn format
-      - run: yarn lint
-      - run: yarn test
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build
+      - run: npm run format
+      - run: npm run lint
+      - run: npm test
