@@ -76,6 +76,10 @@ const config = {
             label: "GitHub",
             href: "https://github.com/kgajera/hrvst-cli",
           },
+          {
+            label: "Harvest",
+            href: "https://www.getharvest.com/integrations/hrvst-cli",
+          },
         ],
       },
       algolia: {
