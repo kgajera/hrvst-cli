@@ -1,7 +1,6 @@
 import chalk from "chalk";
 import Table from "cli-table3";
-import get from "lodash/get";
-import isPlainObject from "lodash/isPlainObject";
+import _ from "lodash";
 
 type ColumnValue = boolean | null | number | string | TableData | undefined;
 type TableData = { [key: string]: ColumnValue };
@@ -24,7 +23,7 @@ export function horizontalTable(
     const values = [];
 
     for (const key of options.head) {
-      const value = get(element, key.trim());
+      const value = _.get(element, key.trim());
       values.push(displayValue(value));
     }
 
@@ -80,7 +79,7 @@ function addVerticalTableRows(
     const value = data[key];
     const keyPath = [...parentKeys, key];
 
-    if (isPlainObject(value)) {
+    if (_.isPlainObject(value)) {
       addVerticalTableRows(table, value as TableData, keyPath, displayKeys);
     } else {
       const keyPathDotNotation = keyPath.join(".");

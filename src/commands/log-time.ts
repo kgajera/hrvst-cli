@@ -1,6 +1,6 @@
 import chalk from "chalk";
-import pick from "lodash/pick";
-import { Url } from "postman-collection";
+import _ from "lodash";
+import postman from "postman-collection";
 import { Arguments, CommandBuilder, Options } from "yargs";
 import { request } from "../generated-commands/time-entries/create";
 import { urlArgOptions } from "../utils/postman-request-command";
@@ -8,7 +8,7 @@ import { handler as startTimerHandler } from "./start-timer";
 
 type LogTimeArguments = Arguments & {
   alias?: string;
-  hours: number;
+  hours?: number;
   notes?: string;
   project_id?: number;
   task_id?: number;
@@ -19,8 +19,8 @@ export const command = "log <hours> [alias]";
 export const describe = "Create a time entry";
 
 export const builder: CommandBuilder = (yargs) => {
-  const defaultOptions = urlArgOptions(new Url(request.url));
-  const options: Record<string, Options> = pick(
+  const defaultOptions = urlArgOptions(new postman.Url(request.url));
+  const options: Record<string, Options> = _.pick(
     defaultOptions,
     "notes",
     "project_id",
@@ -45,7 +45,7 @@ export const builder: CommandBuilder = (yargs) => {
 };
 
 export const handler = async (args: LogTimeArguments): Promise<void> => {
-  if (isNaN(args.hours)) {
+  if (!args.hours || isNaN(args.hours)) {
     console.error(chalk.red("Hours must be a valid number"));
     return;
   }

@@ -1,7 +1,6 @@
 import chalk from "chalk";
-import get from "lodash/get";
-import pick from "lodash/pick";
-import { Url } from "postman-collection";
+import _ from "lodash";
+import postman from "postman-collection";
 import { Arguments, CommandBuilder, Options } from "yargs";
 import {
   request,
@@ -28,8 +27,8 @@ export const command = "start [alias]";
 export const describe = "Create a running time entry";
 
 export const builder: CommandBuilder = (yargs) => {
-  const defaultOptions = urlArgOptions(new Url(request.url));
-  const options: Record<string, Options> = pick(
+  const defaultOptions = urlArgOptions(new postman.Url(request.url));
+  const options: Record<string, Options> = _.pick(
     defaultOptions,
     "notes",
     "project_id",
@@ -57,7 +56,7 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
 
   if (args.alias?.length) {
     const config = await getConfig();
-    const alias: Alias = get(
+    const alias: Alias = _.get(
       config,
       `accountConfig.${config.accountId}.aliases.${args.alias}`
     );

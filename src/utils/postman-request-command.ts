@@ -1,11 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
-import { map, partialRight, pick } from "lodash";
-import {
-  DescriptionDefinition,
-  QueryParam,
-  Url,
-  UrlDefinition,
-} from "postman-collection";
+import _ from "lodash";
+import postman from "postman-collection";
 import { Arguments, CommandModule, Options } from "yargs";
 import { getConfig } from "./config";
 import spinner from "./spinner";
@@ -15,7 +10,7 @@ export const USER_AGENT = "hrvst-cli (https://www.npmjs.com/package/hrvst-cli)";
 
 export interface Request {
   method: string;
-  url: UrlDefinition;
+  url: postman.UrlDefinition;
 }
 
 export interface CommandConfig {
@@ -38,7 +33,7 @@ export default ({
   describe,
   request,
 }: CommandConfig): AsyncHandlerCommandModule => {
-  const url = new Url(request.url);
+  const url = new postman.Url(request.url);
 
   return {
     command,
@@ -82,10 +77,12 @@ export default ({
         case "json":
           if (Array.isArray(output)) {
             output = outputFields.length
-              ? map(output, partialRight(pick, outputFields))
+              ? _.map(output, _.partialRight(_.pick, outputFields))
               : output;
           } else {
-            output = outputFields.length ? pick(output, outputFields) : output;
+            output = outputFields.length
+              ? _.pick(output, outputFields)
+              : output;
           }
           console.log(JSON.stringify(output, null, 2));
           break;
@@ -129,7 +126,7 @@ export default ({
  */
 export async function httpRequest<T = any>(
   method: string,
-  url: Url,
+  url: postman.Url,
   args: Partial<Arguments> = {}
 ): Promise<AxiosResponse<T>> {
   const config = await getConfig();
@@ -146,7 +143,7 @@ export async function httpRequest<T = any>(
   for (const key in args) {
     if (key !== "_" && key !== "$0" && !url.variables.has(key)) {
       url.query.upsert(
-        new QueryParam({
+        new postman.QueryParam({
           key,
           value: String(args[key]),
         })
@@ -188,13 +185,13 @@ export async function httpRequest<T = any>(
  * @param url Postman URL instance
  * @returns yargs Options object
  */
-export function urlArgOptions(url: Url): Record<string, Options> {
+export function urlArgOptions(url: postman.Url): Record<string, Options> {
   const options: Record<string, Options> = {};
   const usedAliases: string[] = [];
 
   const addOption = (
     key?: string | null,
-    description?: string | DescriptionDefinition,
+    description?: string | postman.DescriptionDefinition,
     demandOption?: boolean
   ) =>
     key &&

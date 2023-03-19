@@ -2,14 +2,16 @@
 
 import chalk from "chalk";
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 import { failHandler } from "./utils/error";
 import updateNotifier from "./utils/update-notifier";
+import { commands } from "./commands";
+import { commands as generatedCommands } from "./generated-commands";
 
 updateNotifier();
 
-yargs
-  .commandDir("commands")
-  .commandDir("generated-commands")
+yargs(hideBin(process.argv))
+  .command([...commands, ...generatedCommands])
   .demandCommand()
   .recommendCommands()
   .strictCommands()

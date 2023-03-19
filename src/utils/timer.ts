@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import inquirer, { ChoiceOptions } from "inquirer";
-import { Url } from "postman-collection";
+import postman from "postman-collection";
 import { request as meRequest } from "../generated-commands/users/me";
 import { request as assignmentsRequest } from "../generated-commands/users/project-assignments/me";
 import { request as timeEntriesRequest } from "../generated-commands/time-entries/list";
@@ -175,7 +175,7 @@ async function getProjectAssignments(page = 1): Promise<ProjectAssignment[]> {
 
   const { data } = await httpRequest(
     assignmentsRequest.method,
-    new Url(assignmentsRequest.url),
+    new postman.Url(assignmentsRequest.url),
     {
       page,
     }
@@ -241,11 +241,11 @@ export async function getRunningTimer(
 export async function getRunningTimers(): Promise<TimeEntry[]> {
   const meResponse = await httpRequest(
     meRequest.method,
-    new Url(meRequest.url)
+    new postman.Url(meRequest.url)
   );
   const timersResponse = await httpRequest(
     timeEntriesRequest.method,
-    new Url(timeEntriesRequest.url),
+    new postman.Url(timeEntriesRequest.url),
     {
       is_running: true,
       user_id: meResponse.data.id,

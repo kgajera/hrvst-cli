@@ -1,4 +1,4 @@
-import ora from "ora";
+import ora, { Options } from "ora";
 
 /**
  * Display spinner while the `worker` function is executing
@@ -9,7 +9,7 @@ import ora from "ora";
  */
 export default async function <T>(
   worker: () => Promise<T>,
-  options: ora.Options = {}
+  options: Options = {}
 ): Promise<T> {
   const spinner = ora({
     color: "yellow",

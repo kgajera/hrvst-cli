@@ -1,12 +1,12 @@
 import { AxiosError } from "axios";
 import chalk from "chalk";
-import { Argv, exit } from "yargs";
+import yargs from "yargs";
 import { ConfigNotFoundError } from "./config";
 
 export const failHandler = (
   message: string,
   error: Error,
-  yargs: Argv
+  yargs: yargs.Argv
 ): void => {
   if (error) {
     if ("isAxiosError" in error) {
@@ -32,5 +32,5 @@ export const failHandler = (
   }
 
   console.error(chalk.red(message));
-  exit(1, error);
+  process.exit(1);
 };

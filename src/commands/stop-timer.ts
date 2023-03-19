@@ -1,4 +1,4 @@
-import { Url } from "postman-collection";
+import postman from "postman-collection";
 import { Arguments, CommandBuilder } from "yargs";
 import { handler as defaultStopHandler } from "../generated-commands/time-entries/stop";
 import { request as updateRequest } from "../generated-commands/time-entries/update";
@@ -46,7 +46,7 @@ export const handler = async (args: StopTimerArguments): Promise<void> => {
 
     if (notes.length) {
       await spinner(async () =>
-        httpRequest(updateRequest.method, new Url(updateRequest.url), {
+        httpRequest(updateRequest.method, new postman.Url(updateRequest.url), {
           notes,
           time_entry_id: timer.id,
         })

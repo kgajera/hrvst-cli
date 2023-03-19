@@ -19,56 +19,58 @@
     "cli",
     "harvest"
   ],
-  "main": "dist/cli.js",
+  "type": "module",
+  "engines": {
+    "node": ">=14.16"
+  },
+  "exports": "./dist/cli.js",
   "bin": {
     "hrvst": "dist/cli.js"
   },
   "scripts": {
-    "build": "rimraf dist/* && tsc -p tsconfig.build.json",
+    "build": "tsup src/cli.ts --clean --format esm --minify",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint . --ext .ts",
     "lint:fix": "npm run lint -- --fix",
-    "generate": "ts-node tools/generate-cli.ts",
+    "generate": "tsx tools/generate-cli.ts",
     "start": "node dist/cli.js",
     "test": "vitest",
-    "watch": "nodemon --exec npm run build --watch 'src/**/*' -e ts"
+    "watch": "npm run build -- --watch"
   },
   "dependencies": {
-    "axios": "^0.22.0",
-    "chalk": "^4.1.1",
+    "axios": "^1.3.4",
+    "chalk": "^5.2.0",
     "cli-table3": "^0.6.0",
-    "inquirer": "^8.1.2",
+    "inquirer": "^9.1.5",
     "lodash": "^4.17.21",
-    "open": "^8.2.1",
-    "ora": "^5.4.1",
+    "open": "^9.0.0",
+    "ora": "^6.2.0",
     "ospath": "^1.2.2",
-    "postman-collection": "^4.0.1",
-    "update-notifier": "^5.1.0",
-    "yargs": "^17.0.1"
+    "postman-collection": "^4.1.7",
+    "update-notifier": "^6.0.2",
+    "yargs": "^17.7.1"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^1.0.2",
-    "@types/inquirer": "^7.3.3",
-    "@types/lodash": "^4.14.171",
+    "@types/inquirer": "^9.0.3",
+    "@types/lodash": "^4.14.191",
     "@types/node": "^16.4.2",
     "@types/ospath": "^1.2.0",
-    "@types/postman-collection": "^3.5.6",
+    "@types/postman-collection": "^3.5.7",
     "@types/prettier": "^2.3.2",
-    "@types/supertest": "^2.0.11",
-    "@types/update-notifier": "^5.1.0",
-    "@types/yargs": "^17.0.2",
+    "@types/supertest": "^2.0.12",
+    "@types/update-notifier": "^6.0.2",
+    "@types/yargs": "^17.0.22",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
-    "rimraf": "^3.0.2",
-    "supertest": "^6.1.4",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5",
-    "vitest": "^0.25.3"
+    "supertest": "^6.3.3",
+    "tsup": "^6.6.3",
+    "tsx": "^3.12.5",
+    "typescript": "^4.9.5",
+    "vitest": "^0.29.3"
   },
   "files": [
     "/dist"
