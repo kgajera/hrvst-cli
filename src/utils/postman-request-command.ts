@@ -59,10 +59,10 @@ export default ({
         }
 
         const { data } = await httpRequest(request.method, url, requestArgs);
+        // "results" is used in responses of report endpoints
+        const objects = data[resourceName] ?? data["results"];
 
-        if (data.page && Array.isArray(data[resourceName])) {
-          const objects = data[resourceName];
-
+        if (data.page && Array.isArray(objects)) {
           if (fetchAll && data.next_page) {
             objects.push(...(await apiRequest(data.next_page)));
           }
@@ -99,7 +99,7 @@ export default ({
                     : [
                         "id",
                         ...Object.keys(record).filter((k) =>
-                          k.match(/_?(email|name)$/i)
+                          k.match(/_?(email|hours|name)$/i)
                         ),
                       ],
                 },

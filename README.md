@@ -113,6 +113,16 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/generated-commands/projects/UserAssignments.md#list-all-user-assignments">hrvst projects user-assignments list</a>
 <a href="/docs/generated-commands/projects/UserAssignments.md#list-user-assignments-for-a-specific-project">hrvst projects user-assignments list-by-project</a>
 <a href="/docs/generated-commands/projects/UserAssignments.md#update-a-user-assignment">hrvst projects user-assignments update</a>
+<a href="/docs/generated-commands/Reports.md#project-budget-report">hrvst reports project-budget-report</a>
+<a href="/docs/generated-commands/Reports.md#uninvoiced-report">hrvst reports uninvoiced-report</a>
+<a href="/docs/generated-commands/reports/ExpenseReports.md#expense-categories-report">hrvst reports expense-reports categories-report</a>
+<a href="/docs/generated-commands/reports/ExpenseReports.md#clients-expense-report">hrvst reports expense-reports clients-expense-report</a>
+<a href="/docs/generated-commands/reports/ExpenseReports.md#projects-expense-report">hrvst reports expense-reports projects-expense-report</a>
+<a href="/docs/generated-commands/reports/ExpenseReports.md#team-expense-report">hrvst reports expense-reports team-expense-report</a>
+<a href="/docs/generated-commands/reports/TimeReports.md#clients-time-report">hrvst reports time-reports clients-time-report</a>
+<a href="/docs/generated-commands/reports/TimeReports.md#projects-time-report">hrvst reports time-reports projects-time-report</a>
+<a href="/docs/generated-commands/reports/TimeReports.md#tasks-time-report">hrvst reports time-reports tasks-time-report</a>
+<a href="/docs/generated-commands/reports/TimeReports.md#team-time-report">hrvst reports time-reports team-time-report</a>
 <a href="/docs/generated-commands/Roles.md#create-a-role">hrvst roles create</a>
 <a href="/docs/generated-commands/Roles.md#delete-a-role">hrvst roles delete</a>
 <a href="/docs/generated-commands/Roles.md#retrieve-a-specific-role">hrvst roles get</a>
@@ -147,4 +157,6 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/generated-commands/users/CostRates.md#list-all-cost-rates-for-a-specific-user">hrvst users cost-rates list-by-user</a>
 <a href="/docs/generated-commands/users/ProjectAssignments.md#list-active-project-assignments">hrvst users project-assignments list-by-user</a>
 <a href="/docs/generated-commands/users/ProjectAssignments.md#list-active-project-assignments-for-the-currently-authenticated-user">hrvst users project-assignments me</a>
+<a href="/docs/generated-commands/users/Teammates.md#list-all-assigned-teammates">hrvst users teammates list-by-user</a>
+<a href="/docs/generated-commands/users/Teammates.md#update-a-users-assigned-teammates">hrvst users teammates update</a>
 </pre>

@@ -53,40 +53,6 @@ export const request: Request = {
         disabled: true,
       },
       {
-        key: "is_admin",
-        value: "",
-        description: "Whether the user has admin permissions. ",
-        disabled: true,
-      },
-      {
-        key: "is_project_manager",
-        value: "",
-        description:
-          "Whether the user has project manager permissions. Defaults to false.",
-        disabled: true,
-      },
-      {
-        key: "can_see_rates",
-        value: "",
-        description:
-          "Whether the user can see billable rates on projects. Only applicable to project managers.",
-        disabled: true,
-      },
-      {
-        key: "can_create_projects",
-        value: "",
-        description:
-          "Whether the user can create projects. Only applicable to project managers.",
-        disabled: true,
-      },
-      {
-        key: "can_create_invoices",
-        value: "",
-        description:
-          "Whether the user can create invoices. Only applicable to project managers.",
-        disabled: true,
-      },
-      {
         key: "is_active",
         value: "",
         description: "Whether the user is active or archived.",
@@ -111,6 +77,20 @@ export const request: Request = {
         value: "",
         description:
           "The cost rate to use for this user when calculating a project’s costs vs billable amount. ",
+        disabled: true,
+      },
+      {
+        key: "roles[]",
+        value: "",
+        description:
+          "Descriptive names of the business roles assigned to this person.",
+        disabled: true,
+      },
+      {
+        key: "access_roles[]",
+        value: "",
+        description:
+          "Access Role(s) that determine the user’s permissions in Harvest.",
         disabled: true,
       },
     ],

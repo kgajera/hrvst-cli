@@ -26,7 +26,7 @@ hrvst expenses list
 | `--from`          | Only return expenses with a spent_date on or after the given date.                                                  | false    |
 | `--to`            | Only return expenses with a spent_date on or before the given date.                                                 | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                                              | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                              | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 2000.                                             | false    |
 | `--fields`        | Comma separated list of fields to display in the output.                                                            | false    |
 | `--output`        | The output format: json, table                                                                                      | false    |
 

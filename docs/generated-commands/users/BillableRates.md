@@ -14,13 +14,13 @@ The response contains an object with a `billable_rates` property that contains a
 hrvst users billable-rates list-by-user
 ```
 
-| Option       | Description                                                            | Required |
-| ------------ | ---------------------------------------------------------------------- | -------- |
-| `--user_id`  | The ID of the user whose billable rates you're listing.                | true     |
-| `--page`     | The page number to use in pagination. Use `all` to retrieve all pages. | false    |
-| `--per_page` | The number of records to return per page. Can range between 1 and 100. | false    |
-| `--fields`   | Comma separated list of fields to display in the output.               | false    |
-| `--output`   | The output format: json, table                                         | false    |
+| Option       | Description                                                             | Required |
+| ------------ | ----------------------------------------------------------------------- | -------- |
+| `--user_id`  | The ID of the user whose billable rates you're listing.                 | true     |
+| `--page`     | The page number to use in pagination. Use `all` to retrieve all pages.  | false    |
+| `--per_page` | The number of records to return per page. Can range between 1 and 2000. | false    |
+| `--fields`   | Comma separated list of fields to display in the output.                | false    |
+| `--output`   | The output format: json, table                                          | false    |
 
 ## Retrieve a specific billable rate
 

@@ -16,15 +16,15 @@ The response contains an object with a `projects` property that contains an arra
 hrvst projects list
 ```
 
-| Option            | Description                                                                           | Required |
-| ----------------- | ------------------------------------------------------------------------------------- | -------- |
-| `--is_active`     | Pass true to only return active projects and false to return inactive projects.       | false    |
-| `--client_id`     | Only return projects belonging to the client with the given ID.                       | false    |
-| `--updated_since` | Only return projects that have been updated since the given date and time.            | false    |
-| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100) | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                              | false    |
-| `--output`        | The output format: json, table                                                        | false    |
+| Option            | Description                                                                     | Required |
+| ----------------- | ------------------------------------------------------------------------------- | -------- |
+| `--is_active`     | Pass true to only return active projects and false to return inactive projects. | false    |
+| `--client_id`     | Only return projects belonging to the client with the given ID.                 | false    |
+| `--updated_since` | Only return projects that have been updated since the given date and time.      | false    |
+| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.          | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 2000.         | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                        | false    |
+| `--output`        | The output format: json, table                                                  | false    |
 
 ## Retrieve a specific project
 

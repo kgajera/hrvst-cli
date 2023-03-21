@@ -20,10 +20,10 @@ hrvst clients list
 
 | Option            | Description                                                                   | Required |
 | ----------------- | ----------------------------------------------------------------------------- | -------- |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 2000.       | false    |
 | `--is_active`     | Pass true to only return active clients and false to return inactive clients. | false    |
 | `--updated_since` | Only return clients that have been updated since the given date and time.     | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.        | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.        | false    |
 | `--fields`        | Comma separated list of fields to display in the output.                      | false    |
 | `--output`        | The output format: json, table                                                | false    |
 

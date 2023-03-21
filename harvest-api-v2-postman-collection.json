@@ -1,8 +1,9 @@
 {
   "info": {
-    "_postman_id": "93ab965a-fa93-43b5-be0f-e6546c8d46c0",
+    "_postman_id": "e03e840c-a13a-466b-ba7e-12a11d52fadc",
     "name": "Harvest API v2",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26441637"
   },
   "item": [
     {
@@ -80,7 +81,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/contacts",
+                  "raw": "https://api.harvestapp.com/v2/contacts?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "contacts"],
@@ -100,14 +101,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1)",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list  ",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100. (Default: 100)",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.  ",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ]
                 },
@@ -376,11 +381,17 @@
               }
             ],
             "url": {
-              "raw": "https://api.harvestapp.com/v2/clients",
+              "raw": "https://api.harvestapp.com/v2/clients?",
               "protocol": "https",
               "host": ["api", "harvestapp", "com"],
               "path": ["v2", "clients"],
               "query": [
+                {
+                  "key": "per_page",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.",
+                  "disabled": true
+                },
                 {
                   "key": "is_active",
                   "value": "true",
@@ -396,14 +407,12 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.  ",
                   "disabled": true
                 },
                 {
-                  "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100.",
-                  "disabled": true
+                  "key": "",
+                  "value": ""
                 }
               ]
             },
@@ -639,7 +648,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/expense_categories",
+                  "raw": "https://api.harvestapp.com/v2/expense_categories?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "expense_categories"],
@@ -659,14 +668,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ]
                 },
@@ -896,7 +909,7 @@
               }
             ],
             "url": {
-              "raw": "https://api.harvestapp.com/v2/expenses",
+              "raw": "https://api.harvestapp.com/v2/expenses?",
               "protocol": "https",
               "host": ["api", "harvestapp", "com"],
               "path": ["v2", "expenses"],
@@ -946,14 +959,18 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100.",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.",
                   "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": ""
                 }
               ]
             },
@@ -1456,7 +1473,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/invoices/:invoice_id/messages",
+                  "raw": "https://api.harvestapp.com/v2/invoices/:invoice_id/messages?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "invoices", ":invoice_id", "messages"],
@@ -1470,14 +1487,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -1820,7 +1841,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/invoice_item_categories",
+                  "raw": "https://api.harvestapp.com/v2/invoice_item_categories?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "invoice_item_categories"],
@@ -1834,14 +1855,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ]
                 },
@@ -2047,7 +2072,7 @@
               }
             ],
             "url": {
-              "raw": "https://api.harvestapp.com/v2/invoices",
+              "raw": "https://api.harvestapp.com/v2/invoices?",
               "protocol": "https",
               "host": ["api", "harvestapp", "com"],
               "path": ["v2", "invoices"],
@@ -2091,14 +2116,18 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1)",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.  ",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100. (Default: 100)",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.  ",
                   "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": ""
                 }
               ]
             },
@@ -2724,7 +2753,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/estimate_item_categories",
+                  "raw": "https://api.harvestapp.com/v2/estimate_item_categories?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "estimate_item_categories"],
@@ -2738,14 +2767,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ]
                 },
@@ -2953,7 +2986,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/estimates/:estimate_id/messages",
+                  "raw": "https://api.harvestapp.com/v2/estimates/:estimate_id/messages?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "estimates", ":estimate_id", "messages"],
@@ -2967,14 +3000,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -3231,7 +3268,7 @@
               }
             ],
             "url": {
-              "raw": "https://api.harvestapp.com/v2/estimates",
+              "raw": "https://api.harvestapp.com/v2/estimates?",
               "protocol": "https",
               "host": ["api", "harvestapp", "com"],
               "path": ["v2", "estimates"],
@@ -3269,14 +3306,18 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100.",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.",
                   "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": ""
                 }
               ]
             },
@@ -3620,7 +3661,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/user_assignments",
+                  "raw": "https://api.harvestapp.com/v2/user_assignments?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "user_assignments"],
@@ -3640,14 +3681,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ]
                 },
@@ -3674,7 +3719,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/user_assignments",
+                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/user_assignments?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "projects", ":project_id", "user_assignments"],
@@ -3700,14 +3745,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -4005,7 +4054,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/task_assignments",
+                  "raw": "https://api.harvestapp.com/v2/task_assignments?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "task_assignments"],
@@ -4025,14 +4074,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ]
                 },
@@ -4059,7 +4112,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/task_assignments",
+                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/task_assignments?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "projects", ":project_id", "task_assignments"],
@@ -4079,14 +4132,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -4120,7 +4177,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/task_assignments/:task_assignment_id",
+                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/task_assignments/:task_assignment_id?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": [
@@ -4144,16 +4201,8 @@
                       "disabled": true
                     },
                     {
-                      "key": "page",
-                      "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
-                      "disabled": true
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
-                      "disabled": true
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -4258,7 +4307,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/task_assignments/:task_assignment_id",
+                  "raw": "https://api.harvestapp.com/v2/projects/:project_id/task_assignments/:task_assignment_id?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": [
@@ -4282,16 +4331,8 @@
                       "disabled": true
                     },
                     {
-                      "key": "page",
-                      "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
-                      "disabled": true
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
-                      "disabled": true
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -4395,7 +4436,7 @@
               }
             ],
             "url": {
-              "raw": "https://api.harvestapp.com/v2/projects",
+              "raw": "https://api.harvestapp.com/v2/projects?",
               "protocol": "https",
               "host": ["api", "harvestapp", "com"],
               "path": ["v2", "projects"],
@@ -4421,14 +4462,18 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1)",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list  ",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100. (Default: 100)",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.  ",
                   "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": ""
                 }
               ]
             },
@@ -4816,6 +4861,540 @@
       ]
     },
     {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Expense Reports",
+          "item": [
+            {
+              "name": "Clients Expense Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/expenses/clients?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "expenses", "clients"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000. ",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Clients Expense Report shows expense totals for each client where expenses are present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each expense report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days)\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/expense-reports/#clients-report)"
+              },
+              "response": []
+            },
+            {
+              "name": "Projects Expense Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/expenses/projects?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "expenses", "projects"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Projects Expense Report shows expense totals for each project where expenses are present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each expense report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days)\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/expense-reports/#projects-report)"
+              },
+              "response": []
+            },
+            {
+              "name": "Expense Categories Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/expenses/categories?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "expenses", "categories"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Expense Categories Report shows expense totals for each expense category where expenses are present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each expense report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days)\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/expense-reports/#expense-categories-report)"
+              },
+              "response": []
+            },
+            {
+              "name": "Team Expense Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/expenses/team?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "expenses", "team"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Team Expense Report shows expense totals for each user where expenses are present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each expense report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days)\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/expense-reports/#team-report)"
+              },
+              "response": []
+            }
+          ],
+          "description": "Information pertaining to retrieving expense reports.\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/expense-reports/)"
+        },
+        {
+          "name": "Time Reports",
+          "item": [
+            {
+              "name": "Clients Time Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/time/clients?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "time", "clients"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Clients Time Report shows the hours and billable information for each client where tracked time is present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each time report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days).\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/time-reports/#clients-report)"
+              },
+              "response": []
+            },
+            {
+              "name": "Projects Time Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/time/projects?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "time", "projects"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Projects Time Report shows the hours and billable information for each project where tracked time is present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each time report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days).\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/time-reports/#projects-report)"
+              },
+              "response": []
+            },
+            {
+              "name": "Tasks Time Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/time/tasks?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "time", "tasks"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Tasks Time Report shows the hours and billable information for each task where tracked time is present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each time report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days).\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/time-reports/#tasks-report)"
+              },
+              "response": []
+            },
+            {
+              "name": "Team Time Report",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-Id",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/reports/time/team?from=20170101&to=20171231",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "reports", "time", "team"],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "20170101",
+                      "description": "Only report on expenses with a spent_date on or after the given date."
+                    },
+                    {
+                      "key": "to",
+                      "value": "20171231",
+                      "description": "Only report on expenses with a spent_date on or before the given date."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "description": "Team Time Report shows the hours and billable information for each user where tracked time is present for a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each time report request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days).\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/time-reports/#team-report)"
+              },
+              "response": []
+            }
+          ],
+          "description": "Information pertaining to retrieving time entries reports.\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/time-reports/)"
+        },
+        {
+          "name": "Uninvoiced Report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Harvest-Account-Id",
+                "value": "{{HARVEST_ACCOUNT_ID}}",
+                "description": "The ID of your Harvest account. ",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{ACCESS_TOKEN}}",
+                "description": "Your personal access token. ",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.harvestapp.com/v2/reports/uninvoiced?from=20170101&to=20171231",
+              "protocol": "https",
+              "host": ["api", "harvestapp", "com"],
+              "path": ["v2", "reports", "uninvoiced"],
+              "query": [
+                {
+                  "key": "from",
+                  "value": "20170101",
+                  "description": "Only report on expenses with a spent_date on or after the given date."
+                },
+                {
+                  "key": "to",
+                  "value": "20171231",
+                  "description": "Only report on expenses with a spent_date on or before the given date."
+                },
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                  "disabled": true
+                },
+                {
+                  "key": "per_page",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "The Uninvoiced Report highlights the uninvoiced hours and expenses for all billable projects in a given timeframe.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\nNote: Each request requires both the `from` and `to` parameters to be supplied in the URL’s query string. The timeframe supplied cannot exceed 1 year (365 days).\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/uninvoiced-report/)"
+          },
+          "response": []
+        },
+        {
+          "name": "Project Budget Report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Harvest-Account-Id",
+                "value": "{{HARVEST_ACCOUNT_ID}}",
+                "description": "The ID of your Harvest account. ",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{ACCESS_TOKEN}}",
+                "description": "Your personal access token. ",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://api.harvestapp.com/v2/reports/project_budget",
+              "protocol": "https",
+              "host": ["api", "harvestapp", "com"],
+              "path": ["v2", "reports", "project_budget"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.",
+                  "disabled": true
+                },
+                {
+                  "key": "per_page",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.",
+                  "disabled": true
+                },
+                {
+                  "key": "is_active",
+                  "value": "true",
+                  "description": "Pass true to only return active projects and false to return inactive projects.",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "The Project Budget Report highlights budget information for projects that have been assigned a budget.\n\nThe response contains an object with a `results` property that contains an array of up to `per_page` results. Each entry in the array is a separate result object. If no more results are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your results.\n\n[Link to Documentation](https://help.getharvest.com/api-v2/reports-api/reports/project-budget-report/)"
+          },
+          "response": []
+        }
+      ],
+      "description": "Information pertaining to retrieving various reports. Admin or project manager permissions required.\n\n[Link to documentation](https://help.getharvest.com/api-v2/reports-api/)"
+    },
+    {
       "name": "Roles",
       "item": [
         {
@@ -4837,7 +5416,7 @@
               }
             ],
             "url": {
-              "raw": "https://api.harvestapp.com/v2/roles",
+              "raw": "https://api.harvestapp.com/v2/roles?",
               "protocol": "https",
               "host": ["api", "harvestapp", "com"],
               "path": ["v2", "roles"],
@@ -4845,14 +5424,18 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1)",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.  ",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100. (Default: 100)",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.  ",
                   "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": ""
                 }
               ]
             },
@@ -5060,7 +5643,7 @@
               }
             ],
             "url": {
-              "raw": "https://api.harvestapp.com/v2/tasks",
+              "raw": "https://api.harvestapp.com/v2/tasks?",
               "protocol": "https",
               "host": ["api", "harvestapp", "com"],
               "path": ["v2", "tasks"],
@@ -5080,14 +5663,18 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1)",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.  ",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100. (Default: 100)",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.  ",
                   "disabled": true
+                },
+                {
+                  "key": "",
+                  "value": ""
                 }
               ]
             },
@@ -5394,13 +5981,13 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. (Default: 1)",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list.  ",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100. (Default: 100)",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.  ",
                   "disabled": true
                 }
               ]
@@ -5922,7 +6509,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/users/:user_id/billable_rates",
+                  "raw": "https://api.harvestapp.com/v2/users/:user_id/billable_rates?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "users", ":user_id", "billable_rates"],
@@ -5930,14 +6517,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -6071,7 +6662,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/users/:user_id/cost_rates",
+                  "raw": "https://api.harvestapp.com/v2/users/:user_id/cost_rates?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "users", ":user_id", "cost_rates"],
@@ -6079,14 +6670,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -6236,7 +6831,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/users/:user_id/project_assignments",
+                  "raw": "https://api.harvestapp.com/v2/users/:user_id/project_assignments?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "users", ":user_id", "project_assignments"],
@@ -6250,14 +6845,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -6291,7 +6890,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "https://api.harvestapp.com/v2/users/me/project_assignments",
+                  "raw": "https://api.harvestapp.com/v2/users/me/project_assignments?",
                   "protocol": "https",
                   "host": ["api", "harvestapp", "com"],
                   "path": ["v2", "users", "me", "project_assignments"],
@@ -6299,14 +6898,18 @@
                     {
                       "key": "page",
                       "value": "1",
-                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
                       "disabled": true
                     },
                     {
                       "key": "per_page",
-                      "value": "100",
-                      "description": "The number of records to return per page. Can range between 1 and 100.",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
                       "disabled": true
+                    },
+                    {
+                      "key": "",
+                      "value": ""
                     }
                   ]
                 },
@@ -6316,6 +6919,114 @@
             }
           ],
           "description": "Admin permissions required, except when retrieving the currently authenticated user’s project assignments."
+        },
+        {
+          "name": "User Teammates",
+          "item": [
+            {
+              "name": "List all assigned teammates",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Harvest-Account-ID",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/users/:user_id/teammates",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "users", ":user_id", "teammates"],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "user_id",
+                      "value": "<User ID>",
+                      "description": "The ID of the manager you are listing teammates for."
+                    }
+                  ]
+                },
+                "description": "Returns a list of assigned teammates for the user identified by `USER_ID`. The `USER_ID` must belong to a user that is a Manager, if not, a `422 Unprocessable Entity` status code will be returned.\n\nThe response contains an object with a `teammates` property that contains an array of up to `per_page` teammates. Each entry in the array is a separate teammate object. If no more teammates are available, the resulting array will be empty. Several additional pagination properties are included in the response to simplify paginating your teammates.\n\n[Link to documentation](https://help.getharvest.com/api-v2/users-api/users/teammates/#list-all-assigned-teammates-for-a-specific-user)"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a user's assigned teammates",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Harvest-Account-ID",
+                    "value": "{{HARVEST_ACCOUNT_ID}}",
+                    "description": "The ID of your Harvest account. ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "{{ACCESS_TOKEN}}",
+                    "description": "Your personal access token. ",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "https://api.harvestapp.com/v2/users/:user_id/teammates?teammate_ids[]=21",
+                  "protocol": "https",
+                  "host": ["api", "harvestapp", "com"],
+                  "path": ["v2", "users", ":user_id", "teammates"],
+                  "query": [
+                    {
+                      "key": "teammate_ids[]",
+                      "value": "21",
+                      "description": "ID of user you want to assign to the Manager."
+                    },
+                    {
+                      "key": "page",
+                      "value": "1",
+                      "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                      "disabled": true
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "2000",
+                      "description": "The number of records to return per page. Can range between 1 and 2000.",
+                      "disabled": true
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "user_id",
+                      "value": "<User ID>",
+                      "description": "The ID of the Manager you are listing teammates for."
+                    }
+                  ]
+                },
+                "description": "Updates the the assigned teammates for a specific user. Returns list of assigned teammates and a `200 OK` response code if the call succeeded. The `USER_ID` must belong to a user that is a Manager, if not, a `422 Unprocessable Entity` status code will be returned.\n\nAdding teammates for the first time will add the `people_manager` [access role](https://help.getharvest.com/api-v2/users-api/users/users/#access-roles) to the Manager. Any IDs not included in the `teammate_ids` that are currently assigned will be unassigned from the Manager. Use an empty array to unassign all users. This will also remove the `people_manager` access role from the Manager.\n\n[Link to documentation](https://help.getharvest.com/api-v2/users-api/users/teammates/#update-a-users-assigned-teammates)"
+              },
+              "response": []
+            }
+          ]
         },
         {
           "name": "Retrieve the currently authenticated user",
@@ -6384,13 +7095,13 @@
                 {
                   "key": "page",
                   "value": "1",
-                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 100 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
+                  "description": "The page number to use in pagination. For instance, if you make a list request and receive 2000 records, your subsequent call can include page=2 to retrieve the next page of the list. ",
                   "disabled": true
                 },
                 {
                   "key": "per_page",
-                  "value": "100",
-                  "description": "The number of records to return per page. Can range between 1 and 100.",
+                  "value": "2000",
+                  "description": "The number of records to return per page. Can range between 1 and 2000.",
                   "disabled": true
                 }
               ]
@@ -6498,36 +7209,6 @@
                   "disabled": true
                 },
                 {
-                  "key": "is_admin",
-                  "value": "false",
-                  "description": "Whether the user has admin permissions. ",
-                  "disabled": true
-                },
-                {
-                  "key": "is_project_manager",
-                  "value": "false",
-                  "description": "Whether the user has project manager permissions. Defaults to false.",
-                  "disabled": true
-                },
-                {
-                  "key": "can_see_rates",
-                  "value": "false",
-                  "description": "Whether the user can see billable rates on projects. Only applicable to project managers.",
-                  "disabled": true
-                },
-                {
-                  "key": "can_create_projects",
-                  "value": "false",
-                  "description": "Whether the user can create projects. Only applicable to project managers.",
-                  "disabled": true
-                },
-                {
-                  "key": "can_create_invoices",
-                  "value": "false",
-                  "description": "Whether the user can create invoices. Only applicable to project managers.",
-                  "disabled": true
-                },
-                {
                   "key": "is_active",
                   "value": "true",
                   "description": "Whether the user is active or archived.",
@@ -6550,10 +7231,22 @@
                   "value": "0",
                   "description": "The cost rate to use for this user when calculating a project’s costs vs billable amount. ",
                   "disabled": true
+                },
+                {
+                  "key": "roles[]",
+                  "value": "Product Team",
+                  "description": "Descriptive names of the business roles assigned to this person.",
+                  "disabled": true
+                },
+                {
+                  "key": "access_roles[]",
+                  "value": "manager",
+                  "description": "Access Role(s) that determine the user’s permissions in Harvest.",
+                  "disabled": true
                 }
               ]
             },
-            "description": "Creates a new user object. Returns a user object and a `201 Created` response code if the call succeeded.\n\n[Link to documentation](https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user)"
+            "description": "Creates a new user object. Returns a user object and a `201 Created` response code if the call succeeded.\n\n### Access Roles\n\nTo set permissions for a user, use the `access_roles` parameter. A user must be one of the following: `member`, `manager`, or `administrator`.\n\n- If no `access_role` parameter is sent, a user defaults to ‘member’.\n- If a user is a `manger` they can have other access roles set for more specific permissions in Harvest.\n- The role of `people_manager` is determined by whether the user has teammates assigned to them, which can be added through the teammates api. If you downgrade a People Manager’s access role to Member, they will no longer be a People Manager and their assigned teammates will be removed.\n    \n\n| **Access Role Name** | **Description** |\n| --- | --- |\n| `administrator` | For users who need the most control to manage your account. Administrators can see and do everything. |\n| `manager` | For users who need more access to people and project reports. Managers can track time and expenses, and edit, approve, and run reports for all time and expenses tracked to selected projects and people. |\n| `member` | For users who just need to track time and expenses. |\n\n| **Additional Manager Access Role Names** | **Description** |\n| --- | --- |\n| `project_creator` | User can create projects, and edit projects that they manage. |\n| `billable_rates_manager` | User can see billable rates and amounts for projects and people they manage. |\n| `managed_projects_invoice_drafter` | User can create and edit draft invoices for projects they manage. |\n| `managed_projects_invoice_manager` | User can send and fully manage all invoices for projects they manage (record payments, edit non-drafts, send reminders and thank-yous, delete, etc). |\n| `client_and_task_manager` | User can create and edit all clients and tasks on the account. |\n| `time_and_expenses_manager` | User can create and edit time and expenses for people and projects they manage. |\n| `estimates_manager` | User can create and edit all estimates on the account. |\n\n[Link to documentation](https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user)"
           },
           "response": []
         },
@@ -6624,36 +7317,6 @@
                   "disabled": true
                 },
                 {
-                  "key": "is_admin",
-                  "value": "false",
-                  "description": "Whether the user has admin permissions. ",
-                  "disabled": true
-                },
-                {
-                  "key": "is_project_manager",
-                  "value": "false",
-                  "description": "Whether the user has project manager permissions. Defaults to false.",
-                  "disabled": true
-                },
-                {
-                  "key": "can_see_rates",
-                  "value": "",
-                  "description": "Whether the user can see billable rates on projects. Only applicable to project managers.",
-                  "disabled": true
-                },
-                {
-                  "key": "can_create_projects",
-                  "value": "",
-                  "description": "Whether the user can create projects. Only applicable to project managers.",
-                  "disabled": true
-                },
-                {
-                  "key": "can_create_invoices",
-                  "value": "",
-                  "description": "Whether the user can create invoices. Only applicable to project managers.",
-                  "disabled": true
-                },
-                {
                   "key": "is_active",
                   "value": "true",
                   "description": "Whether the user is active or archived.",
@@ -6675,6 +7338,18 @@
                   "key": "cost_rate",
                   "value": "0",
                   "description": "The cost rate to use for this user when calculating a project’s costs vs billable amount. ",
+                  "disabled": true
+                },
+                {
+                  "key": "roles[]",
+                  "value": "Product Team",
+                  "description": "Descriptive names of the business roles assigned to this person.",
+                  "disabled": true
+                },
+                {
+                  "key": "access_roles[]",
+                  "value": "manager",
+                  "description": "Access Role(s) that determine the user’s permissions in Harvest.",
                   "disabled": true
                 }
               ],
@@ -6764,13 +7439,11 @@
   "variable": [
     {
       "key": "HARVEST_ACCOUNT_ID",
-      "value": "<Your Account ID>",
-      "type": "string"
+      "value": "<Your Account ID>"
     },
     {
       "key": "ACCESS_TOKEN",
-      "value": "Bearer <Your Access Token>",
-      "type": "string"
+      "value": "Bearer <Your Access Token>"
     }
   ]
 }

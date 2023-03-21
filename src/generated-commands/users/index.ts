@@ -9,5 +9,6 @@ import * as c4 from "./get";
 import * as c5 from "./list";
 import * as c6 from "./me";
 import * as c7 from "./project-assignments";
-import * as c8 from "./update";
-export const commands = [c0, c1, c2, c3, c4, c5, c6, c7, c8];
+import * as c8 from "./teammates";
+import * as c9 from "./update";
+export const commands = [c0, c1, c2, c3, c4, c5, c6, c7, c8, c9];

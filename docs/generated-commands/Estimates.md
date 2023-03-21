@@ -26,7 +26,7 @@ hrvst estimates list
 | `--to`            | Only return estimates with an issue_date on or before the given date.                                        | false    |
 | `--state`         | Only return estimates with a state matching the value provided. Options: draft, sent, accepted, or declined. | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                                       | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.                                       | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 2000.                                      | false    |
 | `--fields`        | Comma separated list of fields to display in the output.                                                     | false    |
 | `--output`        | The output format: json, table                                                                               | false    |
 

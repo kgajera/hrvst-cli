@@ -16,12 +16,12 @@ The response contains an object with a `roles` property that contains an array o
 hrvst roles list
 ```
 
-| Option       | Description                                                                           | Required |
-| ------------ | ------------------------------------------------------------------------------------- | -------- |
-| `--page`     | The page number to use in pagination. Use `all` to retrieve all pages.                | false    |
-| `--per_page` | The number of records to return per page. Can range between 1 and 100. (Default: 100) | false    |
-| `--fields`   | Comma separated list of fields to display in the output.                              | false    |
-| `--output`   | The output format: json, table                                                        | false    |
+| Option       | Description                                                             | Required |
+| ------------ | ----------------------------------------------------------------------- | -------- |
+| `--page`     | The page number to use in pagination. Use `all` to retrieve all pages.  | false    |
+| `--per_page` | The number of records to return per page. Can range between 1 and 2000. | false    |
+| `--fields`   | Comma separated list of fields to display in the output.                | false    |
+| `--output`   | The output format: json, table                                          | false    |
 
 ## Retrieve a specific role
 

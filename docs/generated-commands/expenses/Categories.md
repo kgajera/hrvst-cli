@@ -21,7 +21,7 @@ hrvst expenses categories list
 | `--is_active`    | Pass true to only return active expense categories and false to return inactive expense categories. | false    |
 | `--update_since` | Only return expense categories that have been updated since the given date and time.                | false    |
 | `--page`         | The page number to use in pagination. Use `all` to retrieve all pages.                              | false    |
-| `--per_page`     | The number of records to return per page. Can range between 1 and 100.                              | false    |
+| `--per_page`     | The number of records to return per page. Can range between 1 and 2000.                             | false    |
 | `--fields`       | Comma separated list of fields to display in the output.                                            | false    |
 | `--output`       | The output format: json, table                                                                      | false    |
 

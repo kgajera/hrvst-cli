@@ -30,9 +30,10 @@ export const request: Request = {
         key: "per_page",
         value: "",
         description:
-          "The number of records to return per page. Can range between 1 and 100.",
+          "The number of records to return per page. Can range between 1 and 2000.",
         disabled: true,
       },
+      { key: "", value: "" },
     ],
     variable: [
       {

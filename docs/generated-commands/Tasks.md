@@ -16,14 +16,14 @@ The response contains an object with a `tasks` property that contains an array o
 hrvst tasks list
 ```
 
-| Option            | Description                                                                           | Required |
-| ----------------- | ------------------------------------------------------------------------------------- | -------- |
-| `--is_active`     | Pass true to only return active tasks and false to return inactive tasks.             | false    |
-| `--updated_since` | Only return tasks that have been updated since the given date and time.               | false    |
-| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.                | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100. (Default: 100) | false    |
-| `--fields`        | Comma separated list of fields to display in the output.                              | false    |
-| `--output`        | The output format: json, table                                                        | false    |
+| Option            | Description                                                               | Required |
+| ----------------- | ------------------------------------------------------------------------- | -------- |
+| `--is_active`     | Pass true to only return active tasks and false to return inactive tasks. | false    |
+| `--updated_since` | Only return tasks that have been updated since the given date and time.   | false    |
+| `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.    | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 2000.   | false    |
+| `--fields`        | Comma separated list of fields to display in the output.                  | false    |
+| `--output`        | The output format: json, table                                            | false    |
 
 ## Retrieve a specific task
 

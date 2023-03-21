@@ -21,7 +21,7 @@ hrvst estimates messages list-by-estimate
 | `--estimate_id`   | The ID of the estimate that contains the messages you're retrieving.                | true     |
 | `--updated_since` | Only return estimate messages that have been updated since the given date and time. | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.              | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.              | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 2000.             | false    |
 | `--fields`        | Comma separated list of fields to display in the output.                            | false    |
 | `--output`        | The output format: json, table                                                      | false    |
 

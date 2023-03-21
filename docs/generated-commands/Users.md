@@ -34,7 +34,7 @@ hrvst users list
 | `--is_active`     | Pass true to only return active users and false to return inactive users. | false    |
 | `--updated_since` | Only return users that have been updated since the given date and time.   | false    |
 | `--page`          | The page number to use in pagination. Use `all` to retrieve all pages.    | false    |
-| `--per_page`      | The number of records to return per page. Can range between 1 and 100.    | false    |
+| `--per_page`      | The number of records to return per page. Can range between 1 and 2000.   | false    |
 | `--fields`        | Comma separated list of fields to display in the output.                  | false    |
 | `--output`        | The output format: json, table                                            | false    |
 
@@ -58,6 +58,30 @@ hrvst users get
 
 Creates a new user object. Returns a user object and a `201 Created` response code if the call succeeded.
 
+### Access Roles
+
+To set permissions for a user, use the `access_roles` parameter. A user must be one of the following: `member`, `manager`, or `administrator`.
+
+- If no `access_role` parameter is sent, a user defaults to ‘member’.
+- If a user is a `manger` they can have other access roles set for more specific permissions in Harvest.
+- The role of `people_manager` is determined by whether the user has teammates assigned to them, which can be added through the teammates api. If you downgrade a People Manager’s access role to Member, they will no longer be a People Manager and their assigned teammates will be removed.
+
+| **Access Role Name** | **Description**                                                                                                                                                                                           |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `administrator`      | For users who need the most control to manage your account. Administrators can see and do everything.                                                                                                     |
+| `manager`            | For users who need more access to people and project reports. Managers can track time and expenses, and edit, approve, and run reports for all time and expenses tracked to selected projects and people. |
+| `member`             | For users who just need to track time and expenses.                                                                                                                                                       |
+
+| **Additional Manager Access Role Names** | **Description**                                                                                                                                      |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `project_creator`                        | User can create projects, and edit projects that they manage.                                                                                        |
+| `billable_rates_manager`                 | User can see billable rates and amounts for projects and people they manage.                                                                         |
+| `managed_projects_invoice_drafter`       | User can create and edit draft invoices for projects they manage.                                                                                    |
+| `managed_projects_invoice_manager`       | User can send and fully manage all invoices for projects they manage (record payments, edit non-drafts, send reminders and thank-yous, delete, etc). |
+| `client_and_task_manager`                | User can create and edit all clients and tasks on the account.                                                                                       |
+| `time_and_expenses_manager`              | User can create and edit time and expenses for people and projects they manage.                                                                      |
+| `estimates_manager`                      | User can create and edit all estimates on the account.                                                                                               |
+
 [Link to documentation](https://help.getharvest.com/api-v2/users-api/users/users/#create-a-user)
 
 ```
@@ -73,15 +97,12 @@ hrvst users create
 | `--timezone`                          | The user’s timezone. Defaults to the company’s timezone.                                  | false    |
 | `--has_access_to_all_future_projects` | Whether the user should be automatically added to future projects.                        | false    |
 | `--is_contractor`                     | Whether the user is a contractor or an employee.                                          | false    |
-| `--is_admin`                          | Whether the user has admin permissions.                                                   | false    |
-| `--is_project_manager`                | Whether the user has project manager permissions. Defaults to false.                      | false    |
-| `--can_see_rates`                     | Whether the user can see billable rates on projects. Only applicable to project managers. | false    |
-| `--can_create_projects`               | Whether the user can create projects. Only applicable to project managers.                | false    |
-| `--can_create_invoices`               | Whether the user can create invoices. Only applicable to project managers.                | false    |
 | `--is_active`                         | Whether the user is active or archived.                                                   | false    |
 | `--weekly_capacity`                   | The number of hours per week this person is available to work in seconds.                 | false    |
 | `--default_hourly_rate`               | The billable rate to use for this user when they are added to a project.                  | false    |
 | `--cost_rate`                         | The cost rate to use for this user when calculating a project’s costs vs billable amount. | false    |
+| `--roles[]`                           | Descriptive names of the business roles assigned to this person.                          | false    |
+| `--access_roles[]`                    | Access Role(s) that determine the user’s permissions in Harvest.                          | false    |
 | `--fields`                            | Comma separated list of fields to display in the output.                                  | false    |
 | `--output`                            | The output format: json, table                                                            | false    |
 
@@ -105,15 +126,12 @@ hrvst users update
 | `--timezone`                          | The user’s timezone. Defaults to the company’s timezone.                                  | false    |
 | `--has_access_to_all_future_projects` | Whether the user should be automatically added to future projects.                        | false    |
 | `--is_contractor`                     | Whether the user is a contractor or an employee.                                          | false    |
-| `--is_admin`                          | Whether the user has admin permissions.                                                   | false    |
-| `--is_project_manager`                | Whether the user has project manager permissions. Defaults to false.                      | false    |
-| `--can_see_rates`                     | Whether the user can see billable rates on projects. Only applicable to project managers. | false    |
-| `--can_create_projects`               | Whether the user can create projects. Only applicable to project managers.                | false    |
-| `--can_create_invoices`               | Whether the user can create invoices. Only applicable to project managers.                | false    |
 | `--is_active`                         | Whether the user is active or archived.                                                   | false    |
 | `--weekly_capacity`                   | The number of hours per week this person is available to work in seconds.                 | false    |
 | `--default_hourly_rate`               | The billable rate to use for this user when they are added to a project.                  | false    |
 | `--cost_rate`                         | The cost rate to use for this user when calculating a project’s costs vs billable amount. | false    |
+| `--roles[]`                           | Descriptive names of the business roles assigned to this person.                          | false    |
+| `--access_roles[]`                    | Access Role(s) that determine the user’s permissions in Harvest.                          | false    |
 | `--fields`                            | Comma separated list of fields to display in the output.                                  | false    |
 | `--output`                            | The output format: json, table                                                            | false    |
 

@@ -13,6 +13,13 @@ export const request: Request = {
     path: ["v2", "clients"],
     query: [
       {
+        key: "per_page",
+        value: "",
+        description:
+          "The number of records to return per page. Can range between 1 and 2000.",
+        disabled: true,
+      },
+      {
         key: "is_active",
         value: "",
         description:
@@ -33,13 +40,7 @@ export const request: Request = {
           "The page number to use in pagination. Use `all` to retrieve all pages.",
         disabled: true,
       },
-      {
-        key: "per_page",
-        value: "",
-        description:
-          "The number of records to return per page. Can range between 1 and 100.",
-        disabled: true,
-      },
+      { key: "", value: "" },
     ],
   },
 };

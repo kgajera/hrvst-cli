@@ -32,20 +32,7 @@ export const request: Request = {
           "Only return task assignments that have been updated since the given date and time.",
         disabled: true,
       },
-      {
-        key: "page",
-        value: "",
-        description:
-          "The page number to use in pagination. Use `all` to retrieve all pages.",
-        disabled: true,
-      },
-      {
-        key: "per_page",
-        value: "",
-        description:
-          "The number of records to return per page. Can range between 1 and 100.",
-        disabled: true,
-      },
+      { key: "", value: "" },
     ],
     variable: [
       {

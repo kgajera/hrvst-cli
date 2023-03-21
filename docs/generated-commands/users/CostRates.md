@@ -14,13 +14,13 @@ The response contains an object with a `cost_rates` property that contains an ar
 hrvst users cost-rates list-by-user
 ```
 
-| Option       | Description                                                            | Required |
-| ------------ | ---------------------------------------------------------------------- | -------- |
-| `--user_id`  | The ID of the user whose cost rates you're retrieving.                 | true     |
-| `--page`     | The page number to use in pagination. Use `all` to retrieve all pages. | false    |
-| `--per_page` | The number of records to return per page. Can range between 1 and 100. | false    |
-| `--fields`   | Comma separated list of fields to display in the output.               | false    |
-| `--output`   | The output format: json, table                                         | false    |
+| Option       | Description                                                             | Required |
+| ------------ | ----------------------------------------------------------------------- | -------- |
+| `--user_id`  | The ID of the user whose cost rates you're retrieving.                  | true     |
+| `--page`     | The page number to use in pagination. Use `all` to retrieve all pages.  | false    |
+| `--per_page` | The number of records to return per page. Can range between 1 and 2000. | false    |
+| `--fields`   | Comma separated list of fields to display in the output.                | false    |
+| `--output`   | The output format: json, table                                          | false    |
 
 ## Retrieve a specific cost rate
 

@@ -274,7 +274,7 @@ async function updateReadme(dictionary: CommandDictionary): Promise<void> {
  */
 const commandDirModule = (
   name: string,
-  description: string
+  description = ""
 ): string => `${FILE_HEADER}
 import { CommandBuilder } from 'yargs';
 import { commands } from './${name}/index';
