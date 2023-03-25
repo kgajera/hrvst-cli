@@ -4,7 +4,8 @@
 import * as c0 from "./alias";
 import * as c1 from "./log-time";
 import * as c2 from "./login";
-import * as c3 from "./start-timer";
-import * as c4 from "./stop-timer";
-import * as c5 from "./timer-note";
-export const commands = [c0, c1, c2, c3, c4, c5];
+import * as c3 from "./open";
+import * as c4 from "./start-timer";
+import * as c5 from "./stop-timer";
+import * as c6 from "./timer-note";
+export const commands = [c0, c1, c2, c3, c4, c5, c6];

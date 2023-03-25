@@ -58,6 +58,13 @@ yargs(hideBin(process.argv))
           "docs/commands/TimeTracking.md#log-time",
         "hrvst login": "docs/commands/Login.md",
         "hrvst note": "docs/commands/TimeTracking.md#update-notes-for-a-timer",
+        "hrvst open": "docs/commands/Open.md",
+        "hrvst open accounts": "docs/commands/Open.md#accounts",
+        "hrvst open api": "docs/commands/Open.md#api-documentation",
+        "hrvst open expenses": "docs/commands/Open.md#expenses",
+        "hrvst open profile": "docs/commands/Open.md#profile",
+        "hrvst open reports": "docs/commands/Open.md#reports",
+        "hrvst open time": "docs/commands/Open.md#time",
         "hrvst start [alias]": "docs/commands/TimeTracking.md#start-a-timer",
         "hrvst stop": "docs/commands/TimeTracking.md#stop-a-timer",
         // Generated commands will be added to this object below

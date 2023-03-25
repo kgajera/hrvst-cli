@@ -96,6 +96,13 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/commands/TimeTracking.md#log-time">hrvst log &lt;hours&gt; [alias]</a>
 <a href="/docs/commands/Login.md">hrvst login</a>
 <a href="/docs/commands/TimeTracking.md#update-notes-for-a-timer">hrvst note</a>
+<a href="/docs/commands/Open.md">hrvst open</a>
+<a href="/docs/commands/Open.md#accounts">hrvst open accounts</a>
+<a href="/docs/commands/Open.md#api-documentation">hrvst open api</a>
+<a href="/docs/commands/Open.md#expenses">hrvst open expenses</a>
+<a href="/docs/commands/Open.md#profile">hrvst open profile</a>
+<a href="/docs/commands/Open.md#reports">hrvst open reports</a>
+<a href="/docs/commands/Open.md#time">hrvst open time</a>
 <a href="/docs/generated-commands/Projects.md#create-a-project">hrvst projects create</a>
 <a href="/docs/generated-commands/Projects.md#delete-a-project">hrvst projects delete</a>
 <a href="/docs/generated-commands/Projects.md#retrieve-a-specific-project">hrvst projects get</a>
