@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import setWith from "lodash/setWith";
+import _ from "lodash";
 import { Arguments, CommandBuilder, Options } from "yargs";
 import { getConfig, saveConfig } from "../../utils/config";
 import { normalizeProjectAndTaskAssignment } from "../../utils/timer";
@@ -33,7 +33,7 @@ export const handler = async (args: CreateAliasArguments): Promise<void> => {
   const config = await getConfig();
   const { project_id, task_id } = await normalizeProjectAndTaskAssignment(args);
 
-  setWith(
+  _.setWith(
     config,
     `accountConfig.${config.accountId}.aliases.${args.alias}`,
     {

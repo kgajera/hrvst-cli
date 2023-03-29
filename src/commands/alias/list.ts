@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import get from "lodash/get";
+import _ from "lodash";
 import { CommandBuilder } from "yargs";
 import { getConfig, saveConfig } from "../../utils/config";
 import { horizontalTable } from "../../utils/table";
@@ -15,7 +15,7 @@ export const builder: CommandBuilder = (yargs) => {
 export const handler = async (): Promise<void> => {
   const config = await getConfig();
   const aliases =
-    get(config, `accountConfig.${config.accountId}.aliases`) || {};
+    _.get(config, `accountConfig.${config.accountId}.aliases`) || {};
   const aliasNames = Object.keys(aliases);
 
   if (aliasNames.length) {

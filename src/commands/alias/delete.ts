@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import get from "lodash/get";
+import _ from "lodash";
 import { Arguments, CommandBuilder } from "yargs";
 import { getConfig, saveConfig } from "../../utils/config";
 
@@ -17,7 +17,7 @@ export const builder: CommandBuilder = (yargs) => {
 
 export const handler = async (args: DeleteAliasArguments): Promise<void> => {
   const config = await getConfig();
-  const aliases = get(config, `accountConfig.${config.accountId}.aliases`);
+  const aliases = _.get(config, `accountConfig.${config.accountId}.aliases`);
   if (args.alias in aliases) {
     delete aliases[args.alias];
     await saveConfig(config);
