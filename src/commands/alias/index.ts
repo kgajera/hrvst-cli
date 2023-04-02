@@ -5,4 +5,8 @@ import { CommandModule } from "yargs";
 import * as c0 from "./create";
 import * as c1 from "./delete";
 import * as c2 from "./list";
-export const commands = [c0, c1 as CommandModule, c2];
+export const commands = [
+  c0 as CommandModule,
+  c1 as CommandModule,
+  c2 as CommandModule,
+];

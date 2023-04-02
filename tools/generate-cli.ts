@@ -121,8 +121,11 @@ async function createCommandBarrels(dir: string) {
   await writeFile(
     path.resolve(dir, "index.ts"),
     `${FILE_HEADER}
-      ${commands.map((c, i) => `import * as c${i} from "./${c}"`).join("\n")}
-      export const commands = [${commands.map((c, i) => `c${i}`).join()}];`,
+    import { CommandModule } from "yargs";
+    ${commands.map((c, i) => `import * as c${i} from "./${c}"`).join("\n")}
+    export const commands = [${commands
+      .map((c, i) => `c${i} as CommandModule`)
+      .join()}];`,
     true
   );
 }

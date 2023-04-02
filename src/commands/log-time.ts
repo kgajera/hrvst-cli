@@ -8,7 +8,7 @@ import { handler as startTimerHandler } from "./start-timer";
 
 type LogTimeArguments = Arguments & {
   alias?: string;
-  hours?: number;
+  hours: number;
   notes?: string;
   project_id?: number;
   task_id?: number;
@@ -45,7 +45,7 @@ export const builder: CommandBuilder = (yargs) => {
 };
 
 export const handler = async (args: LogTimeArguments): Promise<void> => {
-  if (!args.hours || isNaN(args.hours)) {
+  if (isNaN(args.hours)) {
     console.error(chalk.red("Hours must be a valid number"));
     return;
   }
