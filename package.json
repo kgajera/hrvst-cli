@@ -65,6 +65,7 @@
     "@typescript-eslint/parser": "^4.28.5",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "execa": "^7.1.1",
     "prettier": "^2.3.2",
     "supertest": "^6.3.3",
     "tsup": "^6.6.3",

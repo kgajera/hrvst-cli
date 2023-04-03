@@ -21,6 +21,7 @@ type CommandDictionary = Record<string, string>;
 
 const commandsDir = path.join("src", "generated-commands");
 const docsDir = path.join("docs", "generated-commands");
+const testsDir = path.join("test", "generated");
 const readmeTemplate = path.join("tools", "README-template.md");
 
 const FILE_HEADER = `/**
@@ -92,6 +93,8 @@ yargs(hideBin(process.argv))
 
       await createCommandBarrels(path.join("src", "commands"));
       await createCommandBarrels(commandsDir);
+
+      await createTests(commandDictionary);
     }
   )
   .demandCommand()
@@ -233,6 +236,43 @@ async function createDocs(
   }
 
   return commandDictionary;
+}
+
+/**
+ * Create tests for all commands
+ *
+ * @param dictionary Map of command to documentation link
+ */
+async function createTests(dictionary: CommandDictionary) {
+  await mkdir(testsDir);
+
+  for (const command in dictionary) {
+    // The completion command outputs the completion script which will
+    // differ depending on the environment so it is excluded
+    if (command === "hrvst completion") {
+      continue;
+    }
+
+    const commandParts = command
+      .replace("hrvst ", "")
+      .split(" ")
+      // Filter out positional and option arguments
+      .filter((p) => !(p.startsWith("&lt;") || p.startsWith("[")));
+
+    await writeFile(
+      path.join(testsDir, `${commandParts.join("-")}.test.ts`),
+      `${FILE_HEADER}
+    import { execaCommand } from 'execa';
+    import { expect, test } from "vitest";
+
+    test("hrvst ${commandParts.join(" ")}", async () => {
+      const { stdout } = await execaCommand("node dist/cli.js ${commandParts.join(
+        " "
+      )} --help");
+      expect(stdout).toMatchInlineSnapshot();
+    });`
+    );
+  }
 }
 
 /**
