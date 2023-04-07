@@ -99,6 +99,7 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/commands/Open.md">hrvst open</a>
 <a href="/docs/commands/Open.md#accounts">hrvst open accounts</a>
 <a href="/docs/commands/Open.md#api-documentation">hrvst open api</a>
+<a href="/docs/commands/Open.md#cli-documentation">hrvst open docs</a>
 <a href="/docs/commands/Open.md#expenses">hrvst open expenses</a>
 <a href="/docs/commands/Open.md#profile">hrvst open profile</a>
 <a href="/docs/commands/Open.md#reports">hrvst open reports</a>

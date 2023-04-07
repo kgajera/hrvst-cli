@@ -62,6 +62,7 @@ yargs(hideBin(process.argv))
         "hrvst open": "docs/commands/Open.md",
         "hrvst open accounts": "docs/commands/Open.md#accounts",
         "hrvst open api": "docs/commands/Open.md#api-documentation",
+        "hrvst open docs": "docs/commands/Open.md#cli-documentation",
         "hrvst open expenses": "docs/commands/Open.md#expenses",
         "hrvst open profile": "docs/commands/Open.md#profile",
         "hrvst open reports": "docs/commands/Open.md#reports",
