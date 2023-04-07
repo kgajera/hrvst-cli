@@ -18,6 +18,14 @@ Open `https://help.getharvest.com/api-v2` in your browser:
 hrvst open api
 ```
 
+## CLI Documentation
+
+Open `https://kgajera.github.io/hrvst-cli` in your browser:
+
+```
+hrvst open docs
+```
+
 ## Expenses
 
 Open `https://{company}.harvestapp.com/expenses` in your browser:
