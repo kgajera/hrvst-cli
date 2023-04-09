@@ -14,8 +14,8 @@ import type {
 import { format } from "prettier";
 import yargs, { Arguments } from "yargs";
 import { hideBin } from "yargs/helpers";
-import { urlArgOptions } from "../src/utils/postman-request-command.js";
-import descriptions from "./descriptions.js";
+import { urlArgOptions } from "../src/utils/postman-request-command";
+import descriptions from "./descriptions";
 
 type CommandDictionary = Record<string, string>;
 
@@ -125,11 +125,8 @@ async function createCommandBarrels(dir: string) {
   await writeFile(
     path.resolve(dir, "index.ts"),
     `${FILE_HEADER}
-    import { CommandModule } from "yargs";
     ${commands.map((c, i) => `import * as c${i} from "./${c}"`).join("\n")}
-    export const commands = [${commands
-      .map((c, i) => `c${i} as CommandModule`)
-      .join()}];`,
+    export const commands = [${commands.map((c, i) => `c${i}`).join()}];`,
     true
   );
 }
