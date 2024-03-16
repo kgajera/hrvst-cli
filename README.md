@@ -103,6 +103,7 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/commands/Open.md#expenses">hrvst open expenses</a>
 <a href="/docs/commands/Open.md#profile">hrvst open profile</a>
 <a href="/docs/commands/Open.md#reports">hrvst open reports</a>
+<a href="/docs/commands/Open.md#status">hrvst open status</a>
 <a href="/docs/commands/Open.md#time">hrvst open time</a>
 <a href="/docs/generated-commands/Projects.md#create-a-project">hrvst projects create</a>
 <a href="/docs/generated-commands/Projects.md#delete-a-project">hrvst projects delete</a>
@@ -137,6 +138,7 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/generated-commands/Roles.md#list-all-roles">hrvst roles list</a>
 <a href="/docs/generated-commands/Roles.md#update-a-role">hrvst roles update</a>
 <a href="/docs/commands/TimeTracking.md#start-a-timer">hrvst start [alias]</a>
+<a href="/docs/commands/Status.md">hrvst status</a>
 <a href="/docs/commands/TimeTracking.md#stop-a-timer">hrvst stop</a>
 <a href="/docs/generated-commands/Tasks.md#create-a-task">hrvst tasks create</a>
 <a href="/docs/generated-commands/Tasks.md#delete-a-task">hrvst tasks delete</a>

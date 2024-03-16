@@ -19,6 +19,7 @@ test("hrvst open", async () => {
       cli.js open expenses  Manage expenses
       cli.js open profile   Edit your profile
       cli.js open reports   Run reports
+      cli.js open status    View status of Harvest services
 
     Options:
       --help  Show help                                                    [boolean]"

@@ -44,6 +44,10 @@ const openCommands: Record<string, CommandModule> = {
     describe: "Run reports",
     handler: async () => openCompanyUrl("reports"),
   },
+  status: {
+    describe: "View status of Harvest services",
+    handler: async () => openUrl("https://www.harveststatus.com"),
+  },
 };
 
 export const command = "open";

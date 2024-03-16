@@ -50,6 +50,14 @@ Open `https://{company}.harvestapp.com/reports` in your browser:
 hrvst open reports
 ```
 
+## Status
+
+Open `https://www.harveststatus.com` in your browser:
+
+```
+hrvst open status
+```
+
 ## Time
 
 Open `https://{company}.harvestapp.com/time` in your browser:

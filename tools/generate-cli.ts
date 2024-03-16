@@ -66,8 +66,10 @@ yargs(hideBin(process.argv))
         "hrvst open expenses": "docs/commands/Open.md#expenses",
         "hrvst open profile": "docs/commands/Open.md#profile",
         "hrvst open reports": "docs/commands/Open.md#reports",
+        "hrvst open status": "docs/commands/Open.md#status",
         "hrvst open time": "docs/commands/Open.md#time",
         "hrvst start [alias]": "docs/commands/TimeTracking.md#start-a-timer",
+        "hrvst status": "docs/commands/Status.md",
         "hrvst stop": "docs/commands/TimeTracking.md#stop-a-timer",
         // Generated commands will be added to this object below
       };
@@ -483,7 +485,7 @@ async function writeFile(
   }
   await fs.promises.writeFile(
     filepath,
-    format(content, {
+    await format(content, {
       filepath,
     })
   );

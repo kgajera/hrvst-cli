@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import chalk from "chalk";
-import yargs from "yargs";
+import yargs, { CommandModule } from "yargs";
 import { hideBin } from "yargs/helpers";
 import { failHandler } from "./utils/error";
 import updateNotifier from "./utils/update-notifier";
@@ -11,7 +11,7 @@ import { commands as generatedCommands } from "./generated-commands";
 updateNotifier();
 
 yargs(hideBin(process.argv))
-  .command([...commands, ...generatedCommands])
+  .command([...(commands as CommandModule[]), ...generatedCommands])
   .demandCommand()
   .recommendCommands()
   .strictCommands()
