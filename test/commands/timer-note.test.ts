@@ -20,7 +20,7 @@ const spyOnGetRunningTimer = (timeEntry: Partial<timerUtils.TimeEntry> = {}) =>
       task: { id: 1, name: "Programming" },
       timer_started_at: "",
       ...timeEntry,
-    })
+    }),
   );
 
 describe("note", () => {
@@ -40,14 +40,14 @@ describe("note", () => {
     await handler(
       args({
         notes: "New note",
-      })
+      }),
     );
 
     expect(handlerSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         notes: "Existing note\n\nNew note",
         time_entry_id: 1,
-      })
+      }),
     );
   });
 
@@ -59,14 +59,14 @@ describe("note", () => {
     await handler(
       args({
         notes: "New note",
-      })
+      }),
     );
 
     expect(handlerSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         notes: "New note",
         time_entry_id: 1,
-      })
+      }),
     );
   });
 
@@ -79,14 +79,14 @@ describe("note", () => {
       args({
         notes: "New note",
         overwrite: true,
-      })
+      }),
     );
 
     expect(handlerSpy).toHaveBeenCalledWith(
       expect.objectContaining({
         notes: "New note",
         time_entry_id: 1,
-      })
+      }),
     );
   });
 });

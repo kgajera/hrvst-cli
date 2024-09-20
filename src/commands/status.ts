@@ -27,7 +27,7 @@ export const handler = async (): Promise<void> => {
 
   if (!res.ok) {
     console.error(
-      chalk.red("Failed to fetch status from https://www.harveststatus.com")
+      chalk.red("Failed to fetch status from https://www.harveststatus.com"),
     );
     return;
   }
@@ -64,7 +64,7 @@ export const handler = async (): Promise<void> => {
       acc[c.name] = status;
       return acc;
     },
-    {}
+    {},
   );
 
   console.log(verticalTable(tableData).toString());

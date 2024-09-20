@@ -1,4 +1,3 @@
-import axios, { AxiosRequestConfig, AxiosResponse, Method } from "axios";
 import _ from "lodash";
 import postman from "postman-collection";
 import { Arguments, CommandModule, Options } from "yargs";
@@ -99,11 +98,11 @@ export default ({
                     : [
                         "id",
                         ...Object.keys(record).filter((k) =>
-                          k.match(/_?(email|hours|name)$/i)
+                          k.match(/_?(email|hours|name)$/i),
                         ),
                       ],
                 },
-                output
+                output,
               );
               console.log(table.toString());
             }
@@ -127,13 +126,13 @@ export default ({
 export async function httpRequest<T = any>(
   method: string,
   url: postman.Url,
-  args: Partial<Arguments> = {}
-): Promise<AxiosResponse<T>> {
+  args: Partial<Arguments> = {},
+): Promise<{ data: T }> {
   const config = await getConfig();
 
   // Variable value must be a string for it to get substituted when calling getPath()
   url.variables.each(
-    (variable) => variable.key && variable.set(String(args[variable.key]))
+    (variable) => variable.key && variable.set(String(args[variable.key])),
   );
 
   // Add each argument property as a query parameter. Rather than looping
@@ -146,7 +145,7 @@ export async function httpRequest<T = any>(
         new postman.QueryParam({
           key,
           value: String(args[key]),
-        })
+        }),
       );
     }
   }
@@ -158,25 +157,47 @@ export async function httpRequest<T = any>(
     param.disabled = !param.value || !param.value.length;
   });
 
-  const options: AxiosRequestConfig = {
-    baseURL: `${url.protocol}://${url.getHost()}`,
+  const options: RequestInit = {
     headers: {
       "User-Agent": USER_AGENT,
       Authorization: `Bearer ${config.accessToken}`,
       "Harvest-Account-ID": config.accountId,
       "Content-Type": "application/json",
     },
-    method: method as Method,
+    method,
   };
 
+  let urlPath;
+
   if (method === "GET") {
-    options.url = url.getPathWithQuery();
+    urlPath = url.getPathWithQuery();
   } else {
-    options.url = url.getPath();
-    options.data = url.query.toObject(true);
+    urlPath = url.getPath();
+    options.body = JSON.stringify(url.query.toObject(true));
   }
 
-  return axios.request(options);
+  const res = await fetch(
+    `${url.protocol}://${url.getHost()}${urlPath}`,
+    options,
+  );
+
+  if (!res.ok) {
+    if (res.status === 401) {
+      throw new Error(
+        "Your authentication token is either expired or invalid. Run `hrvst login` to reauthenticate.",
+      );
+    }
+
+    const data = await res.json();
+
+    if (data.message) {
+      throw new Error(data.message);
+    }
+
+    throw new Error(JSON.stringify(data, null, 2));
+  }
+
+  return { data: await res.json() };
 }
 
 /**
@@ -192,7 +213,7 @@ export function urlArgOptions(url: postman.Url): Record<string, Options> {
   const addOption = (
     key?: string | null,
     description?: string | postman.DescriptionDefinition,
-    demandOption?: boolean
+    demandOption?: boolean,
   ) =>
     key &&
     (options[key] = {
@@ -222,7 +243,7 @@ export function urlArgOptions(url: postman.Url): Record<string, Options> {
   // Add option to control which fields are outputted to the console
   addOption(
     "fields",
-    "Comma separated list of fields to display in the output."
+    "Comma separated list of fields to display in the output.",
   );
 
   addOption("output", "The output format: json, table");

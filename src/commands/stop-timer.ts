@@ -39,7 +39,7 @@ export const builder: CommandBuilder = (yargs) => {
 
 export const handler = async (args: StopTimerArguments): Promise<void> => {
   const timer = await getRunningTimer(
-    "You have multiple timers running! Which timer do you want to stop?"
+    "You have multiple timers running! Which timer do you want to stop?",
   );
   if (timer) {
     const notes = await getNotes(args, timer.notes);
@@ -49,7 +49,7 @@ export const handler = async (args: StopTimerArguments): Promise<void> => {
         httpRequest(updateRequest.method, new postman.Url(updateRequest.url), {
           notes,
           time_entry_id: timer.id,
-        })
+        }),
       );
     }
 
@@ -60,8 +60,8 @@ export const handler = async (args: StopTimerArguments): Promise<void> => {
             "client.name,hours,id,is_running,notes,project.name,spent_date,task.name",
         },
         args,
-        { time_entry_id: timer.id }
-      )
+        { time_entry_id: timer.id },
+      ),
     );
   }
 };

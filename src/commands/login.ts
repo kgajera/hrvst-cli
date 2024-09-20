@@ -31,11 +31,11 @@ export const handler = async (): Promise<void> => {
             accountId: scope.split(":")[1],
           });
           console.log(
-            chalk.green("Success! You are now authenticated with Harvest.")
+            chalk.green("Success! You are now authenticated with Harvest."),
           );
         } else {
           console.error(
-            chalk.red("Error getting access token and account id.")
+            chalk.red("Error getting access token and account id."),
           );
         }
       }
@@ -50,7 +50,7 @@ export const handler = async (): Promise<void> => {
     .listen(PORT);
 
   open(
-    `${BASE_URL}/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token`
+    `${BASE_URL}/oauth2/authorize?client_id=${CLIENT_ID}&response_type=token`,
   );
 };
 

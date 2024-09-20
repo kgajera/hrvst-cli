@@ -15,7 +15,7 @@ type TableData = { [key: string]: ColumnValue };
  */
 export function horizontalTable(
   options: { head: string[] },
-  data: TableData[]
+  data: TableData[],
 ): Table.Table {
   const table = new Table(options);
 
@@ -41,7 +41,7 @@ export function horizontalTable(
  */
 export function verticalTable(
   data: TableData,
-  keys: string[] = []
+  keys: string[] = [],
 ): Table.Table {
   const table = new Table();
   addVerticalTableRows(table, data, [], keys);
@@ -71,7 +71,7 @@ function addVerticalTableRows(
   table: Table.Table,
   data: TableData,
   parentKeys: string[] = [],
-  displayKeys: string[]
+  displayKeys: string[],
 ) {
   const keys = Object.keys(data);
 

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Url } from "postman-collection";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { Config } from "../../src/utils/config";
@@ -9,6 +8,13 @@ import commandModule, {
 } from "../../src/utils/postman-request-command";
 import { verticalTable } from "../../src/utils/table";
 import { TimeEntry } from "../../src/utils/timer";
+
+function mockFetchResponse<T>(data: T) {
+  return {
+    ok: true,
+    json: () => Promise.resolve(data),
+  };
+}
 
 const mockConfig: Partial<Config> = {
   accessToken: "test",
@@ -25,7 +31,7 @@ const args = (args = {}) =>
       $0: "",
       _: [],
     },
-    args
+    args,
   );
 
 describe("postman-request-command", () => {
@@ -67,7 +73,9 @@ describe("postman-request-command", () => {
         id: 2,
         hours: 4.5,
       };
-      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse(data));
+
       const consoleSpy = vi.spyOn(console, "log");
 
       await handler(args());
@@ -82,13 +90,14 @@ describe("postman-request-command", () => {
           hours: 4.5,
         },
       ];
-      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse(data));
       const consoleSpy = vi.spyOn(console, "log");
 
       await handler(
         args({
           output: "json",
-        })
+        }),
       );
 
       expect(consoleSpy).toHaveBeenCalledWith(JSON.stringify(data, null, 2));
@@ -103,14 +112,14 @@ describe("postman-request-command", () => {
           name: "Test",
         },
       };
-      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse(data));
       const consoleSpy = vi.spyOn(console, "log");
 
       await handler(
         args({
           fields: "hours,project.name",
           output: "json",
-        })
+        }),
       );
 
       expect(consoleSpy).toHaveBeenCalledWith(
@@ -122,8 +131,8 @@ describe("postman-request-command", () => {
             },
           },
           null,
-          2
-        )
+          2,
+        ),
       );
     });
 
@@ -138,14 +147,14 @@ describe("postman-request-command", () => {
           },
         },
       ];
-      vi.spyOn(axios, "request").mockReturnValue(Promise.resolve({ data }));
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse(data));
       const consoleSpy = vi.spyOn(console, "log");
 
       await handler(
         args({
           fields: "hours,project.name",
           output: "json",
-        })
+        }),
       );
 
       expect(consoleSpy).toHaveBeenCalledWith(
@@ -159,8 +168,8 @@ describe("postman-request-command", () => {
             },
           ],
           null,
-          2
-        )
+          2,
+        ),
       );
     });
 
@@ -186,12 +195,12 @@ describe("postman-request-command", () => {
         });
       }
 
-      const axiosSpy = vi
-        .spyOn(axios, "request")
-        .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[0] }))
-        .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[1] }))
-        .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[2] }))
-        .mockReturnValueOnce(Promise.resolve({ data: pagedResponses[3] }));
+      global.fetch = vi
+        .fn()
+        .mockReturnValueOnce(mockFetchResponse(pagedResponses[0]))
+        .mockReturnValueOnce(mockFetchResponse(pagedResponses[1]))
+        .mockReturnValueOnce(mockFetchResponse(pagedResponses[2]))
+        .mockReturnValueOnce(mockFetchResponse(pagedResponses[3]));
 
       const consoleSpy = vi.spyOn(console, "log");
 
@@ -202,9 +211,9 @@ describe("postman-request-command", () => {
         output: "json",
       });
 
-      expect(axiosSpy).toHaveBeenCalledTimes(totalPages);
+      expect(fetch).toHaveBeenCalledTimes(totalPages);
       expect(consoleSpy).toHaveBeenCalledWith(
-        JSON.stringify(timeEntries, null, 2)
+        JSON.stringify(timeEntries, null, 2),
       );
     });
   });
@@ -239,9 +248,7 @@ describe("postman-request-command", () => {
     });
 
     it("should add query as query string for GET request", async () => {
-      const axiosRequest = vi
-        .spyOn(axios, "request")
-        .mockReturnValue(Promise.resolve());
+      global.fetch = vi.fn().mockResolvedValue(mockFetchResponse({ data: {} }));
 
       await httpRequest("GET", url, {
         client_id: 3871864,
@@ -249,25 +256,26 @@ describe("postman-request-command", () => {
         project_id: 3871865,
       });
 
-      expect(axiosRequest).toHaveBeenCalledWith({
-        baseURL: `${url.protocol}://${url.getHost()}`,
-        headers: {
-          "User-Agent": USER_AGENT,
-          Authorization: `Bearer ${mockConfig.accessToken}`,
-          "Harvest-Account-ID": mockConfig.accountId,
-          "Content-Type": "application/json",
+      expect(fetch).toHaveBeenCalledWith(
+        `${url.protocol}://${url.getHost()}/v2/projects/3871865?client_id=3871864&name=Test project`,
+        {
+          headers: {
+            "User-Agent": USER_AGENT,
+            Authorization: `Bearer ${mockConfig.accessToken}`,
+            "Harvest-Account-ID": mockConfig.accountId,
+            "Content-Type": "application/json",
+          },
+          method: "GET",
         },
-        method: "GET",
-        url: "/v2/projects/3871865?client_id=3871864&name=Test project",
-      });
+      );
     });
 
     it.each(["PATCH", "POST", "PUT"])(
       "should add query to body for %s request",
       async (method) => {
-        const axiosRequest = vi
-          .spyOn(axios, "request")
-          .mockReturnValue(Promise.resolve());
+        global.fetch = vi
+          .fn()
+          .mockResolvedValue(mockFetchResponse({ data: {} }));
 
         await httpRequest(method, url, {
           client_id: 3871864,
@@ -275,22 +283,23 @@ describe("postman-request-command", () => {
           project_id: 3871865,
         });
 
-        expect(axiosRequest).toHaveBeenCalledWith({
-          baseURL: `${url.protocol}://${url.getHost()}`,
-          data: {
-            client_id: "3871864",
-            name: "Test project",
+        expect(fetch).toHaveBeenCalledWith(
+          `${url.protocol}://${url.getHost()}/v2/projects/3871865`,
+          {
+            body: JSON.stringify({
+              client_id: "3871864",
+              name: "Test project",
+            }),
+            headers: {
+              "User-Agent": USER_AGENT,
+              Authorization: `Bearer ${mockConfig.accessToken}`,
+              "Harvest-Account-ID": mockConfig.accountId,
+              "Content-Type": "application/json",
+            },
+            method,
           },
-          headers: {
-            "User-Agent": USER_AGENT,
-            Authorization: `Bearer ${mockConfig.accessToken}`,
-            "Harvest-Account-ID": mockConfig.accountId,
-            "Content-Type": "application/json",
-          },
-          method,
-          url: "/v2/projects/3871865",
-        });
-      }
+        );
+      },
     );
   });
 

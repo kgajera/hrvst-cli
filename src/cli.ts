@@ -19,7 +19,7 @@ yargs(hideBin(process.argv))
   .help()
   .epilogue(
     chalk.gray(
-      "For more information, see: https://kgajera.github.io/hrvst-cli\n"
-    )
+      "For more information, see: https://kgajera.github.io/hrvst-cli\n",
+    ),
   )
   .fail(failHandler).argv;

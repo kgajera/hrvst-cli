@@ -14,7 +14,7 @@ describe("open", () => {
 
   it("should open accounts", async () => {
     vi.spyOn(inquirer, "prompt").mockReturnValue(
-      Promise.resolve({ command: "accounts" })
+      Promise.resolve({ command: "accounts" }),
     );
     await handler();
     expect(mockedOpen).toHaveBeenCalledTimes(1);
@@ -23,23 +23,23 @@ describe("open", () => {
 
   it("should open api docs", async () => {
     vi.spyOn(inquirer, "prompt").mockReturnValue(
-      Promise.resolve({ command: "api" })
+      Promise.resolve({ command: "api" }),
     );
     await handler();
     expect(mockedOpen).toHaveBeenCalledTimes(1);
     expect(mockedOpen).toHaveBeenCalledWith(
-      "https://help.getharvest.com/api-v2"
+      "https://help.getharvest.com/api-v2",
     );
   });
 
   it("should open cli docs", async () => {
     vi.spyOn(inquirer, "prompt").mockReturnValue(
-      Promise.resolve({ command: "docs" })
+      Promise.resolve({ command: "docs" }),
     );
     await handler();
     expect(mockedOpen).toHaveBeenCalledTimes(1);
     expect(mockedOpen).toHaveBeenCalledWith(
-      "https://kgajera.github.io/hrvst-cli"
+      "https://kgajera.github.io/hrvst-cli",
     );
   });
 
@@ -49,7 +49,9 @@ describe("open", () => {
 
     beforeEach(() => {
       vi.spyOn(postmanRequest, "httpRequest").mockReturnValue(
-        Promise.resolve({ data: { base_uri: COMPANY_BASE_URI, id: ID } } as any)
+        Promise.resolve({
+          data: { base_uri: COMPANY_BASE_URI, id: ID },
+        }),
       );
     });
 
@@ -57,24 +59,24 @@ describe("open", () => {
       "should open %s",
       async (command) => {
         vi.spyOn(inquirer, "prompt").mockReturnValue(
-          Promise.resolve({ command })
+          Promise.resolve({ command }),
         );
         await handler();
         expect(mockedOpen).toHaveBeenCalledTimes(1);
         expect(mockedOpen).toHaveBeenCalledWith(
-          `${COMPANY_BASE_URI}/${command}`
+          `${COMPANY_BASE_URI}/${command}`,
         );
-      }
+      },
     );
 
     it("should open profile", async () => {
       vi.spyOn(inquirer, "prompt").mockReturnValue(
-        Promise.resolve({ command: "profile" })
+        Promise.resolve({ command: "profile" }),
       );
       await handler();
       expect(mockedOpen).toHaveBeenCalledTimes(1);
       expect(mockedOpen).toHaveBeenCalledWith(
-        `${COMPANY_BASE_URI}/people/${ID}`
+        `${COMPANY_BASE_URI}/people/${ID}`,
       );
     });
   });

@@ -24,7 +24,7 @@ export const builder: CommandBuilder = (yargs) => {
     defaultOptions,
     "notes",
     "project_id",
-    "task_id"
+    "task_id",
   );
   Object.values(options).forEach((o) => (o.demandOption = false));
   options["editor"] = {

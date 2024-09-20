@@ -34,7 +34,7 @@ export async function saveConfig(config: Partial<Config>): Promise<void> {
 
     await fs.promises.writeFile(
       await configPath(),
-      JSON.stringify(Object.assign({}, existingConfig, config))
+      JSON.stringify(Object.assign({}, existingConfig, config)),
     );
   } catch (error) {
     await fs.promises.writeFile(await configPath(), JSON.stringify(config));

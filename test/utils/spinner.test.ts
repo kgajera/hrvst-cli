@@ -26,7 +26,7 @@ describe("spinner", () => {
           expect(mockStop).not.toHaveBeenCalled();
           resolve(null);
           expect(mockStop).toHaveBeenCalledTimes(1);
-        })
+        }),
     );
   });
 
@@ -39,7 +39,7 @@ describe("spinner", () => {
             expect(mockStart).toHaveBeenCalledTimes(1);
             expect(mockStop).not.toHaveBeenCalled();
             throw new Error("Worker function error");
-          })
+          }),
       );
       expect(false, "spinner should have thrown error").toBeTruthy();
     } catch (error) {

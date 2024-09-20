@@ -5,7 +5,7 @@ import "yargs";
  */
 
 declare module "yargs" {
-  interface Argv<T = Record<string, unknown>> {
-    command(modules: Partial<CommandModule<T, any>>[]): Argv<T>;
+  interface Argv<T> {
+    command(modules: Partial<CommandModule<T, unknown>>[]): Argv<T>;
   }
 }

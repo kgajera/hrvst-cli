@@ -11,7 +11,7 @@ const cliDocsPath = path.resolve("..", "docs");
 const cliCommandDocsPath = path.resolve(cliDocsPath, "commands");
 const cliGeneratedCommandDocsPath = path.resolve(
   cliDocsPath,
-  "generated-commands"
+  "generated-commands",
 );
 
 fs.mkdirSync(docsPath);
@@ -20,7 +20,7 @@ fs.writeFileSync(
   path.resolve(docsPath, "_category_.yml"),
   `label: CLI Reference
 position: 2
-collapsed: false`
+collapsed: false`,
 );
 
 fs.readdirSync(cliCommandDocsPath).forEach((file) => {
@@ -35,7 +35,7 @@ fs.readdirSync(cliCommandDocsPath).forEach((file) => {
     `---
 id: ${kebabCase(file.replace(".md", ""))}
 ---
-${data}`
+${data}`,
   );
 });
 
@@ -54,9 +54,9 @@ fs.readdirSync(cliGeneratedCommandDocsPath).forEach((file) => {
         path.resolve(
           docsPath,
           `${dirName.charAt(0).toUpperCase() + dirName.slice(1)}`,
-          "_category_.yml"
+          "_category_.yml",
         ),
-        `label: ${startCase(filename)}`
+        `label: ${startCase(filename)}`,
       );
     }
   }
@@ -65,13 +65,13 @@ fs.readdirSync(cliGeneratedCommandDocsPath).forEach((file) => {
     fs.readdirSync(filePath).forEach((subFile) => {
       fs.copyFileSync(
         path.resolve(filePath, subFile),
-        path.resolve(docsPath, file, formatFileName(subFile))
+        path.resolve(docsPath, file, formatFileName(subFile)),
       );
     });
   } else {
     fs.copyFileSync(
       path.resolve(cliGeneratedCommandDocsPath, file),
-      path.resolve(docsPath, dirName, "index.md")
+      path.resolve(docsPath, dirName, "index.md"),
     );
   }
 });

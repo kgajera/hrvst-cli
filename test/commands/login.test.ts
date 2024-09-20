@@ -26,11 +26,11 @@ describe("login", () => {
 
     expect(mockedOpen).toHaveBeenCalledTimes(1);
     expect(mockedOpen).toHaveBeenCalledWith(
-      "https://id.getharvest.com/oauth2/authorize?client_id=xqrh-rWpCecJlp9L-i0dwu_K&response_type=token"
+      "https://id.getharvest.com/oauth2/authorize?client_id=xqrh-rWpCecJlp9L-i0dwu_K&response_type=token",
     );
 
     await oauthServer.get(
-      `?access_token=${accessToken}&expires_in=1209599&scope=${scope}&token_type=bearer`
+      `?access_token=${accessToken}&expires_in=1209599&scope=${scope}&token_type=bearer`,
     );
 
     expect(saveConfig).toHaveBeenCalledTimes(1);

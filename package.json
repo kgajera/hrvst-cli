@@ -21,57 +21,55 @@
   ],
   "type": "module",
   "engines": {
-    "node": ">=14.16"
+    "node": ">=20"
   },
   "exports": "./dist/cli.js",
   "bin": {
     "hrvst": "dist/cli.js"
   },
   "scripts": {
-    "build": "tsup src/cli.ts --clean --format esm --minify",
+    "build": "bun build src/cli.ts --minify --outdir ./dist --packages external --target node",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
     "lint": "eslint . --ext .ts",
-    "lint:fix": "npm run lint -- --fix",
-    "generate": "tsx tools/generate-cli.ts",
+    "lint:fix": "bun run lint -- --fix",
+    "generate": "bun run scripts/generate-cli.ts",
     "start": "node dist/cli.js",
     "test": "vitest",
-    "watch": "npm run build -- --watch"
+    "watch": "bun run build --watch"
   },
   "dependencies": {
-    "axios": "^1.3.4",
-    "chalk": "^5.2.0",
-    "cli-table3": "^0.6.0",
-    "inquirer": "^9.1.5",
+    "chalk": "^5.3.0",
+    "cli-table3": "^0.6.5",
+    "inquirer": "^11.0.2",
     "lodash": "^4.17.21",
-    "open": "^9.0.0",
-    "ora": "^6.2.0",
+    "open": "^10.1.0",
+    "ora": "^8.1.0",
     "ospath": "^1.2.2",
-    "postman-collection": "^4.1.7",
-    "update-notifier": "^6.0.2",
-    "yargs": "^17.7.1"
+    "postman-collection": "^4.5.0",
+    "update-notifier": "^7.3.1",
+    "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "@types/inquirer": "^9.0.3",
-    "@types/lodash": "^4.14.191",
-    "@types/node": "^16.4.2",
-    "@types/ospath": "^1.2.0",
-    "@types/postman-collection": "^3.5.7",
-    "@types/prettier": "^2.3.2",
-    "@types/supertest": "^2.0.12",
+    "@types/bun": "^1.1.9",
+    "@types/inquirer": "^9.0.7",
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^20.11.28",
+    "@types/ospath": "^1.2.3",
+    "@types/postman-collection": "^3.5.10",
+    "@types/prettier": "^3.0.0",
+    "@types/supertest": "^6.0.2",
     "@types/update-notifier": "^6.0.2",
-    "@types/yargs": "^17.0.22",
+    "@types/yargs": "^17.0.33",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "execa": "^7.1.1",
-    "prettier": "^2.3.2",
-    "supertest": "^6.3.3",
-    "tsup": "^6.6.3",
-    "tsx": "^3.12.5",
-    "typescript": "^4.9.5",
-    "vitest": "^0.29.3"
+    "execa": "^8.0.1",
+    "prettier": "^3.3.3",
+    "supertest": "^6.3.4",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
   },
   "files": [
     "/dist"

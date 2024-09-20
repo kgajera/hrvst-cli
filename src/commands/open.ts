@@ -35,7 +35,7 @@ const openCommands: Record<string, CommandModule> = {
     handler: async () => {
       const me = await httpRequest(
         meRequest.method,
-        new postman.Url(meRequest.url)
+        new postman.Url(meRequest.url),
       );
       await openCompanyUrl(`people/${me.data.id}`);
     },
@@ -60,7 +60,7 @@ export const builder: CommandBuilder = (yargs) => {
       command,
       openCommands[command].describe || "",
       openCommands[command].builder || (((yargs) => yargs) as CommandBuilder),
-      openCommands[command].handler
+      openCommands[command].handler,
     );
   }
 
@@ -92,7 +92,7 @@ async function openUrl(url: string): Promise<void> {
 async function openCompanyUrl(path: string): Promise<void> {
   const company = await httpRequest(
     companyRequest.method,
-    new postman.Url(companyRequest.url)
+    new postman.Url(companyRequest.url),
   );
   await openUrl(`${company.data.base_uri}/${path}`);
 }

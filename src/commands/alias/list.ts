@@ -27,7 +27,7 @@ export const handler = async (): Promise<void> => {
         alias,
         project_id: aliases[alias].projectId,
         task_id: aliases[alias].taskId,
-      }))
+      })),
     );
     console.log(table.toString());
   } else {

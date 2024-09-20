@@ -28,7 +28,7 @@ export const builder: CommandBuilder = (yargs) =>
 
 export const handler = async (args: NoteArguments): Promise<void> => {
   const timer = await getRunningTimer(
-    "You have multiple timers running! Which timer do you want to update?"
+    "You have multiple timers running! Which timer do you want to update?",
   );
   if (timer) {
     await defaultHandler(
@@ -36,7 +36,7 @@ export const handler = async (args: NoteArguments): Promise<void> => {
         fields: "client.name,hours,id,notes,project.name,spent_date,task.name",
         notes: await getNotes(args, timer.notes, true),
         time_entry_id: timer.id,
-      })
+      }),
     );
   }
 };

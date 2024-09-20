@@ -9,7 +9,7 @@ import ora, { Options } from "ora";
  */
 export default async function <T>(
   worker: () => Promise<T>,
-  options: Options = {}
+  options: Options = {},
 ): Promise<T> {
   const spinner = ora({
     color: "yellow",

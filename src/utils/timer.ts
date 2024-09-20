@@ -93,10 +93,10 @@ export function getCurrentLocalISOString(): string {
  * @returns Args containing project_id and task_id
  */
 export async function normalizeProjectAndTaskAssignment(
-  args: AssignmentArguments
+  args: AssignmentArguments,
 ): Promise<AssignmentArguments> {
   const { projectChoices, taskChoices } = await spinner(() =>
-    getAssignmentChoices()
+    getAssignmentChoices(),
   );
   let argTaskChoices: ChoiceOptions[] | undefined;
 
@@ -107,7 +107,7 @@ export async function normalizeProjectAndTaskAssignment(
     // Bail if no tasks are found for the given project id argument
     if (!argTaskChoices?.length) {
       throw new Error(
-        `No task assignments found for project id: ${args.project_id}`
+        `No task assignments found for project id: ${args.project_id}`,
       );
     }
   }
@@ -136,7 +136,7 @@ export async function normalizeProjectAndTaskAssignment(
 export async function getNotes(
   args: { editor?: boolean; notes?: string; overwrite?: boolean },
   existingNotes: string | null = "",
-  promptEditor = false
+  promptEditor = false,
 ): Promise<string> {
   let notes = args.notes?.length ? args.notes.trim() : "";
 
@@ -178,7 +178,7 @@ async function getProjectAssignments(page = 1): Promise<ProjectAssignment[]> {
     new postman.Url(assignmentsRequest.url),
     {
       page,
-    }
+    },
   );
 
   assignments.push(...data.project_assignments);
@@ -198,7 +198,7 @@ async function getProjectAssignments(page = 1): Promise<ProjectAssignment[]> {
  * @returns TimeEntry
  */
 export async function getRunningTimer(
-  promptMessage: string
+  promptMessage: string,
 ): Promise<TimeEntry | undefined> {
   const timers = await spinner(() => getRunningTimers());
   let timer: TimeEntry;
@@ -241,7 +241,7 @@ export async function getRunningTimer(
 export async function getRunningTimers(): Promise<TimeEntry[]> {
   const meResponse = await httpRequest(
     meRequest.method,
-    new postman.Url(meRequest.url)
+    new postman.Url(meRequest.url),
   );
   const timersResponse = await httpRequest(
     timeEntriesRequest.method,
@@ -249,7 +249,7 @@ export async function getRunningTimers(): Promise<TimeEntry[]> {
     {
       is_running: true,
       user_id: meResponse.data.id,
-    }
+    },
   );
   return timersResponse.data.time_entries;
 }

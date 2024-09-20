@@ -40,14 +40,14 @@ export const handler = async (args: CreateAliasArguments): Promise<void> => {
       projectId: project_id,
       taskId: task_id,
     },
-    Object
+    Object,
   );
 
   await saveConfig(config);
 
   console.log(
     chalk.green(
-      `Alias created! You can now start a timer using: hrvst start ${args.alias}`
-    )
+      `Alias created! You can now start a timer using: hrvst start ${args.alias}`,
+    ),
   );
 };

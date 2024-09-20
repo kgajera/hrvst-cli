@@ -28,12 +28,12 @@ export const describe = "Create a running time entry";
 
 export const builder: CommandBuilder = (yargs) => {
   const defaultOptions = urlArgOptions(new postman.Url(request.url));
-  const options: Record<string, Options> = _.pick(
-    defaultOptions,
-    "notes",
-    "project_id",
-    "task_id"
-  );
+  const options: Record<string, Options> = defaultOptions;
+
+  delete options["hours"];
+  delete options["spent_date"];
+  delete options["user_id"];
+
   Object.values(options).forEach((o) => (o.demandOption = false));
   options["editor"] = {
     alias: "e",
@@ -58,7 +58,7 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
     const config = await getConfig();
     const alias: Alias = _.get(
       config,
-      `accountConfig.${config.accountId}.aliases.${args.alias}`
+      `accountConfig.${config.accountId}.aliases.${args.alias}`,
     );
     if (!alias) {
       console.error(chalk.yellow("Alias not found"));
@@ -69,12 +69,12 @@ export const handler = async (args: StartTimerArguments): Promise<void> => {
         notes: await getNotes(args),
         project_id: alias.projectId,
         task_id: alias.taskId,
-      })
+      }),
     );
   } else {
     const demandedArgs = await normalizeProjectAndTaskAssignment(args);
     await defaultHandler(
-      Object.assign(defaultArgs, demandedArgs, { notes: await getNotes(args) })
+      Object.assign(defaultArgs, demandedArgs, { notes: await getNotes(args) }),
     );
   }
 };

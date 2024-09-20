@@ -14,17 +14,13 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x]
+        node-version: [18.x, 20.x, 22.x]
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm ci
-      - run: npm run build
-      - run: npm run format
-      - run: npm run lint
-      - run: npm test
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+      - run: bun run build
+      - run: bun run format
+      - run: bun run lint
+      - run: bun run test
