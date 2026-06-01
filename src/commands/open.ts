@@ -55,7 +55,7 @@ export const description = "Open documentation or Harvest in your browser";
 
 export const builder: CommandBuilder = (yargs) => {
   for (const command in openCommands) {
-    // eslint-disable-next-line @typescript-eslint/ban-types
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     yargs.command<{}>(
       command,
       openCommands[command].describe || "",

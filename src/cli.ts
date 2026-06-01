@@ -22,4 +22,5 @@ yargs(hideBin(process.argv))
       "For more information, see: https://kgajera.github.io/hrvst-cli\n",
     ),
   )
-  .fail(failHandler).argv;
+  .fail(failHandler)
+  .parse();

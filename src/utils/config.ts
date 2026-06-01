@@ -23,7 +23,7 @@ export async function getConfig(): Promise<Config> {
   try {
     const config = await fs.promises.readFile(await configPath(), "utf-8");
     return JSON.parse(config);
-  } catch (error) {
+  } catch {
     throw new ConfigNotFoundError();
   }
 }
@@ -36,7 +36,7 @@ export async function saveConfig(config: Partial<Config>): Promise<void> {
       await configPath(),
       JSON.stringify(Object.assign({}, existingConfig, config)),
     );
-  } catch (error) {
+  } catch {
     await fs.promises.writeFile(await configPath(), JSON.stringify(config));
   }
 }
