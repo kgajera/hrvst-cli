@@ -169,4 +169,5 @@ You’ll be prompted to launch your browser and log in to Harvest to grant Harve
 <a href="/docs/generated-commands/users/ProjectAssignments.md#list-active-project-assignments-for-the-currently-authenticated-user">hrvst users project-assignments me</a>
 <a href="/docs/generated-commands/users/Teammates.md#list-all-assigned-teammates">hrvst users teammates list-by-user</a>
 <a href="/docs/generated-commands/users/Teammates.md#update-a-users-assigned-teammates">hrvst users teammates update</a>
+<a href="/docs/commands/Whoami.md">hrvst whoami</a>
 </pre>

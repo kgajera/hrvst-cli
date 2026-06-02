@@ -77,6 +77,7 @@ yargs(hideBin(process.argv))
         "hrvst start [alias]": "docs/commands/TimeTracking.md#start-a-timer",
         "hrvst status": "docs/commands/Status.md",
         "hrvst stop": "docs/commands/TimeTracking.md#stop-a-timer",
+        "hrvst whoami": "docs/commands/Whoami.md",
         // Generated commands will be added to this object below
       };
 

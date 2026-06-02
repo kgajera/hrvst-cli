@@ -9,4 +9,5 @@ import * as c4 from "./stop-timer";
 import * as c5 from "./log-time";
 import * as c6 from "./alias";
 import * as c7 from "./start-timer";
-export const commands = [c0, c1, c2, c3, c4, c5, c6, c7];
+import * as c8 from "./whoami";
+export const commands = [c0, c1, c2, c3, c4, c5, c6, c7, c8];
