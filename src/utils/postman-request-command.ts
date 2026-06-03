@@ -123,7 +123,7 @@ export default ({
  * @param args Command line arguments to substitute in URL
  * @returns HTTP response
  */
-export async function httpRequest<T = any>(
+export async function httpRequest<T = unknown>(
   method: string,
   url: postman.Url,
   args: Partial<Arguments> = {},

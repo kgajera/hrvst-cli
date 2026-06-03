@@ -42,7 +42,7 @@ describe("spinner", () => {
           }),
       );
       expect(false, "spinner should have thrown error").toBeTruthy();
-    } catch (error) {
+    } catch {
       expect(mockStop).toHaveBeenCalledTimes(1);
     }
   });

@@ -174,7 +174,11 @@ describe("postman-request-command", () => {
     });
 
     it("should return all of pages when --page=all", async () => {
-      const pagedResponses: any = [];
+      const pagedResponses: Array<{
+        time_entries: Partial<TimeEntry>[];
+        page: number;
+        next_page: number | null;
+      }> = [];
       const timeEntries: Partial<TimeEntry>[] = [];
       const totalPages = 4;
 

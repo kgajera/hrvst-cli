@@ -1,4 +1,5 @@
 import fs from "fs";
+import _ from "lodash";
 import ospath from "ospath";
 import path from "path";
 
@@ -23,7 +24,7 @@ export async function getConfig(): Promise<Config> {
   try {
     const config = await fs.promises.readFile(await configPath(), "utf-8");
     return JSON.parse(config);
-  } catch (error) {
+  } catch {
     throw new ConfigNotFoundError();
   }
 }
@@ -37,10 +38,22 @@ export async function saveConfig(config: Partial<Config>): Promise<void> {
       JSON.stringify(Object.assign({}, existingConfig, config)),
       { mode: 0o600 },
     );
-  } catch (error) {
+  } catch {
     await fs.promises.writeFile(await configPath(), JSON.stringify(config), {
       mode: 0o600,
     });
+  }
+}
+
+export function getAliasNamesSync(): string[] {
+  try {
+    const configFilePath = path.join(ospath.home(), ".hrvst", "config.json");
+    const config = JSON.parse(fs.readFileSync(configFilePath, "utf-8"));
+    const aliases =
+      _.get(config, `accountConfig.${config.accountId}.aliases`) || {};
+    return Object.keys(aliases);
+  } catch {
+    throw new ConfigNotFoundError();
   }
 }
 

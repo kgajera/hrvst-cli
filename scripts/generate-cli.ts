@@ -108,7 +108,8 @@ yargs(hideBin(process.argv))
   )
   .demandCommand()
   .strict()
-  .version(false).argv;
+  .version(false)
+  .parse();
 
 /**
  * Creates an `index.ts` file export all commands in a directory. This is
